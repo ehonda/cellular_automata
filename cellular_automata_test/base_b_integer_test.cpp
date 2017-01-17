@@ -1,0 +1,94 @@
+#include <vector>
+
+#include "gtest/gtest.h"
+
+#include "base_b_integer.h"
+#include "base_b_integer.cpp"
+
+namespace
+{
+
+using namespace cellular_automata;
+using namespace integers;
+
+//-----------------------------------------------------------------------------------------------
+//TEST CASES
+
+TEST(BaseBIntegerTest, ConstructFromIntegerWorks)
+{
+	//Number: 222 = 42 in base 4
+	int base = 4;
+	int integer = 42;
+	BaseBInteger baseBInteger(base, integer);
+
+	BaseBInteger::BaseBRepresentation expectedBaseBRepresentation;
+	expectedBaseBRepresentation.emplace_back(2);
+	expectedBaseBRepresentation.emplace_back(2);
+	expectedBaseBRepresentation.emplace_back(2);
+
+	auto convertedBaseBRepresentation = baseBInteger.getBaseBRepresentation();
+	ASSERT_EQ(expectedBaseBRepresentation.size(), convertedBaseBRepresentation.size());
+	for (size_t i = 0; i < expectedBaseBRepresentation.size(); ++i)
+		EXPECT_EQ(expectedBaseBRepresentation[i], convertedBaseBRepresentation[i]) << "Representations differ in i = " << i;
+}
+
+TEST(BaseBIntegerTest, ConstructFromBaseBRepresentationWorks)
+{
+	//Number: 222 = 42 in base 4
+	int base = 4;
+	BaseBInteger::BaseBRepresentation baseBRepresentation;
+	baseBRepresentation.emplace_back(2);
+	baseBRepresentation.emplace_back(2);
+	baseBRepresentation.emplace_back(2);
+	BaseBInteger baseBInteger(base, baseBRepresentation);
+
+	int expectedInteger = 42;
+	int convertedInteger = baseBInteger.getInteger();
+	EXPECT_EQ(expectedInteger, convertedInteger);
+}
+
+TEST(BaseBIntegerTest, GetDigitAtWorks)
+{
+	//Number 111 = 7 in base 2
+	int base = 2;
+	int integer = 7;
+	BaseBInteger baseBInteger(base, integer);
+
+	size_t index = 1;
+	int expectedDigit = 1;
+	int actualDigit = baseBInteger.getDigitAt(index);
+	EXPECT_EQ(expectedDigit, actualDigit);
+
+	index = 3;
+	expectedDigit = 0;
+	actualDigit = baseBInteger.getDigitAt(index);
+	EXPECT_EQ(expectedDigit, actualDigit);
+}
+
+TEST(BaseBIntegerTest, ComparisonForEqualityWorks)
+{
+	//Number 11011 = 27 in base 2
+	int base = 2;
+	int integer = 27;
+	BaseBInteger number27InBase2(base, integer);
+
+	BaseBInteger::BaseBRepresentation base2RepresentationOf27{ 1, 1, 0, 1, 1 };
+	BaseBInteger otherNumber27InBase2(base, base2RepresentationOf27);
+	EXPECT_TRUE(number27InBase2 == otherNumber27InBase2) << "Equal Integers don't compare as equal.";
+
+	//Number 10110 = 22 in base 2
+	base = 2;
+	integer = 22;
+	BaseBInteger number22InBase2(base, integer);
+	EXPECT_FALSE(number27InBase2 == number22InBase2) << "Different Integers in the same base compare as equal.";
+
+	//Number 1000 = 27 in base 3
+	base = 3;
+	integer = 27;
+	BaseBInteger number27InBase3(base, integer);
+	EXPECT_FALSE(number27InBase2 == number27InBase3) << "The same integers in different bases compare as equal.";
+}
+
+//-----------------------------------------------------------------------------------------------
+
+}

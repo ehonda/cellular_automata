@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Base-B Integers">
+      <UniqueIdentifier>{01305b8e-dbe6-49bd-bf01-edaebee2d47b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Base-B Integers">
+      <UniqueIdentifier>{a305d574-1c7e-461b-84da-ef0952a2bcc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cellular Automata">
+      <UniqueIdentifier>{43595ef6-bd0b-4338-9bbe-05db780c31fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cellular Automata\Cells">
+      <UniqueIdentifier>{e01949d9-e61a-45b3-a947-9dd3fb443ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cellular Automata\K-Nearest-Neighbors">
+      <UniqueIdentifier>{81b7c424-dc16-4f86-a752-52c57fe9f074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata">
+      <UniqueIdentifier>{9719b6c9-0363-49c9-be94-b1a787921e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\Cells">
+      <UniqueIdentifier>{571bb907-a8ce-4845-8061-0da2f55b1703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\K-Nearest-Neighbors">
+      <UniqueIdentifier>{a2491440-db34-4329-9df1-191b117b3a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{10f8e0d3-e4bc-4214-94c6-c017caa1e28c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cellular Automata\General">
+      <UniqueIdentifier>{a3f95bf4-dda2-4386-8f1b-f24653f7c725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\General">
+      <UniqueIdentifier>{299584d9-a047-444a-aa3c-a22a5a043955}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base_converter.h">
+      <Filter>Header Files\Base-B Integers</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_neighborhood.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_neighborhood_creator.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_row.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="k_nearest_neighbors_cell_neighborhood.h">
+      <Filter>Header Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClInclude>
+    <ClInclude Include="k_nearest_neighbors_cell_neighborhood_creator.h">
+      <Filter>Header Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClInclude>
+    <ClInclude Include="k_nearest_neighbors_rule.h">
+      <Filter>Header Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClInclude>
+    <ClInclude Include="base_b_integer.h">
+      <Filter>Header Files\Base-B Integers</Filter>
+    </ClInclude>
+    <ClInclude Include="cellular_automaton.h">
+      <Filter>Header Files\Cellular Automata\General</Filter>
+    </ClInclude>
+    <ClInclude Include="rule.h">
+      <Filter>Header Files\Cellular Automata\General</Filter>
+    </ClInclude>
+    <ClInclude Include="rule_stub.h">
+      <Filter>Header Files\Cellular Automata\General</Filter>
+    </ClInclude>
+    <ClInclude Include="type_definitions.h">
+      <Filter>Header Files\Cellular Automata\General</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base_converter.cpp">
+      <Filter>Source Files\Base-B Integers</Filter>
+    </ClCompile>
+    <ClCompile Include="cell.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_row.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_cell_neighborhood.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_rule.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="base_b_integer.cpp">
+      <Filter>Source Files\Base-B Integers</Filter>
+    </ClCompile>
+    <ClCompile Include="cellular_automaton.cpp">
+      <Filter>Source Files\Cellular Automata\General</Filter>
+    </ClCompile>
+    <ClCompile Include="rule.cpp">
+      <Filter>Source Files\Cellular Automata\General</Filter>
+    </ClCompile>
+    <ClCompile Include="rule_stub.cpp">
+      <Filter>Source Files\Cellular Automata\General</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

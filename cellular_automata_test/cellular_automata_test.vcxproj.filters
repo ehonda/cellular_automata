@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Base-B Integers">
+      <UniqueIdentifier>{375fce23-15c5-49a5-9a1b-f82749b52c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata">
+      <UniqueIdentifier>{98de7d7d-389b-4d96-9562-eba856e10b21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\Cells">
+      <UniqueIdentifier>{d6a625ab-13e0-4c8d-b027-3d79d294fe0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\K-Nearest-Neighbors">
+      <UniqueIdentifier>{088dc5df-570d-405c-99a1-873ad1ecc16f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\General">
+      <UniqueIdentifier>{aa581ce9-d433-4517-b22d-f1b2afc90837}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\shared_cpp_libs\googletest-master\googletest\src\gtest_main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="base_converter_test.cpp">
+      <Filter>Source Files\Base-B Integers</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_test.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_cell_neighborhood_test.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="base_b_integer_test.cpp">
+      <Filter>Source Files\Base-B Integers</Filter>
+    </ClCompile>
+    <ClCompile Include="rule_test.cpp">
+      <Filter>Source Files\Cellular Automata\General</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_rule_test.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator_test.cpp">
+      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
