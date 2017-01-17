@@ -20,7 +20,7 @@ public:
 
 private:
 	KNearestNeighborsCellNeighborhood(const CellVector& cells, const KNearestNeighborsRulePtr& rule);
-	void encodeCellNeighborhood(const CellVector& cellNeighborhood);
+	void encodeCellNeighborhood(const CellVector& cells);
 
 	integers::BaseBInteger _encodedCellNeighborhood;
 	KNearestNeighborsRulePtr _rule;

@@ -26,12 +26,12 @@ KNearestNeighborsCellNeighborhood::KNearestNeighborsCellNeighborhood(
 	encodeCellNeighborhood(cells);
 }
 
-void KNearestNeighborsCellNeighborhood::encodeCellNeighborhood(const CellVector& cellNeighborhood)
+void KNearestNeighborsCellNeighborhood::encodeCellNeighborhood(const CellVector& cells)
 {
 	using namespace integers;
 
 	BaseBInteger::BaseBRepresentation baseBRepresentation;
-	for (const auto& cell : cellNeighborhood)
+	for (const auto& cell : cells)
 		baseBRepresentation.emplace_back(cell.getState());
 
 	_encodedCellNeighborhood = BaseBInteger(_rule->getNumberOfStates(), baseBRepresentation);

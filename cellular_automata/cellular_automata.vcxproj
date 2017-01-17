@@ -123,7 +123,6 @@
     <ClInclude Include="cellular_automaton.h" />
     <ClInclude Include="cell_neighborhood.h" />
     <ClInclude Include="cell_row.h" />
-    <ClInclude Include="k_nearest_neighbors_cell_neighborhood.h" />
     <ClInclude Include="k_nearest_neighbors_cell_neighborhood_creator.h" />
     <ClInclude Include="k_nearest_neighbors_rule.h" />
     <ClInclude Include="cell_neighborhood_creator.h" />
@@ -138,7 +137,6 @@
     <ClCompile Include="cellular_automaton.cpp" />
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_row.cpp" />
-    <ClCompile Include="k_nearest_neighbors_cell_neighborhood.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator.cpp" />
     <ClCompile Include="k_nearest_neighbors_rule.cpp" />
     <ClCompile Include="main.cpp" />
