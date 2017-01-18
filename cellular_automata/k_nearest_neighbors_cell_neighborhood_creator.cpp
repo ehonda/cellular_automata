@@ -2,8 +2,6 @@
 
 #include <cmath>
 
-#include "k_nearest_neighbors_cell_neighborhood.h"
-
 namespace cellular_automata
 {
 

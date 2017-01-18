@@ -4,7 +4,6 @@
 #include "k_nearest_neighbors_rule.cpp"
 
 #include "base_b_integer.h"
-#include "k_nearest_neighbors_cell_neighborhood.h"
 #include "type_definitions.h"
 
 using namespace cellular_automata;
