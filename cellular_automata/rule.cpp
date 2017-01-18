@@ -1,5 +1,7 @@
 #include "rule.h"
 
+#include <typeinfo>
+
 namespace cellular_automata
 {
 
@@ -15,7 +17,10 @@ integers::state_t Rule::getNumberOfStates() const noexcept
 
 bool Rule::operator==(const Rule& other) const noexcept
 {
-	return _numberOfStates == other._numberOfStates;
+	if (typeid(*this) != typeid(other))
+		return false;
+	else
+		return _numberOfStates == other._numberOfStates;
 }
 
 }
