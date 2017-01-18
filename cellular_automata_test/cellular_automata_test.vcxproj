@@ -130,9 +130,9 @@
     <ClCompile Include="..\..\..\..\..\..\..\shared_cpp_libs\googletest-master\googletest\src\gtest_main.cc" />
     <ClCompile Include="base_b_integer_test.cpp" />
     <ClCompile Include="base_converter_test.cpp" />
+    <ClCompile Include="cell_neighborhood_test.cpp" />
     <ClCompile Include="cell_test.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator_test.cpp" />
-    <ClCompile Include="k_nearest_neighbors_cell_neighborhood_test.cpp" />
     <ClCompile Include="k_nearest_neighbors_rule_test.cpp" />
     <ClCompile Include="rule_test.cpp" />
   </ItemGroup>

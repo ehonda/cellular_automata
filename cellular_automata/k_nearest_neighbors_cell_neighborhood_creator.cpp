@@ -27,7 +27,7 @@ CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighbor
 	for (integers::integer_t i = 0; i < _numberOfNeighborsRightOfCenter; ++i)
 		cells[_numberOfNeighborsLeftOfCenter + 1 + i] = *(center + 1 + i);
 
-	return KNearestNeighborsCellNeighborhood::createPtr(cells, _rule);
+	return CellNeighborhood::createPtr(cells, _rule);
 }
 
 void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() noexcept

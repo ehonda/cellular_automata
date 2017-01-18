@@ -39,9 +39,6 @@
     <ClCompile Include="cell_test.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
-    <ClCompile Include="k_nearest_neighbors_cell_neighborhood_test.cpp">
-      <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
-    </ClCompile>
     <ClCompile Include="base_b_integer_test.cpp">
       <Filter>Source Files\Base-B Integers</Filter>
     </ClCompile>
@@ -50,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="k_nearest_neighbors_rule_test.cpp">
       <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood_test.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator_test.cpp">
       <Filter>Source Files\Cellular Automata\K-Nearest-Neighbors</Filter>

@@ -32,7 +32,7 @@ TEST(KNearestNeighborsRuleTest, GettingNextGenerationWOrks)
 	auto rule110 = KNearestNeighborsRule::createPtr(rule110Encoded, 3);
 
 	CellVector cells = { 1, 1, 1 };
-	CellNeighborhoodPtr cellNeighborhood = KNearestNeighborsCellNeighborhood::createPtr(cells, rule110);
+	CellNeighborhoodPtr cellNeighborhood = CellNeighborhood::createPtr(cells, rule110);
 
 	Cell expectedCell(0);
 	Cell actualCell = rule110->getNextGeneration(cellNeighborhood);

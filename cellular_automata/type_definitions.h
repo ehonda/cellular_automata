@@ -9,7 +9,6 @@ namespace cellular_automata
 //FORWARD DECLARATIONS
 class Cell;
 class CellNeighborhood;
-class KNearestNeighborsCellNeighborhood;
 class Rule;
 class KNearestNeighborsRule;
 //-----------------------------------------------------------------------------------------------
@@ -19,7 +18,6 @@ class KNearestNeighborsRule;
 using CellVector = std::vector<Cell>;
 
 using CellNeighborhoodPtr = std::unique_ptr<CellNeighborhood>;
-using KNearestNeighborsCellNeighborhoodPtr = std::unique_ptr<KNearestNeighborsCellNeighborhood>;
 
 using RulePtr = std::shared_ptr<Rule>;
 using KNearestNeighborsRulePtr = std::shared_ptr<KNearestNeighborsRule>;
