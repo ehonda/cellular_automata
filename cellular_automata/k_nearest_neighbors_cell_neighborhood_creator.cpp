@@ -6,11 +6,10 @@ namespace cellular_automata
 {
 
 KNearestNeighborsCellNeighborhoodCreator::KNearestNeighborsCellNeighborhoodCreator(const KNearestNeighborsRulePtr& rule)
-	: _rule(rule)
+	: CellNeighborhoodCreator(rule)
 {
 	calculateNeighborsLeftAndRightOfCenter();
 }
-
 
 CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighborhood(
 	const CellVector::const_iterator& center) const noexcept

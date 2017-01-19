@@ -9,16 +9,16 @@ namespace cellular_automata
 //FORWARD DECLARATIONS
 class Cell;
 class CellNeighborhood;
+class CellNeighborhoodCreator;
 class Rule;
 class KNearestNeighborsRule;
 //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
-//POINTER ALIASES
+//ALIASES
 using CellVector = std::vector<Cell>;
-
 using CellNeighborhoodPtr = std::unique_ptr<CellNeighborhood>;
-
+using CellNeighborhoodCreatorPtr = std::unique_ptr<CellNeighborhoodCreator>;
 using RulePtr = std::shared_ptr<Rule>;
 using KNearestNeighborsRulePtr = std::shared_ptr<KNearestNeighborsRule>;
 //-----------------------------------------------------------------------------------------------

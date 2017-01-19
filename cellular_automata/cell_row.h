@@ -1,10 +1,11 @@
 #pragma once
 
 #include <memory>
-#include <vector>
 
 #include "cell.h"
 #include "cell_neighborhood.h"
+#include "cell_neighborhood_creator.h"
+#include "type_definitions.h"
 
 namespace cellular_automata
 {
@@ -12,13 +13,15 @@ namespace cellular_automata
 class CellRow
 {
 public:
-	CellRow() = default;
-	CellRow(const std::vector<Cell>& cells);
+	CellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr);
+	virtual ~CellRow() = default;
 
-	virtual CellNeighborhoodPtr getNeighborhood(const std::vector<Cell>::const_iterator& center) const noexcept = 0;
+	virtual CellNeighborhoodPtr getNeighborhood(const CellVector::const_iterator& center) const noexcept;
+	virtual CellVector::const_iterator cbegin() const noexcept = 0;
+	virtual CellVector::const_iterator cend() const noexcept = 0;
 
 protected:
-	std::vector<Cell> _cells;
+	CellNeighborhoodCreatorPtr _cellNeighborhoodCreatorPtr;
 };
 
 }

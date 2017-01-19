@@ -12,7 +12,14 @@ namespace cellular_automata
 class CellNeighborhoodCreator
 {
 public:
+	CellNeighborhoodCreator(const RulePtr& rule);
+	virtual ~CellNeighborhoodCreator() = default;
+
+	const RulePtr& getRule() const noexcept;
 	virtual CellNeighborhoodPtr createCellNeighborhood(const CellVector::const_iterator& center) const noexcept = 0;
+
+protected:
+	RulePtr _rule;
 };
 
 }

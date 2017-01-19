@@ -3,9 +3,14 @@
 namespace cellular_automata
 {
 
-CellRow::CellRow(const std::vector<Cell>& cells)
-	: _cells(cells)
+CellRow::CellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr)
+	: _cellNeighborhoodCreatorPtr(std::move(cellNeighborhoodCreatorPtr))
 {
+}
+
+CellNeighborhoodPtr CellRow::getNeighborhood(const CellVector::const_iterator& center) const noexcept
+{
+	return _cellNeighborhoodCreatorPtr->createCellNeighborhood(center);
 }
 
 }

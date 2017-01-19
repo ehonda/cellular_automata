@@ -11,6 +11,7 @@ namespace cellular_automata
 class CellNeighborhood
 {
 public:
+	virtual ~CellNeighborhood() = default;
 	static CellNeighborhoodPtr createPtr(const CellVector& cells, const RulePtr& rule);
 
 	virtual const integers::BaseBInteger& getIntegerEncodedCellNeighborhood() const noexcept;

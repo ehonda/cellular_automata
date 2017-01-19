@@ -10,6 +10,8 @@ namespace cellular_automata
 class Rule
 {
 public:
+	virtual ~Rule() = default;
+
 	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const = 0;
 	integers::state_t getNumberOfStates() const noexcept;
 

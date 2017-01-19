@@ -84,6 +84,12 @@
     <ClInclude Include="type_definitions.h">
       <Filter>Header Files\Cellular Automata\General</Filter>
     </ClInclude>
+    <ClInclude Include="bounded_cell_row.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_row_stub.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
@@ -117,6 +123,15 @@
       <Filter>Source Files\Cellular Automata\General</Filter>
     </ClCompile>
     <ClCompile Include="cell_neighborhood.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="bounded_cell_row.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_row_stub.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood_creator.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
   </ItemGroup>
