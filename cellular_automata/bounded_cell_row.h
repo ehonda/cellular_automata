@@ -14,6 +14,8 @@ public:
 		const CellVector& cells);
 
 	const CellVector& getCellsIncludingBoundaries() const noexcept;
+	void setBoundaryCell(const Cell& boundaryCell) noexcept;
+
 	virtual CellVector::const_iterator cbegin() const noexcept override;
 	virtual CellVector::const_iterator cend() const noexcept override;
 

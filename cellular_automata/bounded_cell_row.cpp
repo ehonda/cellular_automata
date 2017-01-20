@@ -15,6 +15,16 @@ const CellVector& BoundedCellRow::getCellsIncludingBoundaries() const noexcept
 	return _cells;
 }
 
+void BoundedCellRow::setBoundaryCell(const Cell& boundaryCell) noexcept
+{
+	_boundaryCell = boundaryCell;
+	if (_cells.size() > 0)
+	{
+		_cells[0] = _boundaryCell;
+		_cells[_cells.size() - 1] = _boundaryCell;
+	}
+}
+
 CellVector::const_iterator BoundedCellRow::cbegin() const noexcept
 {
 	return ++_cells.cbegin();

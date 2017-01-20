@@ -3,6 +3,11 @@
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_cell_neighborhood_creator.cpp"
 
+#include "cell_neighborhood_creator.h"
+#include "cell_neighborhood_creator.cpp"
+#include "k_nearest_neighbors_rule.h"
+#include "type_definitions.h"
+
 namespace
 {
 

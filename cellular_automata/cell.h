@@ -14,6 +14,8 @@ public:
 	void setState(integers::state_t state) noexcept;
 	integers::state_t getState() const noexcept;
 
+	bool operator==(const Cell& other) const noexcept;
+
 private:
 	integers::state_t _state;
 };

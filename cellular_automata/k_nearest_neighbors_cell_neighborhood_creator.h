@@ -15,9 +15,8 @@ public:
 	virtual CellNeighborhoodPtr createCellNeighborhood(const CellVector::const_iterator& center) const noexcept override;
 
 private:
-	void calculateNeighborsLeftAndRightOfCenter() noexcept;
+	virtual void calculateNeighborsLeftAndRightOfCenter() noexcept;
 
-	KNearestNeighborsRulePtr _rule;
 	integers::integer_t _numberOfNeighborsLeftOfCenter;
 	integers::integer_t _numberOfNeighborsRightOfCenter;
 };

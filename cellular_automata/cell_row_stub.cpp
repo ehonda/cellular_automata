@@ -3,6 +3,11 @@
 namespace cellular_automata
 {
 
+CellRowStub::CellRowStub(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr)
+	: CellRow(cellNeighborhoodCreatorPtr)
+{
+}
+
 CellVector::const_iterator CellRowStub::cbegin() const noexcept
 {
 	return CellVector::const_iterator();

@@ -23,4 +23,9 @@ integers::state_t Cell::getState() const noexcept
 	return _state;
 }
 
+bool Cell::operator==(const Cell& other) const noexcept
+{
+	return _state == other._state;
+}
+
 }

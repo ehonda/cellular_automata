@@ -14,7 +14,7 @@ KNearestNeighborsCellNeighborhoodCreator::KNearestNeighborsCellNeighborhoodCreat
 CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighborhood(
 	const CellVector::const_iterator& center) const noexcept
 {
-	CellVector cells(_rule->getNumberOfNeighbors());
+	CellVector cells(static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors());
 
 	for (integers::integer_t i = 0; i < _numberOfNeighborsLeftOfCenter; ++i)
 		cells[i] = *(center - (_numberOfNeighborsLeftOfCenter - i));
@@ -29,7 +29,8 @@ CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighbor
 
 void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() noexcept
 {
-	integers::integer_t numberOfNeighborsWithoutCenter = _rule->getNumberOfNeighbors() - 1;
+	integers::integer_t numberOfNeighborsWithoutCenter =
+		static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors() - 1;
 	_numberOfNeighborsRightOfCenter = numberOfNeighborsWithoutCenter / 2;
 	_numberOfNeighborsLeftOfCenter = numberOfNeighborsWithoutCenter - _numberOfNeighborsRightOfCenter;
 }
