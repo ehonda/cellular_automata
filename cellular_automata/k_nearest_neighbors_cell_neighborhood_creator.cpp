@@ -27,7 +27,7 @@ CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighbor
 	return CellNeighborhood::createPtr(cells, _rule);
 }
 
-void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() noexcept
+void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() const noexcept
 {
 	integers::integer_t numberOfNeighborsWithoutCenter =
 		static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors() - 1;

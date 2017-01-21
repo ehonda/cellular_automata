@@ -16,9 +16,12 @@ public:
 	CellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr);
 	virtual ~CellRow() = default;
 
-	virtual CellNeighborhoodPtr getNeighborhood(const CellVector::const_iterator& center) const;
+	CellNeighborhoodPtr getNeighborhood(const CellVector::const_iterator& center) const;
 	virtual CellVector::const_iterator cbegin() const noexcept = 0;
 	virtual CellVector::const_iterator cend() const noexcept = 0;
+
+private:
+	virtual CellNeighborhoodPtr doGetNeighborhood(const CellVector::const_iterator& center) const;
 
 protected:
 	CellNeighborhoodCreatorPtr _cellNeighborhoodCreatorPtr;

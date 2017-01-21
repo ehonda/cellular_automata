@@ -10,6 +10,8 @@ namespace cellular_automata
 class KNearestNeighborsRule : public Rule
 {
 public:
+	static const integers::integer_t MIN_NUMBER_OF_NEIGHBORS = 1;
+
 	static KNearestNeighborsRulePtr createPtr(
 		integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);
 
@@ -21,6 +23,8 @@ public:
 private:
 	KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);
 	virtual bool equals(const KNearestNeighborsRule& other) const noexcept;
+
+	void throwIfInvalidNumberOfNeighbors() const;
 
 	integers::BaseBInteger _integerEncodedRule;
 	integers::integer_t _numberOfNeighbors;

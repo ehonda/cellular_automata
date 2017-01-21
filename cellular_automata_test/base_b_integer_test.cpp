@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -13,6 +14,23 @@ using namespace integers;
 
 //-----------------------------------------------------------------------------------------------
 //TEST CASES
+
+TEST(BaseBIntegerTest, DefaultConstructorWorks)
+{
+	BaseBInteger baseBInteger;
+
+	auto expectedBase = BaseBInteger::DEFAULT_BASE;
+	auto actualBase = baseBInteger.getBase();
+	EXPECT_EQ(expectedBase, actualBase);
+
+	auto expectedInteger = BaseBInteger::DEFAULT_INTEGER;
+	auto actualInteger = baseBInteger.getInteger();
+	EXPECT_EQ(expectedInteger, actualInteger);
+
+	auto expectedBaseBRepresentation = BaseBInteger::DEFAULT_BASE_B_REPRESENTATION;
+	auto actualBaseBRepresentation = baseBInteger.getBaseBRepresentation();
+	EXPECT_EQ(expectedBaseBRepresentation, actualBaseBRepresentation);
+}
 
 TEST(BaseBIntegerTest, ConstructFromIntegerWorks)
 {
@@ -87,6 +105,20 @@ TEST(BaseBIntegerTest, ComparisonForEqualityWorks)
 	integer = 27;
 	BaseBInteger number27InBase3(base, integer);
 	EXPECT_FALSE(number27InBase2 == number27InBase3) << "The same integers in different bases compare as equal.";
+}
+
+TEST(BaseBIntegerTest, ShouldThrowOnConstructionFromInvalidValues)
+{
+	int invalidBase = 0;
+	int validInteger = 100;
+	EXPECT_THROW(BaseBInteger baseBInteger(invalidBase, validInteger), std::domain_error);
+
+	int validBase = 2;
+	int invalidInteger = -4;
+	EXPECT_THROW(BaseBInteger baseBInteger(validBase, invalidInteger), std::domain_error);
+
+	BaseBInteger::BaseBRepresentation invalidBaseBRepresentation = { -1, 0 };
+	EXPECT_THROW(BaseBInteger baseBInteger(validBase, invalidBaseBRepresentation), std::domain_error);
 }
 
 //-----------------------------------------------------------------------------------------------

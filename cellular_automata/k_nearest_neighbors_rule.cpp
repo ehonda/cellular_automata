@@ -1,5 +1,7 @@
 #include "k_nearest_neighbors_rule.h"
 
+#include <stdexcept>
+
 namespace cellular_automata
 {
 
@@ -34,12 +36,19 @@ bool KNearestNeighborsRule::operator==(const Rule& other) const noexcept
 KNearestNeighborsRule::KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors)
 	: Rule(integerEncodedRule.getBase()), _integerEncodedRule(integerEncodedRule), _numberOfNeighbors(numberOfNeighbors)
 {
+	throwIfInvalidNumberOfNeighbors();
 }
 
 bool KNearestNeighborsRule::equals(const KNearestNeighborsRule& other) const noexcept
 {
 	return _numberOfNeighbors == other._numberOfNeighbors
 		&& _integerEncodedRule == other._integerEncodedRule;
+}
+
+void KNearestNeighborsRule::throwIfInvalidNumberOfNeighbors() const
+{
+	if (_numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS)
+		throw std::domain_error("The minimum number of neighbors was underrun");
 }
 
 }

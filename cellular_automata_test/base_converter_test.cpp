@@ -1,3 +1,5 @@
+#include <memory>
+#include <stdexcept>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -36,6 +38,32 @@ TEST(BaseConverterTest, IntegerToRepresentationTest)
 	int integer = 55;
 	auto convertedBaseBRepresentation = baseConverter.getBaseBRepresentationFromInteger(integer);
 	EXPECT_EQ(expectedBaseBRepresentation, convertedBaseBRepresentation);
+}
+
+TEST(BaseConverterTest, ShouldThrowOnNegativeInteger)
+{
+	int base = 2;
+	BaseConverter baseConverter(base);
+	int integer = -10;
+
+	EXPECT_THROW(baseConverter.getBaseBRepresentationFromInteger(integer), std::domain_error);
+}
+
+TEST(BaseConverterTest, ShouldThrowOnInvalidBaseBRepresentation)
+{
+	int base = 2;
+	BaseConverter baseConverter(base);
+	BaseConverter::BaseBRepresentation representationWithNegativeDigits = { 1, -1 };
+	BaseConverter::BaseBRepresentation representationWithTooBigDigits = { 2, 3 };
+
+	EXPECT_THROW(baseConverter.getIntegerFromBaseBRepresentation(representationWithNegativeDigits), std::domain_error);
+	EXPECT_THROW(baseConverter.getIntegerFromBaseBRepresentation(representationWithTooBigDigits), std::domain_error);
+}
+
+TEST(BaseConverterTest, ShouldThrowOnInvalidBase)
+{
+	const int base = -5;
+	EXPECT_THROW(BaseConverter baseConverter(base), std::domain_error);
 }
 
 //-----------------------------------------------------------------------------------------------

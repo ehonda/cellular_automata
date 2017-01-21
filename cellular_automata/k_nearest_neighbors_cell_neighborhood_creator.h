@@ -15,10 +15,10 @@ public:
 	virtual CellNeighborhoodPtr createCellNeighborhood(const CellVector::const_iterator& center) const noexcept override;
 
 private:
-	virtual void calculateNeighborsLeftAndRightOfCenter() noexcept;
+	virtual void calculateNeighborsLeftAndRightOfCenter() const noexcept;
 
-	integers::integer_t _numberOfNeighborsLeftOfCenter;
-	integers::integer_t _numberOfNeighborsRightOfCenter;
+	mutable integers::integer_t _numberOfNeighborsLeftOfCenter;
+	mutable integers::integer_t _numberOfNeighborsRightOfCenter;
 };
 
 }

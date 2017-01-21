@@ -7,6 +7,13 @@ namespace cellular_automata
 namespace integers
 {
 
+const BaseBInteger::BaseBRepresentation BaseBInteger::DEFAULT_BASE_B_REPRESENTATION{ 0 };
+
+BaseBInteger::BaseBInteger()
+	: _base(DEFAULT_BASE), _integer(DEFAULT_INTEGER), _baseBRepresentation(DEFAULT_BASE_B_REPRESENTATION)
+{
+}
+
 BaseBInteger::BaseBInteger(long base, long integer)
 	: _base(base), _integer(integer)
 {
@@ -21,6 +28,11 @@ BaseBInteger::BaseBInteger(long base, const BaseBRepresentation& baseBRepresenta
 	_integer = baseConverter.getIntegerFromBaseBRepresentation(baseBRepresentation);
 }
 
+long BaseBInteger::getBase() const noexcept
+{
+	return _base;
+}
+
 long BaseBInteger::getInteger() const noexcept
 {
 	return _integer;
@@ -31,17 +43,12 @@ const BaseBInteger::BaseBRepresentation& BaseBInteger::getBaseBRepresentation() 
 	return _baseBRepresentation;
 }
 
-long BaseBInteger::getDigitAt(size_t index) const
+long BaseBInteger::getDigitAt(size_t index) const noexcept
 {
 	if (index >= _baseBRepresentation.size())
 		return 0;
 	else
 		return _baseBRepresentation[index];
-}
-
-long BaseBInteger::getBase() const noexcept
-{
-	return _base;
 }
 
 bool BaseBInteger::operator==(const BaseBInteger& other) const noexcept

@@ -11,17 +11,19 @@ namespace integers
 class BaseBInteger
 {
 public:
-	typedef typename std::vector<long> BaseBRepresentation;
+	using BaseBRepresentation = std::vector<long>;
+	static const long DEFAULT_BASE = 10;
+	static const long DEFAULT_INTEGER = 0;
+	static const BaseBRepresentation DEFAULT_BASE_B_REPRESENTATION;
 
-	BaseBInteger() = default;
+	BaseBInteger();
 	BaseBInteger(long base, long integer);
 	BaseBInteger(long base, const BaseBRepresentation& baseBRepresentation);
 
+	long getBase() const noexcept;
 	long getInteger() const noexcept;
 	const BaseBRepresentation& getBaseBRepresentation() const noexcept;
-	long getDigitAt(size_t index) const;
-
-	long getBase() const noexcept;
+	long getDigitAt(size_t index) const noexcept;
 
 	bool operator==(const BaseBInteger& other) const noexcept;
 

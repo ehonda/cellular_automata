@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "gtest/gtest.h"
 
 #include "k_nearest_neighbors_rule.h"
@@ -54,6 +56,15 @@ TEST(KNearestNeighborsRuleTest, ComparisonForEqualityWorks)
 	auto rule110With5Neighbors = KNearestNeighborsRule::createPtr(rule110Encoded, numberOfNeighbors);
 	EXPECT_FALSE(*rule110 == *rule110With5Neighbors)
 		<< "The same rule encodings with different number of Neighbors compare as equal.";
+}
+
+TEST(KNearestNeighborsRuleTest, ShouldThrowOnInvalidNumberOfNeighbors)
+{
+	auto invalidNumberOfNeighbors = KNearestNeighborsRule::MIN_NUMBER_OF_NEIGHBORS - 1;
+	state_t numberOfStates = 2;
+	integer_t integer = 56;
+	BaseBInteger integerEncodedRule(numberOfStates, integer);
+	EXPECT_THROW(KNearestNeighborsRule::createPtr(integerEncodedRule, invalidNumberOfNeighbors), std::domain_error);
 }
 
 }
