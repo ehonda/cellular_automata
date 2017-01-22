@@ -24,25 +24,18 @@ integers::integer_t KNearestNeighborsRule::getNumberOfNeighbors() const noexcept
 	return _numberOfNeighbors;
 }
 
-bool KNearestNeighborsRule::operator==(const Rule& other) const noexcept
-{
-	if (!Rule::operator==(other))
-		return false;
-	else
-		return equals(static_cast<const KNearestNeighborsRule&>(other));
-	
-}
-
 KNearestNeighborsRule::KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors)
 	: Rule(integerEncodedRule.getBase()), _integerEncodedRule(integerEncodedRule), _numberOfNeighbors(numberOfNeighbors)
 {
 	throwIfInvalidNumberOfNeighbors();
 }
 
-bool KNearestNeighborsRule::equals(const KNearestNeighborsRule& other) const noexcept
+bool KNearestNeighborsRule::equals(const Rule& other) const noexcept
 {
-	return _numberOfNeighbors == other._numberOfNeighbors
-		&& _integerEncodedRule == other._integerEncodedRule;
+	auto knnOther = static_cast<const KNearestNeighborsRule&>(other);
+	return Rule::equals(other)
+		&& _numberOfNeighbors == knnOther._numberOfNeighbors
+		&& _integerEncodedRule == knnOther._integerEncodedRule;
 }
 
 void KNearestNeighborsRule::throwIfInvalidNumberOfNeighbors() const

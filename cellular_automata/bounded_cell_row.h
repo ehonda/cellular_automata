@@ -16,13 +16,16 @@ public:
 	const CellVector& getCellsIncludingBoundaries() const noexcept;
 	void setBoundaryCell(const Cell& boundaryCell) noexcept;
 
-	virtual CellVector::const_iterator cbegin() const noexcept override;
-	virtual CellVector::const_iterator cend() const noexcept override;
-
 private:
-	void initializeCells(const CellVector& cells) noexcept;
+	void initializeCells(const CellVector& cells);
+
+	virtual CellVector::const_iterator doCbegin() const noexcept override;
+	virtual CellVector::const_iterator doCend() const noexcept override;
+	virtual CellRowPtr doGetPtrToCopy() const override;
 
 protected:
+	virtual bool equals(const CellRow& other) const override;
+
 	CellVector _cells;
 	Cell _boundaryCell;
 };

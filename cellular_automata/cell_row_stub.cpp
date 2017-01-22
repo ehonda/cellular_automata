@@ -3,19 +3,19 @@
 namespace cellular_automata
 {
 
-CellRowStub::CellRowStub(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr)
-	: CellRow(cellNeighborhoodCreatorPtr)
-{
-}
-
-CellVector::const_iterator CellRowStub::cbegin() const noexcept
+CellVector::const_iterator CellRowStub::doCbegin() const noexcept
 {
 	return CellVector::const_iterator();
 }
 
-CellVector::const_iterator CellRowStub::cend() const noexcept
+CellVector::const_iterator CellRowStub::doCend() const noexcept
 {
 	return CellVector::const_iterator();
+}
+
+CellRowPtr CellRowStub::doGetPtrToCopy() const
+{
+	return CellRowPtr();
 }
 
 }

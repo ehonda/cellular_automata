@@ -18,11 +18,9 @@ public:
 	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const;
 	integers::integer_t getNumberOfNeighbors() const noexcept;
 
-	virtual bool operator==(const Rule& other) const noexcept override;
-
 private:
 	KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);
-	virtual bool equals(const KNearestNeighborsRule& other) const noexcept;
+	virtual bool equals(const Rule& other) const noexcept override;
 
 	void throwIfInvalidNumberOfNeighbors() const;
 

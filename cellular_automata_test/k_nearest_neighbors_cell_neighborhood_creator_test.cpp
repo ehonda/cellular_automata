@@ -4,7 +4,6 @@
 #include "k_nearest_neighbors_cell_neighborhood_creator.cpp"
 
 #include "cell_neighborhood_creator.h"
-#include "cell_neighborhood_creator.cpp"
 #include "k_nearest_neighbors_rule.h"
 #include "type_definitions.h"
 
@@ -20,16 +19,26 @@ using namespace integers;
 class KNearestNeighborsCellNeighborhoodCreatorTest : public testing::Test
 {
 protected:
-	KNearestNeighborsCellNeighborhoodCreatorTest() {}
-
 	virtual void SetUp()
 	{
-		_someBase10RuleEncoded = BaseBInteger(10, 111);
-		_baseCells = CellVector{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		BaseBInteger someBase10RuleEncoded(10, 111);
+
+		_evenNumberOfNeighbors = 4;
+		_knnRuleWithEvenNumberOfNeighbors
+			= KNearestNeighborsRule::createPtr(someBase10RuleEncoded, _evenNumberOfNeighbors);
+
+		_oddNumberOfNeighbors = 5;
+		_knnRuleWithOddNumberOfNeighbors
+			= KNearestNeighborsRule::createPtr(someBase10RuleEncoded, _oddNumberOfNeighbors);
+
+		_integersFrom0To9 = CellVector{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	}
 
-	BaseBInteger _someBase10RuleEncoded;
-	CellVector _baseCells;
+	CellVector _integersFrom0To9;
+	integer_t _evenNumberOfNeighbors;
+	integer_t _oddNumberOfNeighbors;
+	KNearestNeighborsRulePtr _knnRuleWithEvenNumberOfNeighbors;
+	KNearestNeighborsRulePtr _knnRuleWithOddNumberOfNeighbors;
 };
 
 //-----------------------------------------------------------------------------------------------
@@ -39,14 +48,13 @@ protected:
 
 TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, EvenNumberOfNeighborsWorks)
 {
-	integer_t numberOfNeighbors = 4;
-	auto rule = KNearestNeighborsRule::createPtr(_someBase10RuleEncoded, numberOfNeighbors);
-	KNearestNeighborsCellNeighborhoodCreator creator(rule);
+	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithEvenNumberOfNeighbors);
 
 	CellVector expectedCellsInNeighborhood{ 2, 3, 4, 5 };
-	auto expectedCellNeighborhood = CellNeighborhood::createPtr(expectedCellsInNeighborhood, rule);
+	auto expectedCellNeighborhood
+		= CellNeighborhood::createPtr(expectedCellsInNeighborhood, _knnRuleWithEvenNumberOfNeighbors);
 
-	auto center = _baseCells.begin() + 4;
+	auto center = _integersFrom0To9.begin() + 4;
 	auto actualCellNeighborhood = creator.createCellNeighborhood(center);
 
 	EXPECT_EQ(*expectedCellNeighborhood, *actualCellNeighborhood);
@@ -54,17 +62,33 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, EvenNumberOfNeighborsWorks)
 
 TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, OddNumberOfNeighborsWorks)
 {
-	integer_t numberOfNeighbors = 5;
-	auto rule = KNearestNeighborsRule::createPtr(_someBase10RuleEncoded, numberOfNeighbors);
-	KNearestNeighborsCellNeighborhoodCreator creator(rule);
+	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithOddNumberOfNeighbors);
 
 	CellVector expectedCellsInNeighborhood{ 2, 3, 4, 5, 6 };
-	auto expectedCellNeighborhood = CellNeighborhood::createPtr(expectedCellsInNeighborhood, rule);
+	auto expectedCellNeighborhood
+		= CellNeighborhood::createPtr(expectedCellsInNeighborhood, _knnRuleWithOddNumberOfNeighbors);
 
-	auto center = _baseCells.begin() + 4;
+	auto center = _integersFrom0To9.begin() + 4;
 	auto actualCellNeighborhood = creator.createCellNeighborhood(center);
 
 	EXPECT_EQ(*expectedCellNeighborhood, *actualCellNeighborhood);
+}
+
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, ComparisonForEqualityWorks)
+{
+	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithEvenNumberOfNeighbors);
+	KNearestNeighborsCellNeighborhoodCreator sameCreator(_knnRuleWithEvenNumberOfNeighbors);
+	EXPECT_EQ(creator, sameCreator);
+
+	KNearestNeighborsCellNeighborhoodCreator creatorWithDifferentRule(_knnRuleWithOddNumberOfNeighbors);
+	EXPECT_NE(creator, creatorWithDifferentRule);
+}
+
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, GettingPointerToCopyWorks)
+{
+	CellNeighborhoodCreatorPtr creator(new KNearestNeighborsCellNeighborhoodCreator(_knnRuleWithEvenNumberOfNeighbors));
+	auto creatorCopy = creator->getPtrToCopy();
+	EXPECT_EQ(*creator, *creatorCopy);
 }
 
 //-----------------------------------------------------------------------------------------------

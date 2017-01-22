@@ -5,13 +5,20 @@
 namespace cellular_automata
 {
 
-class CellularAtomaton
+class CellularAutomaton
 {
 public:
-
+	CellularAutomaton(CellRowPtr& initialGeneration);
 
 private:
-	//CellGeneration _currentGeneration;
+	void throwIfCellRowIsNullPtr() const;
+
+	void initializeCellRowPrototype(const CellRowPtr& desiredCellRow) const;
+	CellRowPtr getCellRowFromPrototype() const;
+
+	mutable CellRowPtr _cellRowPrototype;
+	CellRowPtr _currentGeneration;
+	CellRowPtr _nextGeneration;
 };
 
 }

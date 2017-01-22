@@ -15,11 +15,12 @@ public:
 	static CellNeighborhoodPtr createPtr(const CellVector& cells, const RulePtr& rule);
 
 	const integers::BaseBInteger& getIntegerEncodedCellNeighborhood() const noexcept;
-	virtual bool operator==(const CellNeighborhood& other) const noexcept;
+	bool operator==(const CellNeighborhood& other) const;
 
 private:
 	CellNeighborhood(const CellVector& cells, const RulePtr& rule);
 	void encodeCellNeighborhood(const CellVector& cells);
+	virtual bool equals(const CellNeighborhood& other) const;
 
 	integers::BaseBInteger _encodedCellNeighborhood;
 	RulePtr _rule;

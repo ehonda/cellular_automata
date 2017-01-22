@@ -1,5 +1,7 @@
 #include "cell_neighborhood.h"
 
+#include <typeinfo>
+
 namespace cellular_automata
 {
 
@@ -13,9 +15,12 @@ const integers::BaseBInteger& CellNeighborhood::getIntegerEncodedCellNeighborhoo
 	return _encodedCellNeighborhood;
 }
 
-bool CellNeighborhood::operator==(const CellNeighborhood& other) const noexcept
+bool CellNeighborhood::operator==(const CellNeighborhood& other) const
 {
-	return (_encodedCellNeighborhood == other._encodedCellNeighborhood) && (*_rule == *other._rule);
+	if (typeid(*this) != typeid(other))
+		return false;
+	else
+		return equals(other);
 }
 
 CellNeighborhood::CellNeighborhood(const CellVector& cells, const RulePtr& rule)
@@ -31,6 +36,11 @@ void CellNeighborhood::encodeCellNeighborhood(const CellVector& cells)
 		baseBRepresentation.emplace_back(cell.getState());
 
 	_encodedCellNeighborhood = integers::BaseBInteger(_rule->getNumberOfStates(), baseBRepresentation);
+}
+
+bool CellNeighborhood::equals(const CellNeighborhood& other) const
+{
+	return (_encodedCellNeighborhood == other._encodedCellNeighborhood) && (*_rule == *other._rule);
 }
 
 }

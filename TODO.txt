@@ -1,5 +1,3 @@
 -Ungültige Werte abfangen, wie z.b. base 0 bei BaseBInteger etc
 
--Ungetestete Klassen:
-	-Cells
-		-cell_neighborhood_creator (stub nötig?)
+-CellGenerationHistory Klasse schreiben?

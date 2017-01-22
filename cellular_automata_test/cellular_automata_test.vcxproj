@@ -132,7 +132,10 @@
     <ClCompile Include="base_b_integer_test.cpp" />
     <ClCompile Include="base_converter_test.cpp" />
     <ClCompile Include="bounded_cell_row_test.cpp" />
+    <ClCompile Include="cellular_automaton_test.cpp" />
+    <ClCompile Include="cell_neighborhood_creator_test.cpp" />
     <ClCompile Include="cell_neighborhood_test.cpp" />
+    <ClCompile Include="cell_population_test.cpp" />
     <ClCompile Include="cell_row_test.cpp" />
     <ClCompile Include="cell_test.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator_test.cpp" />

@@ -124,6 +124,8 @@
     <ClInclude Include="cell.h" />
     <ClInclude Include="cellular_automaton.h" />
     <ClInclude Include="cell_neighborhood.h" />
+    <ClInclude Include="cell_neighborhood_creator_stub.h" />
+    <ClInclude Include="cell_population.h" />
     <ClInclude Include="cell_row.h" />
     <ClInclude Include="cell_row_stub.h" />
     <ClInclude Include="k_nearest_neighbors_cell_neighborhood_creator.h" />
@@ -141,6 +143,8 @@
     <ClCompile Include="cellular_automaton.cpp" />
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_neighborhood_creator.cpp" />
+    <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
+    <ClCompile Include="cell_population.cpp" />
     <ClCompile Include="cell_row.cpp" />
     <ClCompile Include="cell_row_stub.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator.cpp" />

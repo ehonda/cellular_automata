@@ -8,10 +8,12 @@ namespace cellular_automata
 class CellRowStub : public CellRow
 {
 public:
-	CellRowStub(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr);
+	using CellRow::CellRow;
 
-	virtual CellVector::const_iterator cbegin() const noexcept override;
-	virtual CellVector::const_iterator cend() const noexcept override;
+private:
+	virtual CellVector::const_iterator doCbegin() const noexcept override;
+	virtual CellVector::const_iterator doCend() const noexcept override;
+	virtual CellRowPtr doGetPtrToCopy() const override;
 };
 
 }

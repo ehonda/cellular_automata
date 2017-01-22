@@ -11,8 +11,15 @@ KNearestNeighborsCellNeighborhoodCreator::KNearestNeighborsCellNeighborhoodCreat
 	calculateNeighborsLeftAndRightOfCenter();
 }
 
-CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighborhood(
-	const CellVector::const_iterator& center) const noexcept
+void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() const noexcept
+{
+	integers::integer_t numberOfNeighborsWithoutCenter =
+		static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors() - 1;
+	_numberOfNeighborsRightOfCenter = numberOfNeighborsWithoutCenter / 2;
+	_numberOfNeighborsLeftOfCenter = numberOfNeighborsWithoutCenter - _numberOfNeighborsRightOfCenter;
+}
+
+CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::doCreateCellNeighborhood(const CellVector::const_iterator & center) const
 {
 	CellVector cells(static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors());
 
@@ -27,12 +34,11 @@ CellNeighborhoodPtr KNearestNeighborsCellNeighborhoodCreator::createCellNeighbor
 	return CellNeighborhood::createPtr(cells, _rule);
 }
 
-void KNearestNeighborsCellNeighborhoodCreator::calculateNeighborsLeftAndRightOfCenter() const noexcept
+CellNeighborhoodCreatorPtr KNearestNeighborsCellNeighborhoodCreator::doGetPtrToCopy() const noexcept
 {
-	integers::integer_t numberOfNeighborsWithoutCenter =
-		static_cast<const KNearestNeighborsRule&>(*_rule).getNumberOfNeighbors() - 1;
-	_numberOfNeighborsRightOfCenter = numberOfNeighborsWithoutCenter / 2;
-	_numberOfNeighborsLeftOfCenter = numberOfNeighborsWithoutCenter - _numberOfNeighborsRightOfCenter;
+	return CellNeighborhoodCreatorPtr(
+		new KNearestNeighborsCellNeighborhoodCreator(
+			std::static_pointer_cast<KNearestNeighborsRule>(_rule)));
 }
 
 }

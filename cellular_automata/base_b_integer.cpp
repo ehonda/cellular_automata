@@ -56,5 +56,10 @@ bool BaseBInteger::operator==(const BaseBInteger& other) const noexcept
 	return (_base == other._base) && (_integer == other._integer);
 }
 
+bool BaseBInteger::operator!=(const BaseBInteger& other) const noexcept
+{
+	return !operator==(other);
+}
+
 }
 }

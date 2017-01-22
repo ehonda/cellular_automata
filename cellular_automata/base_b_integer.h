@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <vector>
 
 namespace cellular_automata
@@ -26,6 +25,7 @@ public:
 	long getDigitAt(size_t index) const noexcept;
 
 	bool operator==(const BaseBInteger& other) const noexcept;
+	bool operator!=(const BaseBInteger& other) const noexcept;
 
 private:
 	long _base;

@@ -12,10 +12,12 @@ class KNearestNeighborsCellNeighborhoodCreator : public CellNeighborhoodCreator
 public:
 	KNearestNeighborsCellNeighborhoodCreator(const KNearestNeighborsRulePtr& rule);
 
-	virtual CellNeighborhoodPtr createCellNeighborhood(const CellVector::const_iterator& center) const noexcept override;
-
 private:
 	virtual void calculateNeighborsLeftAndRightOfCenter() const noexcept;
+
+	virtual CellNeighborhoodPtr doCreateCellNeighborhood(const CellVector::const_iterator& center) const override;
+
+	virtual CellNeighborhoodCreatorPtr doGetPtrToCopy() const noexcept override;
 
 	mutable integers::integer_t _numberOfNeighborsLeftOfCenter;
 	mutable integers::integer_t _numberOfNeighborsRightOfCenter;

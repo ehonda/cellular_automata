@@ -3,12 +3,12 @@
 namespace cellular_automata
 {
 
-Cell::Cell()
+Cell::Cell() noexcept
 	: _state(0)
 {
 }
 
-Cell::Cell(integers::state_t state)
+Cell::Cell(integers::state_t state) noexcept
 	: _state(state)
 {
 }

@@ -39,25 +39,16 @@ TEST(BaseBIntegerTest, ConstructFromIntegerWorks)
 	int integer = 42;
 	BaseBInteger baseBInteger(base, integer);
 
-	BaseBInteger::BaseBRepresentation expectedBaseBRepresentation;
-	expectedBaseBRepresentation.emplace_back(2);
-	expectedBaseBRepresentation.emplace_back(2);
-	expectedBaseBRepresentation.emplace_back(2);
-
+	BaseBInteger::BaseBRepresentation expectedBaseBRepresentation = { 2, 2, 2 };
 	auto convertedBaseBRepresentation = baseBInteger.getBaseBRepresentation();
-	ASSERT_EQ(expectedBaseBRepresentation.size(), convertedBaseBRepresentation.size());
-	for (size_t i = 0; i < expectedBaseBRepresentation.size(); ++i)
-		EXPECT_EQ(expectedBaseBRepresentation[i], convertedBaseBRepresentation[i]) << "Representations differ in i = " << i;
+	EXPECT_EQ(expectedBaseBRepresentation, convertedBaseBRepresentation);
 }
 
 TEST(BaseBIntegerTest, ConstructFromBaseBRepresentationWorks)
 {
 	//Number: 222 = 42 in base 4
 	int base = 4;
-	BaseBInteger::BaseBRepresentation baseBRepresentation;
-	baseBRepresentation.emplace_back(2);
-	baseBRepresentation.emplace_back(2);
-	baseBRepresentation.emplace_back(2);
+	BaseBInteger::BaseBRepresentation baseBRepresentation = { 2, 2, 2 };
 	BaseBInteger baseBInteger(base, baseBRepresentation);
 
 	int expectedInteger = 42;
@@ -92,19 +83,19 @@ TEST(BaseBIntegerTest, ComparisonForEqualityWorks)
 
 	BaseBInteger::BaseBRepresentation base2RepresentationOf27{ 1, 1, 0, 1, 1 };
 	BaseBInteger otherNumber27InBase2(base, base2RepresentationOf27);
-	EXPECT_TRUE(number27InBase2 == otherNumber27InBase2) << "Equal Integers don't compare as equal.";
+	EXPECT_EQ(number27InBase2, otherNumber27InBase2);
 
 	//Number 10110 = 22 in base 2
 	base = 2;
 	integer = 22;
 	BaseBInteger number22InBase2(base, integer);
-	EXPECT_FALSE(number27InBase2 == number22InBase2) << "Different Integers in the same base compare as equal.";
+	EXPECT_NE(number27InBase2, number22InBase2) << "Different Integers in the same base compare as equal.";
 
 	//Number 1000 = 27 in base 3
 	base = 3;
 	integer = 27;
 	BaseBInteger number27InBase3(base, integer);
-	EXPECT_FALSE(number27InBase2 == number27InBase3) << "The same integers in different bases compare as equal.";
+	EXPECT_NE(number27InBase2, number27InBase3) << "The same integers in different bases compare as equal.";
 }
 
 TEST(BaseBIntegerTest, ShouldThrowOnConstructionFromInvalidValues)

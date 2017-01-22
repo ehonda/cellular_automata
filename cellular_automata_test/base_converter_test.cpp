@@ -1,6 +1,4 @@
-#include <memory>
 #include <stdexcept>
-#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -62,7 +60,7 @@ TEST(BaseConverterTest, ShouldThrowOnInvalidBaseBRepresentation)
 
 TEST(BaseConverterTest, ShouldThrowOnInvalidBase)
 {
-	const int base = -5;
+	int base = -5;
 	EXPECT_THROW(BaseConverter baseConverter(base), std::domain_error);
 }
 

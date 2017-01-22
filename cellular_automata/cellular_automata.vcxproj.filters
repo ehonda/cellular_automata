@@ -46,6 +46,18 @@
     <Filter Include="Source Files\Cellular Automata\General">
       <UniqueIdentifier>{299584d9-a047-444a-aa3c-a22a5a043955}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Cellular Automata\Cells\Stubs">
+      <UniqueIdentifier>{63649c2e-8318-4ad5-846b-c14f77cb4536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\Cells\Stubs">
+      <UniqueIdentifier>{2bef8e44-6fb9-4d49-9ca6-d1059f494357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cellular Automata\General\Stubs">
+      <UniqueIdentifier>{151a6c93-8966-400f-8533-2460236f9070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cellular Automata\General\Stubs">
+      <UniqueIdentifier>{ce57f91f-9c7d-4ffd-93c7-3d1461743b66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base_converter.h">
@@ -78,9 +90,6 @@
     <ClInclude Include="rule.h">
       <Filter>Header Files\Cellular Automata\General</Filter>
     </ClInclude>
-    <ClInclude Include="rule_stub.h">
-      <Filter>Header Files\Cellular Automata\General</Filter>
-    </ClInclude>
     <ClInclude Include="type_definitions.h">
       <Filter>Header Files\Cellular Automata\General</Filter>
     </ClInclude>
@@ -88,6 +97,15 @@
       <Filter>Header Files\Cellular Automata\Cells</Filter>
     </ClInclude>
     <ClInclude Include="cell_row_stub.h">
+      <Filter>Header Files\Cellular Automata\Cells\Stubs</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_neighborhood_creator_stub.h">
+      <Filter>Header Files\Cellular Automata\Cells\Stubs</Filter>
+    </ClInclude>
+    <ClInclude Include="rule_stub.h">
+      <Filter>Header Files\Cellular Automata\General\Stubs</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_population.h">
       <Filter>Header Files\Cellular Automata\Cells</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,19 +137,25 @@
     <ClCompile Include="rule.cpp">
       <Filter>Source Files\Cellular Automata\General</Filter>
     </ClCompile>
-    <ClCompile Include="rule_stub.cpp">
-      <Filter>Source Files\Cellular Automata\General</Filter>
-    </ClCompile>
     <ClCompile Include="cell_neighborhood.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
     <ClCompile Include="bounded_cell_row.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
-    <ClCompile Include="cell_row_stub.cpp">
+    <ClCompile Include="cell_neighborhood_creator.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
-    <ClCompile Include="cell_neighborhood_creator.cpp">
+    <ClCompile Include="cell_row_stub.cpp">
+      <Filter>Source Files\Cellular Automata\Cells\Stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood_creator_stub.cpp">
+      <Filter>Source Files\Cellular Automata\Cells\Stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="rule_stub.cpp">
+      <Filter>Source Files\Cellular Automata\General\Stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_population.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
   </ItemGroup>
