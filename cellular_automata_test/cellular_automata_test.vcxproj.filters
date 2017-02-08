@@ -33,9 +33,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\shared_cpp_libs\googletest-master\googletest\src\gtest_main.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="base_converter_test.cpp">
       <Filter>Source Files\Base-B Integers</Filter>
     </ClCompile>
@@ -74,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="command_line_parser_test.cpp">
       <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
