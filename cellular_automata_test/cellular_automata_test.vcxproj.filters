@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Cellular Automata\General">
       <UniqueIdentifier>{aa581ce9-d433-4517-b22d-f1b2afc90837}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{f8ff760a-ee46-4114-a4af-ed6425805e7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\..\shared_cpp_libs\googletest-master\googletest\src\gtest_main.cc">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="cell_population_test.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="command_line_parser_test.cpp">
+      <Filter>Source Files\Application</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

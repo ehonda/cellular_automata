@@ -5,10 +5,19 @@
 #include "rule_stub.h"
 #include "rule_stub.cpp"
 
+namespace testing_cellular_automata
+{
+
 using namespace cellular_automata;
 using namespace integers;
 
-TEST(RuleTest, GettingNumberOfStatesWorks)
+class RuleTest : public testing::Test
+{
+protected:
+	//virtual std::unique_ptr<Rule> makeInstance() const noexcept = 0;
+};
+
+TEST_F(RuleTest, GettingNumberOfStatesWorks)
 {
 	state_t expectedNumberOfStates = 55;
 	auto ruleStub = RuleStub::createPtr(expectedNumberOfStates);
@@ -16,7 +25,7 @@ TEST(RuleTest, GettingNumberOfStatesWorks)
 	EXPECT_EQ(expectedNumberOfStates, actualNumberOfStates);
 }
 
-TEST(RuleTest, ComparisonForEqualityWorks)
+TEST_F(RuleTest, ComparisonForEqualityWorks)
 {
 	state_t numberOfStates = 44444;
 	auto rule1 = RuleStub::createPtr(numberOfStates);
@@ -26,4 +35,6 @@ TEST(RuleTest, ComparisonForEqualityWorks)
 	state_t otherNumberOfStates = 50;
 	auto rule3 = RuleStub::createPtr(otherNumberOfStates);
 	EXPECT_FALSE(*rule1 == *rule3) << "Different rules compare as equal";
+}
+
 }

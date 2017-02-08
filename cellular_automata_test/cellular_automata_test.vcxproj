@@ -138,6 +138,7 @@
     <ClCompile Include="cell_population_test.cpp" />
     <ClCompile Include="cell_row_test.cpp" />
     <ClCompile Include="cell_test.cpp" />
+    <ClCompile Include="command_line_parser_test.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator_test.cpp" />
     <ClCompile Include="k_nearest_neighbors_rule_test.cpp" />
     <ClCompile Include="rule_test.cpp" />

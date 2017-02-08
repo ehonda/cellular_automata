@@ -1,0 +1,3 @@
+-Constructing with number of States less than 2 should throw
+
+-

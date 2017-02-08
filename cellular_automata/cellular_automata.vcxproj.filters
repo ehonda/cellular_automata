@@ -58,6 +58,9 @@
     <Filter Include="Source Files\Cellular Automata\General\Stubs">
       <UniqueIdentifier>{ce57f91f-9c7d-4ffd-93c7-3d1461743b66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Application">
+      <UniqueIdentifier>{c0c24578-e99f-479a-966b-12c7d41af89e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base_converter.h">
@@ -108,6 +111,9 @@
     <ClInclude Include="cell_population.h">
       <Filter>Header Files\Cellular Automata\Cells</Filter>
     </ClInclude>
+    <ClInclude Include="command_line_parser.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
@@ -157,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="cell_population.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="command_line_parser.cpp">
+      <Filter>Source Files\Application</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
