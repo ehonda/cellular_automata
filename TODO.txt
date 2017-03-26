@@ -1,3 +1,15 @@
+08/02/2017:
+
+- Erster Test für CellularAutomaton verursacht exception in memory unique_ptr header
+
+- getPtrToCopy ist broken, falsches Design!
+
+- typeid Vergleiche müssen anders gemacht werden, sonst Exception bei nullptr!
+
+---------------------------------------------------------------------
+
+Old:
+
 -Ungültige Werte abfangen, wie z.b. base 0 bei BaseBInteger etc
 
 -CellGenerationHistory Klasse schreiben?

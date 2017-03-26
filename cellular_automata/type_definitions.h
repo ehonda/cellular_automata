@@ -20,7 +20,7 @@ class KNearestNeighborsRule;
 using CellVector = std::vector<Cell>;
 using CellNeighborhoodPtr = std::unique_ptr<CellNeighborhood>;
 using CellNeighborhoodCreatorPtr = std::unique_ptr<CellNeighborhoodCreator>;
-using CellRowPtr = std::unique_ptr<CellRow>;
+using CellRowPtr = std::shared_ptr<CellRow>;
 using RulePtr = std::shared_ptr<Rule>;
 using KNearestNeighborsRulePtr = std::shared_ptr<KNearestNeighborsRule>;
 //-----------------------------------------------------------------------------------------------

@@ -12,6 +12,9 @@ public:
 	virtual ~CellRow() = default;
 
 	CellNeighborhoodPtr getNeighborhood(const CellVector::const_iterator& center) const;
+	RulePtr getRule() const;
+	CellVector::iterator begin() noexcept;
+	CellVector::iterator end() noexcept;
 	CellVector::const_iterator cbegin() const noexcept;
 	CellVector::const_iterator cend() const noexcept;
 
@@ -23,6 +26,8 @@ private:
 	void throwIfCellNeighborhoodCreatorIsNullPtr() const;
 
 	virtual CellNeighborhoodPtr doGetNeighborhood(const CellVector::const_iterator& center) const;
+	virtual CellVector::iterator doBegin() noexcept = 0;
+	virtual CellVector::iterator doEnd() noexcept = 0;
 	virtual CellVector::const_iterator doCbegin() const noexcept = 0;
 	virtual CellVector::const_iterator doCend() const noexcept = 0;
 	virtual CellRowPtr doGetPtrToCopy() const = 0;

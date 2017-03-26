@@ -20,6 +20,21 @@ CellNeighborhoodPtr CellRow::getNeighborhood(const CellVector::const_iterator& c
 	return doGetNeighborhood(center);
 }
 
+RulePtr CellRow::getRule() const
+{
+	return _cellNeighborhoodCreatorPtr->getRule();
+}
+
+CellVector::iterator CellRow::begin() noexcept
+{
+	return doBegin();
+}
+
+CellVector::iterator CellRow::end() noexcept
+{
+	return doEnd();
+}
+
 CellVector::const_iterator CellRow::cbegin() const noexcept
 {
 	return doCbegin();

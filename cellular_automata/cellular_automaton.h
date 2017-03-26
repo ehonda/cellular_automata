@@ -10,6 +10,8 @@ class CellularAutomaton
 public:
 	CellularAutomaton(CellRowPtr& initialGeneration);
 
+	CellRowPtr getNextGeneration();
+
 private:
 	void throwIfCellRowIsNullPtr() const;
 
@@ -19,6 +21,7 @@ private:
 	mutable CellRowPtr _cellRowPrototype;
 	CellRowPtr _currentGeneration;
 	CellRowPtr _nextGeneration;
+	RulePtr _rule;
 };
 
 }

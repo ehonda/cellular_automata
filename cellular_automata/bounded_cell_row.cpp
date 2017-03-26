@@ -35,6 +35,16 @@ void BoundedCellRow::initializeCells(const CellVector& cells)
 	_cells.emplace_back(_boundaryCell);
 }
 
+CellVector::iterator BoundedCellRow::doBegin() noexcept
+{
+	return ++_cells.begin();
+}
+
+CellVector::iterator BoundedCellRow::doEnd() noexcept
+{
+	return --_cells.end();
+}
+
 CellVector::const_iterator BoundedCellRow::doCbegin() const noexcept
 {
 	return ++_cells.cbegin();
