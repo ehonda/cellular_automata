@@ -14,10 +14,10 @@ BoundedCellRow::BoundedCellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreat
 }
 
 BoundedCellRow::BoundedCellRow(const KNearestNeighborsRulePtr& rule, const CellVector& cells)
-	: CellRow(std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(rule))
 {
+	_cellNeighborhoodCreatorPtr = std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(rule);
+	initializeCells(cells);
 }
-
 
 const CellVector& BoundedCellRow::getCellsIncludingBoundaries() const noexcept
 {

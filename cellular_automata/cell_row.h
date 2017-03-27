@@ -33,6 +33,7 @@ private:
 	virtual CellRowPtr doGetPtrToCopy() const = 0;
 
 protected:
+	CellRow() = default;
 	virtual bool equals(const CellRow& other) const;
 
 	CellNeighborhoodCreatorPtr _cellNeighborhoodCreatorPtr;
