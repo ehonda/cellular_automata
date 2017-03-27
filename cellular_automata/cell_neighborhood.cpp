@@ -1,7 +1,5 @@
 #include "cell_neighborhood.h"
 
-#include <typeinfo>
-
 namespace cellular_automata
 {
 
@@ -17,10 +15,7 @@ const integers::BaseBInteger& CellNeighborhood::getIntegerEncodedCellNeighborhoo
 
 bool CellNeighborhood::operator==(const CellNeighborhood& other) const
 {
-	if (typeid(*this) != typeid(other))
-		return false;
-	else
-		return equals(other);
+	return equals(other);
 }
 
 CellNeighborhood::CellNeighborhood(const CellVector& cells, const RulePtr& rule)

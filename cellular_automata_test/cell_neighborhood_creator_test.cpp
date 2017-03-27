@@ -3,9 +3,7 @@
 #include "gtest/gtest.h"
 
 #include "cell_neighborhood_creator.h"
-//#include "cell_neighborhood_creator.cpp"
 #include "cell_neighborhood_creator_stub.h"
-//#include "cell_neighborhood_creator_stub.cpp"
 
 #include "k_nearest_neighbors_rule.h"
 

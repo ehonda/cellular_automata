@@ -15,7 +15,7 @@ integers::state_t Rule::getNumberOfStates() const noexcept
 
 bool Rule::operator==(const Rule& other) const noexcept
 {
-	return equals(other);
+	return equals(other) && other.equals(*this);
 }
 
 bool Rule::equals(const Rule& other) const noexcept

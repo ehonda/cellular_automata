@@ -8,6 +8,7 @@ namespace cellular_automata
 class CellularAutomaton
 {
 public:
+	CellularAutomaton() = default;
 	CellularAutomaton(CellRowPtr& initialGeneration);
 
 	CellRowPtr getNextGeneration();

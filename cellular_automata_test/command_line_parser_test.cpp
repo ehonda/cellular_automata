@@ -3,7 +3,6 @@
 #include "gtest/gtest.h"
 
 #include "command_line_parser.h"
-//#include "command_line_parser.cpp"
 
 namespace
 {

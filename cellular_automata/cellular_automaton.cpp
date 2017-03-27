@@ -9,9 +9,10 @@ namespace cellular_automata
 {
 
 CellularAutomaton::CellularAutomaton(CellRowPtr& initialGeneration)
-	: _currentGeneration(std::move(initialGeneration)), _rule(_currentGeneration->getRule())
+	: _currentGeneration(std::move(initialGeneration))
 {
 	throwIfCellRowIsNullPtr();
+	_rule = _currentGeneration->getRule();
 	initializeCellRowPrototype(_currentGeneration);
 	_nextGeneration = getCellRowFromPrototype();
 }
@@ -23,8 +24,7 @@ CellRowPtr CellularAutomaton::getNextGeneration()
 	
 	for (auto currentGenIt = _currentGeneration->cbegin();
 		currentGenIt != _currentGeneration->cend();
-		++currentGenIt, ++nextGenIt)
-	{
+		++currentGenIt, ++nextGenIt) {
 		auto neighborhood = _currentGeneration->getNeighborhood(currentGenIt);
 		*nextGenIt = _rule->getNextGeneration(neighborhood);
 	}

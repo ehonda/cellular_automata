@@ -27,6 +27,7 @@ private:
 
 protected:
 	virtual bool equals(const CellRow& other) const override;
+	bool equalsOtherBounded(const BoundedCellRow& other) const;
 
 	CellVector _cells;
 	Cell _boundaryCell;

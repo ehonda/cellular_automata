@@ -3,7 +3,6 @@
 #include "gtest/gtest.h"
 
 #include "base_converter.h"
-//#include "base_converter.cpp"
 
 namespace
 {

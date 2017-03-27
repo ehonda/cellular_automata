@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
 #include "bounded_cell_row.h"
-//#include "bounded_cell_row.cpp"
 
 #include "cell.h"
 #include "cell_neighborhood_creator.h"

@@ -1,7 +1,6 @@
 #include "cell_neighborhood_creator.h"
 
 #include <stdexcept>
-#include <typeinfo>
 
 #include "rule.h"
 
@@ -31,10 +30,7 @@ CellNeighborhoodCreatorPtr CellNeighborhoodCreator::getPtrToCopy() const noexcep
 
 bool CellNeighborhoodCreator::operator==(const CellNeighborhoodCreator& other) const noexcept
 {
-	if (typeid(*this) != typeid(other))
-		return false;
-	else
-		return equals(other);
+	return equals(other) && other.equals(*this);
 }
 
 bool CellNeighborhoodCreator::operator!=(const CellNeighborhoodCreator& other) const noexcept

@@ -1,7 +1,6 @@
 #include "cell_row.h"
 
 #include <stdexcept>
-#include <typeinfo>
 
 #include "cell_neighborhood.h"
 #include "cell_neighborhood_creator.h"
@@ -52,10 +51,7 @@ CellRowPtr CellRow::getPtrToCopy() const
 
 bool CellRow::operator==(const CellRow& other) const
 {
-	if (typeid(*this) != typeid(other))
-		return false;
-	else
-		return equals(other);
+	return equals(other) && other.equals(*this);
 }
 
 bool CellRow::operator!=(const CellRow& other) const

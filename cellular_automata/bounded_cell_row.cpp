@@ -64,9 +64,17 @@ CellRowPtr BoundedCellRow::doGetPtrToCopy() const
 
 bool BoundedCellRow::equals(const CellRow& other) const
 {
-	return CellRow::equals(other)
-		&& _cells == static_cast<const BoundedCellRow&>(other)._cells
-		&& _boundaryCell == static_cast<const BoundedCellRow&>(other)._boundaryCell;
+	bool equals = false;
+	auto otherBounded = dynamic_cast<const BoundedCellRow*>(&other);
+	if (otherBounded)
+		equals = equalsOtherBounded(*otherBounded);
+	return equals && CellRow::equals(other);
+}
+
+bool BoundedCellRow::equalsOtherBounded(const BoundedCellRow& other) const
+{
+	return _cells == other._cells
+		&& _boundaryCell == other._boundaryCell;
 }
 
 }

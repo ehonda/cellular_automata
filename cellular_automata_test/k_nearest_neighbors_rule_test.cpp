@@ -3,7 +3,6 @@
 #include "gtest/gtest.h"
 
 #include "k_nearest_neighbors_rule.h"
-//#include "k_nearest_neighbors_rule.cpp"
 
 #include "base_b_integer.h"
 #include "type_definitions.h"
