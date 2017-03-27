@@ -66,9 +66,6 @@
     <ClCompile Include="cellular_automaton_test.cpp">
       <Filter>Source Files\Cellular Automata\General</Filter>
     </ClCompile>
-    <ClCompile Include="cell_population_test.cpp">
-      <Filter>Source Files\Cellular Automata\Cells</Filter>
-    </ClCompile>
     <ClCompile Include="command_line_parser_test.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>

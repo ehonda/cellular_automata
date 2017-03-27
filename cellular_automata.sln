@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cellular_automata", "cellular_automata\cellular_automata.vcxproj", "{03A7D7BD-A8C0-4054-B829-96FEFBC3EABB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cellular_automata_test", "cellular_automata_test\cellular_automata_test.vcxproj", "{2438FE71-78E0-4C08-B8F4-81F82464DA4D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03A7D7BD-A8C0-4054-B829-96FEFBC3EABB} = {03A7D7BD-A8C0-4054-B829-96FEFBC3EABB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -30,18 +30,25 @@ KNearestNeighborsRule::KNearestNeighborsRule(integers::BaseBInteger integerEncod
 	throwIfInvalidNumberOfNeighbors();
 }
 
-bool KNearestNeighborsRule::equals(const Rule& other) const noexcept
-{
-	auto knnOther = static_cast<const KNearestNeighborsRule&>(other);
-	return Rule::equals(other)
-		&& _numberOfNeighbors == knnOther._numberOfNeighbors
-		&& _integerEncodedRule == knnOther._integerEncodedRule;
-}
-
 void KNearestNeighborsRule::throwIfInvalidNumberOfNeighbors() const
 {
 	if (_numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS)
 		throw std::domain_error("The minimum number of neighbors was underrun");
+}
+
+bool KNearestNeighborsRule::equalsOtherKnn(const KNearestNeighborsRule & other) const noexcept
+{
+	return _numberOfNeighbors == other._numberOfNeighbors
+		&& _integerEncodedRule == other._integerEncodedRule;
+}
+
+bool KNearestNeighborsRule::equals(const Rule& other) const noexcept
+{
+	bool equals = false;
+	auto otherKnn = dynamic_cast<const KNearestNeighborsRule*>(&other);
+	if (otherKnn)
+		equals = equalsOtherKnn(*otherKnn);
+	return equals && Rule::equals(other);
 }
 
 }

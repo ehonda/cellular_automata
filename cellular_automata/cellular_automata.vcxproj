@@ -83,6 +83,9 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>lib /NOLOGO /OUT:"$(TargetPath).lib" "$(ProjectDir)\$(Configuration)\*.obj"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -125,7 +128,6 @@
     <ClInclude Include="cellular_automaton.h" />
     <ClInclude Include="cell_neighborhood.h" />
     <ClInclude Include="cell_neighborhood_creator_stub.h" />
-    <ClInclude Include="cell_population.h" />
     <ClInclude Include="cell_row.h" />
     <ClInclude Include="cell_row_stub.h" />
     <ClInclude Include="command_line_parser.h" />
@@ -145,7 +147,6 @@
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_neighborhood_creator.cpp" />
     <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
-    <ClCompile Include="cell_population.cpp" />
     <ClCompile Include="cell_row.cpp" />
     <ClCompile Include="cell_row_stub.cpp" />
     <ClCompile Include="command_line_parser.cpp" />

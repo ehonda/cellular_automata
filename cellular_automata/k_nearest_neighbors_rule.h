@@ -20,9 +20,11 @@ public:
 
 private:
 	KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);
-	virtual bool equals(const Rule& other) const noexcept override;
-
+	
 	void throwIfInvalidNumberOfNeighbors() const;
+
+	virtual bool equals(const Rule& other) const noexcept override;
+	bool equalsOtherKnn(const KNearestNeighborsRule& other) const noexcept;
 
 	integers::BaseBInteger _integerEncodedRule;
 	integers::integer_t _numberOfNeighbors;

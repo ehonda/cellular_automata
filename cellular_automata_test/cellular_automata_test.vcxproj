@@ -70,7 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\cellular_automata\cellular_automata;C:\shared_cpp_libs\googletest-master\googletest\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\shared_cpp_libs\googletest-master\googletest\lib\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\cellular_automata\Debug;C:\shared_cpp_libs\googletest-master\googletest\lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\shared_cpp_libs\googletest-master\googletest\include;$(IncludePath)</IncludePath>
@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;cellular_automata.exe.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>
@@ -134,7 +134,6 @@
     <ClCompile Include="cellular_automaton_test.cpp" />
     <ClCompile Include="cell_neighborhood_creator_test.cpp" />
     <ClCompile Include="cell_neighborhood_test.cpp" />
-    <ClCompile Include="cell_population_test.cpp" />
     <ClCompile Include="cell_row_test.cpp" />
     <ClCompile Include="cell_test.cpp" />
     <ClCompile Include="command_line_parser_test.cpp" />

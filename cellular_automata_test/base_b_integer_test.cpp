@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 
 #include "base_b_integer.h"
-#include "base_b_integer.cpp"
+//#include "base_b_integer.cpp"
 #include "k_nearest_neighbors_rule.h"
 
 namespace

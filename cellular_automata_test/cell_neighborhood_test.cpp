@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "cell_neighborhood.h"
-#include "cell_neighborhood.cpp"
+//#include "cell_neighborhood.cpp"
 
 #include <vector>
 

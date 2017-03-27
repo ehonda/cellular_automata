@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
-#include "k_nearest_neighbors_cell_neighborhood_creator.cpp"
+//#include "k_nearest_neighbors_cell_neighborhood_creator.cpp"
 
 #include "cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_rule.h"

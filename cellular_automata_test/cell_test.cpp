@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "cell.h"
-#include "cell.cpp"
+//#include "cell.cpp"
 
 TEST(CellTest, ConstructionAndSettingStateWork)
 {

@@ -1,9 +1,9 @@
 #include "gtest/gtest.h"
 
 #include "rule.h"
-#include "rule.cpp"
+//#include "rule.cpp"
 #include "rule_stub.h"
-#include "rule_stub.cpp"
+//#include "rule_stub.cpp"
 
 namespace testing_cellular_automata
 {

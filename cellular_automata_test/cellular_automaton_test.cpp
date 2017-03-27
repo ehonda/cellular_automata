@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 
 #include "cellular_automaton.h"
-#include "cellular_automaton.cpp"
+//#include "cellular_automaton.cpp"
 
 #include "base_b_integer.h"
 #include "bounded_cell_row.h"

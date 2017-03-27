@@ -108,9 +108,6 @@
     <ClInclude Include="rule_stub.h">
       <Filter>Header Files\Cellular Automata\General\Stubs</Filter>
     </ClInclude>
-    <ClInclude Include="cell_population.h">
-      <Filter>Header Files\Cellular Automata\Cells</Filter>
-    </ClInclude>
     <ClInclude Include="command_line_parser.h">
       <Filter>Header Files\Application</Filter>
     </ClInclude>
@@ -160,9 +157,6 @@
     </ClCompile>
     <ClCompile Include="rule_stub.cpp">
       <Filter>Source Files\Cellular Automata\General\Stubs</Filter>
-    </ClCompile>
-    <ClCompile Include="cell_population.cpp">
-      <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
     <ClCompile Include="command_line_parser.cpp">
       <Filter>Source Files\Application</Filter>

@@ -21,7 +21,7 @@ public:
 protected:
 	virtual bool equals(const Rule& other) const noexcept;
 
-	integers::state_t _numberOfStates;
+	integers::state_t numberOfStates_;
 };
 
 }
