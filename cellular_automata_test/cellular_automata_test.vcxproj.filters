@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Application">
       <UniqueIdentifier>{f8ff760a-ee46-4114-a4af-ed6425805e7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MVC">
+      <UniqueIdentifier>{1c666a80-1c34-4e96-9854-544051a5e7a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter_test.cpp">
@@ -72,5 +75,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cellular_automata_controller_test.cpp">
+      <Filter>Source Files\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood_creator_factory_test.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic_rules.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

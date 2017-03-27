@@ -131,7 +131,9 @@
     <ClCompile Include="base_b_integer_test.cpp" />
     <ClCompile Include="base_converter_test.cpp" />
     <ClCompile Include="bounded_cell_row_test.cpp" />
+    <ClCompile Include="cellular_automata_controller_test.cpp" />
     <ClCompile Include="cellular_automaton_test.cpp" />
+    <ClCompile Include="cell_neighborhood_creator_factory_test.cpp" />
     <ClCompile Include="cell_neighborhood_creator_test.cpp" />
     <ClCompile Include="cell_neighborhood_test.cpp" />
     <ClCompile Include="cell_row_test.cpp" />
@@ -141,6 +143,9 @@
     <ClCompile Include="k_nearest_neighbors_rule_test.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rule_test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic_rules.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,8 @@ public:
 	BoundedCellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr,
 		const CellVector& cells);
 
+	BoundedCellRow(const KNearestNeighborsRulePtr& rule, const CellVector& cells);
+
 	const CellVector& getCellsIncludingBoundaries() const noexcept;
 	void setBoundaryCell(const Cell& boundaryCell) noexcept;
 

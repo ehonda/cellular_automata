@@ -62,6 +62,12 @@ TEST_F(BoundedCellRowTest, ConstructionWorks)
 	EXPECT_EQ(expectedCells, actualCells);
 }
 
+//TEST_F(BoundedCellRowTest, construction_from_rule_and_cells) {
+//	BoundedCellRow rowFromRule(_knnRule, _baseCells);
+//	BoundedCellRow rowFromCreator(getKnnNeighborhoodCreator(), _baseCells);
+//	EXPECT_EQ(rowFromRule, rowFromCreator);
+//}
+
 TEST_F(BoundedCellRowTest, SetBoundaryCellWorks)
 {
 	BoundedCellRow boundedCellRow(getKnnNeighborhoodCreator(), _baseCells);

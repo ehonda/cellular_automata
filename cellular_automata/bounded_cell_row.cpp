@@ -1,6 +1,7 @@
 #include "bounded_cell_row.h"
 
 #include "cell_neighborhood_creator.h"
+#include "k_nearest_neighbors_cell_neighborhood_creator.h"
 
 namespace cellular_automata
 {
@@ -11,6 +12,12 @@ BoundedCellRow::BoundedCellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreat
 {
 	initializeCells(cells);
 }
+
+BoundedCellRow::BoundedCellRow(const KNearestNeighborsRulePtr& rule, const CellVector& cells)
+	: CellRow(std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(rule))
+{
+}
+
 
 const CellVector& BoundedCellRow::getCellsIncludingBoundaries() const noexcept
 {

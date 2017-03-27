@@ -125,8 +125,11 @@
     <ClInclude Include="base_converter.h" />
     <ClInclude Include="bounded_cell_row.h" />
     <ClInclude Include="cell.h" />
+    <ClInclude Include="cellular_automata_controller.h" />
     <ClInclude Include="cellular_automaton.h" />
+    <ClInclude Include="cellular_automaton_app.h" />
     <ClInclude Include="cell_neighborhood.h" />
+    <ClInclude Include="cell_neighborhood_creator_factory.h" />
     <ClInclude Include="cell_neighborhood_creator_stub.h" />
     <ClInclude Include="cell_row.h" />
     <ClInclude Include="cell_row_stub.h" />
@@ -143,9 +146,12 @@
     <ClCompile Include="base_converter.cpp" />
     <ClCompile Include="bounded_cell_row.cpp" />
     <ClCompile Include="cell.cpp" />
+    <ClCompile Include="cellular_automata_controller.cpp" />
     <ClCompile Include="cellular_automaton.cpp" />
+    <ClCompile Include="cellular_automaton_app.cpp" />
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_neighborhood_creator.cpp" />
+    <ClCompile Include="cell_neighborhood_creator_factory.cpp" />
     <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
     <ClCompile Include="cell_row.cpp" />
     <ClCompile Include="cell_row_stub.cpp" />

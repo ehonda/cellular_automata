@@ -61,6 +61,12 @@
     <Filter Include="Header Files\Application">
       <UniqueIdentifier>{c0c24578-e99f-479a-966b-12c7d41af89e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MVC">
+      <UniqueIdentifier>{d37391bc-0c4f-4ac9-adc8-00f44bcec185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MVC">
+      <UniqueIdentifier>{d40296d3-af9d-4008-aba8-982a98033f05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base_converter.h">
@@ -111,6 +117,15 @@
     <ClInclude Include="command_line_parser.h">
       <Filter>Header Files\Application</Filter>
     </ClInclude>
+    <ClInclude Include="cellular_automaton_app.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="cellular_automata_controller.h">
+      <Filter>Header Files\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_neighborhood_creator_factory.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
@@ -160,6 +175,15 @@
     </ClCompile>
     <ClCompile Include="command_line_parser.cpp">
       <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="cellular_automaton_app.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="cellular_automata_controller.cpp">
+      <Filter>Source Files\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_neighborhood_creator_factory.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
