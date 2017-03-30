@@ -1,14 +1,15 @@
 #include "gtest/gtest.h"
 
-#include "bounded_cell_row.h"
+#include "basic_rules.h"
 
+#include "bounded_cell_row.h"
 #include "cell.h"
 #include "cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_rule.h"
 #include "type_definitions.h"
 
-namespace
+namespace cellular_automata_test
 {
 
 using namespace cellular_automata;
@@ -62,11 +63,11 @@ TEST_F(BoundedCellRowTest, ConstructionWorks)
 	EXPECT_EQ(expectedCells, actualCells);
 }
 
-//TEST_F(BoundedCellRowTest, construction_from_rule_and_cells) {
-//	BoundedCellRow rowFromRule(_knnRule, _baseCells);
-//	BoundedCellRow rowFromCreator(getKnnNeighborhoodCreator(), _baseCells);
-//	EXPECT_EQ(rowFromRule, rowFromCreator);
-//}
+TEST_F(BoundedCellRowTest, construction_from_rule_and_cells) {
+	BoundedCellRow rowFromRule(_knnRule, _baseCells);
+	BoundedCellRow rowFromCreator(getKnnNeighborhoodCreator(), _baseCells);
+	EXPECT_EQ(rowFromRule, rowFromCreator);
+}
 
 TEST_F(BoundedCellRowTest, SetBoundaryCellWorks)
 {
@@ -114,6 +115,15 @@ TEST_F(BoundedCellRowTest, GetPtrToCopyWorks)
 		= std::make_unique<BoundedCellRow>(getKnnNeighborhoodCreator(), _baseCells);
 	auto boundedCellRowCopyPtr = boundedCellRowPtr->getPtrToCopy();
 	EXPECT_EQ(*boundedCellRowPtr, *boundedCellRowCopyPtr);
+}
+
+TEST_F(BoundedCellRowTest, get_two_boundary_cells_from_knn_neighborhood) {
+	auto rule = BasicRules::getKnnRule(2, 130, 5);
+	BoundedCellRow row(rule, { 1, 1, 1, 1, 1 });
+
+	auto neighborhood = row.getNeighborhood(row.cbegin());
+	auto expectedNeighborhood = CellNeighborhood::createPtr({ 0, 0, 1, 1, 1 }, rule);
+	EXPECT_EQ(*neighborhood, *expectedNeighborhood);
 }
 
 //-----------------------------------------------------------------------------------------------

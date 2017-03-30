@@ -13,8 +13,8 @@ class CellNeighborhoodCreatorFactoryTest : public testing::Test {
 };
 
 TEST_F(CellNeighborhoodCreatorFactoryTest, test_knn_creator) {
-	CellNeighborhoodCreatorFactory factory;
-	auto rule30 = BasicRules::getRule30();
+	/*CellNeighborhoodCreatorFactory factory;
+	auto rule30 = BasicRules::getRule30();*/
 	//auto creator = CellNeighborhoodCreatorFactory::getCreator(rule30);
 }
 

@@ -10,8 +10,11 @@ class CellularAutomaton
 public:
 	CellularAutomaton() = default;
 	CellularAutomaton(CellRowPtr& initialGeneration);
+	CellularAutomaton(const KNearestNeighborsRulePtr& rule, const CellVector& initialGen);
 
-	CellRowPtr getNextGeneration();
+	CellRowPtr peekCurrentGeneration() const;
+	void advanceToNextGeneration();
+	/*__declspec(deprecated)*/ CellRowPtr getNextGeneration();
 
 private:
 	void throwIfCellRowIsNullPtr() const;

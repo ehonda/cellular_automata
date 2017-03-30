@@ -9,6 +9,7 @@ namespace cellular_automata
 //FORWARD DECLARATIONS
 class BoundedCellRow;
 class Cell;
+class CellularAutomaton;
 class CellNeighborhood;
 class CellNeighborhoodCreator;
 class CellRow;
@@ -19,6 +20,7 @@ class KNearestNeighborsRule;
 //-----------------------------------------------------------------------------------------------
 //ALIASES
 using BoundedCellRowPtr = std::shared_ptr<BoundedCellRow>;
+using CellularAutomatonPtr = std::shared_ptr<CellularAutomaton>;
 using CellVector = std::vector<Cell>;
 using CellNeighborhoodPtr = std::unique_ptr<CellNeighborhood>;
 using CellNeighborhoodCreatorPtr = std::unique_ptr<CellNeighborhoodCreator>;

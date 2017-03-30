@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 
+#include "bounded_cell_row.h"
 #include "cell_row.h"
 #include "rule.h"
 
@@ -17,11 +18,21 @@ CellularAutomaton::CellularAutomaton(CellRowPtr& initialGeneration)
 	_nextGeneration = getCellRowFromPrototype();
 }
 
-CellRowPtr CellularAutomaton::getNextGeneration()
+CellularAutomaton::CellularAutomaton(const KNearestNeighborsRulePtr& rule, const CellVector& initialGen)
+	: CellularAutomaton(CellRowPtr(new BoundedCellRow(rule, initialGen)))
+{
+}
+
+CellRowPtr CellularAutomaton::peekCurrentGeneration() const
+{
+	return _currentGeneration->getPtrToCopy();
+}
+
+void CellularAutomaton::advanceToNextGeneration()
 {
 	_nextGeneration = getCellRowFromPrototype();
 	auto nextGenIt = _nextGeneration->begin();
-	
+
 	for (auto currentGenIt = _currentGeneration->cbegin();
 		currentGenIt != _currentGeneration->cend();
 		++currentGenIt, ++nextGenIt) {
@@ -30,7 +41,12 @@ CellRowPtr CellularAutomaton::getNextGeneration()
 	}
 
 	_currentGeneration = _nextGeneration->getPtrToCopy();
-	return _nextGeneration->getPtrToCopy();
+}
+
+CellRowPtr CellularAutomaton::getNextGeneration()
+{
+	advanceToNextGeneration();
+	return _currentGeneration->getPtrToCopy();
 }
 
 void CellularAutomaton::throwIfCellRowIsNullPtr() const

@@ -126,6 +126,12 @@
     <ClInclude Include="cell_neighborhood_creator_factory.h">
       <Filter>Header Files\Cellular Automata\Cells</Filter>
     </ClInclude>
+    <ClInclude Include="cellular_automaton_view.h">
+      <Filter>Header Files\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_color_map.h">
+      <Filter>Header Files\MVC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
@@ -184,6 +190,12 @@
     </ClCompile>
     <ClCompile Include="cell_neighborhood_creator_factory.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="cellular_automaton_view.cpp">
+      <Filter>Source Files\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_color_map.cpp">
+      <Filter>Source Files\MVC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

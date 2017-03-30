@@ -86,5 +86,8 @@
     <ClInclude Include="basic_rules.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="elementary_generations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

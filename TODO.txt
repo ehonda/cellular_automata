@@ -1,3 +1,25 @@
+BUGS:
+-> 5 Nachbarn gibt out of range access
+
+
+29/03/2017:
+-> Texturperformance verbessern
+	-> Große Textur reservieren (Mehrere Screens), durchscrollen und dazwischen aktualisieren?
+	-> Verschiedene Klassen implementieren die verschiedene Modi implementieren
+	-> View benutzt Modusunterklasse?
+
+-> Random generation und Random Rule in CellularAutomaton Klasse packen
+
+-> BaseBInteger anpassen, sodass beliebig große Zahlen benutzt werden können
+	-> https://gmplib.org/ benutzen
+	-> make, cmake anschauen
+	-> minsys für windows make port holen
+
+-> Ablauf in cellular_automaton_app verbessern -> klarere namen, setzen und starten besser trennen
+
 28/03/2017:
 
 -> Alle Anwenderklassen von CellRow auf neuen Konstruktor CellRow(rule, cells) migrieren
+	-> Dadurch sind andere Klassen nicht mehr abhängig von CellNeighborhoodCreator, dieser ist ein Implementierungsdetail.
+	-> Ptr auf CellNeighborhoodcreator werden überflüssig -> getPtrToCopy-Methoden werden überflüssig!
+

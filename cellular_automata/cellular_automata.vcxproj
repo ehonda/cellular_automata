@@ -72,6 +72,10 @@
     <IncludePath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -105,7 +109,12 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>lib /NOLOGO /OUT:"$(TargetPath).lib" "$(ProjectDir)\$(Configuration)\*.obj"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -126,8 +135,10 @@
     <ClInclude Include="bounded_cell_row.h" />
     <ClInclude Include="cell.h" />
     <ClInclude Include="cellular_automata_controller.h" />
+    <ClInclude Include="cellular_automaton_view.h" />
     <ClInclude Include="cellular_automaton.h" />
     <ClInclude Include="cellular_automaton_app.h" />
+    <ClInclude Include="cell_color_map.h" />
     <ClInclude Include="cell_neighborhood.h" />
     <ClInclude Include="cell_neighborhood_creator_factory.h" />
     <ClInclude Include="cell_neighborhood_creator_stub.h" />
@@ -149,6 +160,8 @@
     <ClCompile Include="cellular_automata_controller.cpp" />
     <ClCompile Include="cellular_automaton.cpp" />
     <ClCompile Include="cellular_automaton_app.cpp" />
+    <ClCompile Include="cellular_automaton_view.cpp" />
+    <ClCompile Include="cell_color_map.cpp" />
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_neighborhood_creator.cpp" />
     <ClCompile Include="cell_neighborhood_creator_factory.cpp" />
