@@ -132,6 +132,15 @@
     <ClInclude Include="cell_color_map.h">
       <Filter>Header Files\MVC</Filter>
     </ClInclude>
+    <ClInclude Include="cell_row_iterator.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_row_boundary_component.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
+    <ClInclude Include="bounded_cell_row_boundary_component.h">
+      <Filter>Header Files\Cellular Automata\Cells</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
@@ -196,6 +205,15 @@
     </ClCompile>
     <ClCompile Include="cell_color_map.cpp">
       <Filter>Source Files\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_row_iterator.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="cell_row_boundary_component.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
+    </ClCompile>
+    <ClCompile Include="bounded_cell_row_boundary_component.cpp">
+      <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

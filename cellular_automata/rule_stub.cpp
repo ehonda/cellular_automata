@@ -13,6 +13,11 @@ Cell RuleStub::getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) co
 	return Cell();
 }
 
+std::string RuleStub::toString() const
+{
+	return std::string();
+}
+
 RuleStub::RuleStub(integers::state_t numberOfStates)
 	: Rule(numberOfStates)
 {

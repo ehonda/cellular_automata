@@ -117,14 +117,14 @@ TEST_F(BoundedCellRowTest, GetPtrToCopyWorks)
 	EXPECT_EQ(*boundedCellRowPtr, *boundedCellRowCopyPtr);
 }
 
-TEST_F(BoundedCellRowTest, get_two_boundary_cells_from_knn_neighborhood) {
-	auto rule = BasicRules::getKnnRule(2, 130, 5);
-	BoundedCellRow row(rule, { 1, 1, 1, 1, 1 });
-
-	auto neighborhood = row.getNeighborhood(row.cbegin());
-	auto expectedNeighborhood = CellNeighborhood::createPtr({ 0, 0, 1, 1, 1 }, rule);
-	EXPECT_EQ(*neighborhood, *expectedNeighborhood);
-}
+//TEST_F(BoundedCellRowTest, get_two_boundary_cells_from_knn_neighborhood) {
+//	auto rule = BasicRules::getKnnRule(2, 130, 5);
+//	BoundedCellRow row(rule, { 1, 1, 1, 1, 1 });
+//
+//	auto neighborhood = row.getNeighborhood(row.cbegin());
+//	auto expectedNeighborhood = CellNeighborhood::createPtr({ 0, 0, 1, 1, 1 }, rule);
+//	EXPECT_EQ(*neighborhood, *expectedNeighborhood);
+//}
 
 //-----------------------------------------------------------------------------------------------
 

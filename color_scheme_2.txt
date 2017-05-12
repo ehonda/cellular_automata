@@ -1,0 +1,8 @@
+ R G B		  A B G R
+
+#050517		0xFF170505
+#CF5C36		0xFF365CCF
+#EFC88B		0xFF8BC8EF
+
+
+https://coolors.co/050517-cf5c36-efc88b-f4e3b2-d3d5d7

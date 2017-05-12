@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include <SDL.h>
 
@@ -24,6 +25,8 @@ public:
 
 	void reset(const std::shared_ptr<cellular_automata::CellularAutomaton>& automaton);
 
+	void screenshot();
+
 private:
 	void initializeTexture();
 
@@ -33,6 +36,8 @@ private:
 	void setPixelsForCurrentGeneration();
 
 	Uint32 getPixelForCell(const cellular_automata::Cell& cell) const;
+
+	std::string getTimestamp() const;
 
 	static const int windowWidth_ = 1024;
 	static const int windowHeight_ = 768;
@@ -45,6 +50,8 @@ private:
 	SDL_Renderer* renderer_ = nullptr;
 	SDL_Texture* texture_ = nullptr;
 	Uint32 pixels_[numberOfPixels_];
+
+	static const std::string SCREENSHOT_DIR;
 };
 
 }

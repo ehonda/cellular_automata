@@ -1,0 +1,2 @@
+Use something else than insecure localtime for timestamp in screenshot function,
+undefine _CRT_SECURE_NO_WARNINGS afterwards

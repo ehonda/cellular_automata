@@ -9,6 +9,8 @@ namespace cellular_automata
 
 class BoundedCellRow : public CellRow
 {
+	friend class BoundedCellRowIterator;
+
 public:
 	BoundedCellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr,
 		const CellVector& cells);
@@ -19,6 +21,7 @@ public:
 	void setBoundaryCell(const Cell& boundaryCell) noexcept;
 
 private:
+	void padBoundary();
 	void initializeCells(const CellVector& cells);
 
 	virtual CellVector::iterator doBegin() noexcept override;
@@ -31,7 +34,7 @@ protected:
 	virtual bool equals(const CellRow& other) const override;
 	bool equalsOtherBounded(const BoundedCellRow& other) const;
 
-	CellVector _cells;
+	//CellVector _cells;
 	Cell _boundaryCell;
 };
 

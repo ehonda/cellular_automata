@@ -15,6 +15,7 @@ public:
 	CellRowPtr peekCurrentGeneration() const;
 	void advanceToNextGeneration();
 	/*__declspec(deprecated)*/ CellRowPtr getNextGeneration();
+	RulePtr getRule() const noexcept;
 
 private:
 	void throwIfCellRowIsNullPtr() const;

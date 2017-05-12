@@ -69,19 +69,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SDL_2_INCLUDE_DIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SDL_2_LIB_32_DEBUG_DIR);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SDL_2_INCLUDE_DIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SDL_2_LIB_32_RELEASE_DIR);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -105,6 +105,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -133,6 +134,7 @@
     <ClInclude Include="base_b_integer.h" />
     <ClInclude Include="base_converter.h" />
     <ClInclude Include="bounded_cell_row.h" />
+    <ClInclude Include="bounded_cell_row_boundary_component.h" />
     <ClInclude Include="cell.h" />
     <ClInclude Include="cellular_automata_controller.h" />
     <ClInclude Include="cellular_automaton_view.h" />
@@ -143,6 +145,8 @@
     <ClInclude Include="cell_neighborhood_creator_factory.h" />
     <ClInclude Include="cell_neighborhood_creator_stub.h" />
     <ClInclude Include="cell_row.h" />
+    <ClInclude Include="cell_row_boundary_component.h" />
+    <ClInclude Include="cell_row_iterator.h" />
     <ClInclude Include="cell_row_stub.h" />
     <ClInclude Include="command_line_parser.h" />
     <ClInclude Include="k_nearest_neighbors_cell_neighborhood_creator.h" />
@@ -156,6 +160,7 @@
     <ClCompile Include="base_b_integer.cpp" />
     <ClCompile Include="base_converter.cpp" />
     <ClCompile Include="bounded_cell_row.cpp" />
+    <ClCompile Include="bounded_cell_row_boundary_component.cpp" />
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="cellular_automata_controller.cpp" />
     <ClCompile Include="cellular_automaton.cpp" />
@@ -167,6 +172,8 @@
     <ClCompile Include="cell_neighborhood_creator_factory.cpp" />
     <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
     <ClCompile Include="cell_row.cpp" />
+    <ClCompile Include="cell_row_boundary_component.cpp" />
+    <ClCompile Include="cell_row_iterator.cpp" />
     <ClCompile Include="cell_row_stub.cpp" />
     <ClCompile Include="command_line_parser.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator.cpp" />

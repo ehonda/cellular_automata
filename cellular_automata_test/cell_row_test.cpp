@@ -1,6 +1,7 @@
 #include <stdexcept>
 
 #include "gtest/gtest.h"
+#include "basic_rules.h"
 
 #include "cell_row.h"
 #include "cell_row.cpp"
@@ -12,8 +13,7 @@
 #include "k_nearest_neighbors_rule.h"
 #include "type_definitions.h"
 
-namespace
-{
+namespace cellular_automata_test {
 
 using namespace cellular_automata;
 using namespace integers;
@@ -26,12 +26,8 @@ class CellRowTest : public testing::Test
 protected:
 	virtual void SetUp()
 	{
-		BaseBInteger someBase10RuleEncoded(10, 111);
-		integer_t numberOfNeighbors = 3;
-		_knnRule = KNearestNeighborsRule::createPtr(someBase10RuleEncoded, numberOfNeighbors);
-
-		integer_t differentNumberOfNeighbors = 5;
-		_differentKnnRule = KNearestNeighborsRule::createPtr(someBase10RuleEncoded, differentNumberOfNeighbors);
+		_knnRule = BasicRules::getKnnRule(10, 111, 3);
+		_differentKnnRule = BasicRules::getKnnRule(10, 111, 5);
 
 		_baseCells = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		_differentBaseCells = { 0, 1 };
@@ -58,10 +54,11 @@ protected:
 //-----------------------------------------------------------------------------------------------
 //TEST CASES
 
-TEST_F(CellRowTest, ConstructionAndGettingNeighborhoodWork)
+TEST_F(CellRowTest, test_inner_neighborhood)
 {
 	auto knnNeighborhoodCreator = getKnnNeighborhoodCreator();
 	CellRowStub cellRow(knnNeighborhoodCreator);
+	cellRow = CellRowStub(_baseCells, _knnRule);
 
 	CellVector expectedCells{ 6, 7, 8 };
 	auto expectedNeighborhood = CellNeighborhood::createPtr(expectedCells, _knnRule);

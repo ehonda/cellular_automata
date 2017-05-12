@@ -15,8 +15,10 @@ public:
 	static KNearestNeighborsRulePtr createPtr(
 		integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);
 
-	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const;
+	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const override;
 	integers::integer_t getNumberOfNeighbors() const noexcept;
+
+	virtual std::string toString() const override;
 
 private:
 	KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors);

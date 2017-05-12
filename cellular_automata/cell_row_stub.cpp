@@ -1,7 +1,15 @@
 #include "cell_row_stub.h"
 
+#include "cell_neighborhood.h"
+#include "cell_neighborhood_creator.h"
+
 namespace cellular_automata
 {
+
+CellNeighborhoodPtr CellRowStub::doGetNeighborhood(const CellVector::const_iterator& center) const
+{
+	return _cellNeighborhoodCreatorPtr->createCellNeighborhood(center);
+}
 
 CellVector::const_iterator CellRowStub::doCbegin() const noexcept
 {

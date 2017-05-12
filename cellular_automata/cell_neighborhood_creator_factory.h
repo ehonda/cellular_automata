@@ -7,6 +7,9 @@ namespace cellular_automata {
 class CellNeighborhoodCreatorFactory {
 public:
 	static CellNeighborhoodCreatorPtr getCreator(const RulePtr& rule);
+
+private:
+	static void throwOnUnkonwnRuleType();
 };
 
 }

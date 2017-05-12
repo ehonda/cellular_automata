@@ -136,6 +136,7 @@
     <ClCompile Include="cell_neighborhood_creator_factory_test.cpp" />
     <ClCompile Include="cell_neighborhood_creator_test.cpp" />
     <ClCompile Include="cell_neighborhood_test.cpp" />
+    <ClCompile Include="bounded_cell_row_boundary_component_test.cpp" />
     <ClCompile Include="cell_row_test.cpp" />
     <ClCompile Include="cell_test.cpp" />
     <ClCompile Include="command_line_parser_test.cpp" />
@@ -146,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basic_rules.h" />
-    <ClInclude Include="elementary_generations.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

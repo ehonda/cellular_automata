@@ -24,6 +24,11 @@ integers::integer_t KNearestNeighborsRule::getNumberOfNeighbors() const noexcept
 	return _numberOfNeighbors;
 }
 
+std::string KNearestNeighborsRule::toString() const
+{
+	return std::to_string(_integerEncodedRule.getInteger());
+}
+
 KNearestNeighborsRule::KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors)
 	: Rule(integerEncodedRule.getBase()), _integerEncodedRule(integerEncodedRule), _numberOfNeighbors(numberOfNeighbors)
 {

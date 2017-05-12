@@ -197,6 +197,9 @@ void CellularAutomatonApp::processEvent(SDL_Event* event) {
 	case SDL_KEYDOWN:
 		switch (event->key.keysym.sym)
 		{
+		case SDLK_p:
+			view_.screenshot();
+			break;
 		case SDLK_r:
 			randomReset();
 			break;

@@ -49,6 +49,11 @@ CellRowPtr CellularAutomaton::getNextGeneration()
 	return _currentGeneration->getPtrToCopy();
 }
 
+RulePtr CellularAutomaton::getRule() const noexcept
+{
+	return _rule;
+}
+
 void CellularAutomaton::throwIfCellRowIsNullPtr() const
 {
 	if(!_currentGeneration)

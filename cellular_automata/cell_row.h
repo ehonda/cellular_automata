@@ -8,6 +8,8 @@ namespace cellular_automata
 class CellRow
 {
 public:
+	CellRow(const CellVector& cells, const RulePtr& rule);
+	CellRow(const RulePtr& rule);
 	CellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr);
 	virtual ~CellRow() = default;
 
@@ -26,16 +28,18 @@ private:
 	void throwIfCellNeighborhoodCreatorIsNullPtr() const;
 
 	virtual CellNeighborhoodPtr doGetNeighborhood(const CellVector::const_iterator& center) const;
-	virtual CellVector::iterator doBegin() noexcept = 0;
-	virtual CellVector::iterator doEnd() noexcept = 0;
-	virtual CellVector::const_iterator doCbegin() const noexcept = 0;
-	virtual CellVector::const_iterator doCend() const noexcept = 0;
-	virtual CellRowPtr doGetPtrToCopy() const = 0;
+	virtual CellVector::iterator doBegin() noexcept;
+	virtual CellVector::iterator doEnd() noexcept;
+	virtual CellVector::const_iterator doCbegin() const noexcept;
+	virtual CellVector::const_iterator doCend() const noexcept;
+	virtual CellRowPtr doGetPtrToCopy() const;
 
 protected:
 	CellRow() = default;
 	virtual bool equals(const CellRow& other) const;
 
+	RulePtr rule_;
+	CellVector _cells;
 	CellNeighborhoodCreatorPtr _cellNeighborhoodCreatorPtr;
 };
 

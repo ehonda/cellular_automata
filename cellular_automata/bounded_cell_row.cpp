@@ -1,5 +1,8 @@
 #include "bounded_cell_row.h"
 
+#include <memory>
+#include <stdexcept>
+
 #include "cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 
@@ -29,17 +32,42 @@ void BoundedCellRow::setBoundaryCell(const Cell& boundaryCell) noexcept
 	_boundaryCell = boundaryCell;
 	if (_cells.size() > 0)
 	{
-		_cells[0] = _boundaryCell;
-		_cells[_cells.size() - 1] = _boundaryCell;
+		/*auto rule = _cellNeighborhoodCreatorPtr->getRule();
+		auto knnRule = dynamic_cast<const KNearestNeighborsRule*>(rule.get());
+		if (!knnRule)
+			throw std::runtime_error("Rule could not be cast to knnRule (BoundedCellRow::padFrontBoundary)");
+		int halfNeighbors = knnRule->getNumberOfNeighbors() / 2;
+
+		for(int i = 0; i < halfNeighbors; ++i)
+			_cells[i] = _boundaryCell;
+
+		for(int i = 0; i < halfNeighbors; ++i)
+			_cells[_cells.size() - (halfNeighbors + 1) + i] = _boundaryCell;*/
+		_cells[0] = boundaryCell;
+		_cells[_cells.size() - 1] = boundaryCell;
 	}
+}
+
+void BoundedCellRow::padBoundary()
+{
+	auto rule = _cellNeighborhoodCreatorPtr->getRule();
+	auto knnRule = dynamic_cast<const KNearestNeighborsRule*>(rule.get());
+	if (!knnRule)
+		throw std::runtime_error("Rule could not be cast to knnRule (BoundedCellRow::padFrontBoundary)");
+	int halfNeighbors = knnRule->getNumberOfNeighbors() / 2;
+
+	for (int i = 0; i < halfNeighbors; ++i)
+		_cells.emplace_back(_boundaryCell);
 }
 
 void BoundedCellRow::initializeCells(const CellVector& cells)
 {
+	//padBoundary();
 	_cells.emplace_back(_boundaryCell);
 	for (const auto& cell : cells)
 		_cells.emplace_back(cell);
 	_cells.emplace_back(_boundaryCell);
+	//padBoundary();
 }
 
 CellVector::iterator BoundedCellRow::doBegin() noexcept

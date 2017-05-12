@@ -1,0 +1,11 @@
+old_sdl_link:
+
+include:
+C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\include
+
+library:
+C:\Users\dennis\Documents\Visual Studio 2015\Projects\lib\SDL2-2.0.5\lib\x86
+
+linker cmd:
+SDL2.lib
+SDL2main.lib

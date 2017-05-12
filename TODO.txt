@@ -1,6 +1,27 @@
 BUGS:
 -> 5 Nachbarn gibt out of range access
 
+05/04/2017
+Plan:
+-> Alles auf neuen Konstruktor der CellRow umstellen (alle Stellen an denen er verwendet wird), dann alten Konstruktor löschen
+-> CellRow wird konkrete Basisklasse, konstruierbar mit Rule und CellVector
+
+
+
+02/04/2017
+-> CellNeighborhood unabhängig von Rule machen, encoding der Rule überlassen
+	-> Dadurch wird die Klasse ganz überflüssig?
+	-> Klasse ist überflüssig, statt CellNeighborhood einfach CellVector zurückgeben
+
+
+
+
+30/03/2017:
+-> BoundedCellRow mit custom iterator implementieren
+-> Neighborhood Creator gleich mit migrieren
+	----------->Stattdessen iterator Klasse löschen, neighborhood creator an cellrow binden!
+
+
 
 29/03/2017:
 -> Texturperformance verbessern
