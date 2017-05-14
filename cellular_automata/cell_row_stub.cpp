@@ -8,7 +8,7 @@ namespace cellular_automata
 
 CellNeighborhoodPtr CellRowStub::doGetNeighborhood(const CellVector::const_iterator& center) const
 {
-	return _cellNeighborhoodCreatorPtr->createCellNeighborhood(center);
+	return cellNeighborhoodCreator_->createCellNeighborhood(center);
 }
 
 CellVector::const_iterator CellRowStub::doCbegin() const noexcept

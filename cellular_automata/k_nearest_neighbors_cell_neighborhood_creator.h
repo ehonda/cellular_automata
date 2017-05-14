@@ -10,9 +10,15 @@ namespace cellular_automata
 class KNearestNeighborsCellNeighborhoodCreator : public CellNeighborhoodCreator
 {
 public:
+	KNearestNeighborsCellNeighborhoodCreator() = default;
+	KNearestNeighborsCellNeighborhoodCreator(const RulePtr& rule, CellRow* row);
 	KNearestNeighborsCellNeighborhoodCreator(const KNearestNeighborsRulePtr& rule);
 
+	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const;
+
 private:
+	void throwIfRuleIsNotKnnRule() const;
+
 	virtual void calculateNeighborsLeftAndRightOfCenter() const noexcept;
 
 	virtual CellNeighborhoodPtr doCreateCellNeighborhood(const CellVector::const_iterator& center) const override;

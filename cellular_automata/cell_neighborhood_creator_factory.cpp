@@ -8,12 +8,13 @@
 
 namespace cellular_automata {
 
-CellNeighborhoodCreatorPtr 
-CellNeighborhoodCreatorFactory::getCreator(const RulePtr& rule) {
+CellNeighborhoodCreatorPtr CellNeighborhoodCreatorFactory::getCreator(const RulePtr& rule, CellRow* row)
+{
 	CellNeighborhoodCreatorPtr creator;
 	auto knnRule = std::dynamic_pointer_cast<KNearestNeighborsRule, Rule>(rule);
 	if (knnRule)
-		creator = CellNeighborhoodCreatorPtr(new KNearestNeighborsCellNeighborhoodCreator(knnRule));
+		creator = CellNeighborhoodCreatorPtr(
+			new KNearestNeighborsCellNeighborhoodCreator(knnRule, row));
 	else
 		throwOnUnkonwnRuleType();
 

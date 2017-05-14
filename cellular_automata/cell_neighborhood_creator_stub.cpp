@@ -4,7 +4,10 @@
 
 namespace cellular_automata
 {
-
+CellVector CellNeighborhoodCreatorStub::createCellNeighborhood2(const CellVector::const_iterator & center) const
+{
+	return CellVector();
+}
 CellNeighborhoodPtr CellNeighborhoodCreatorStub::doCreateCellNeighborhood(const CellVector::const_iterator& center) const
 {
 	return CellNeighborhoodPtr();

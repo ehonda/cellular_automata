@@ -8,6 +8,11 @@ CellNeighborhoodPtr CellNeighborhood::createPtr(const CellVector& cells, const R
 	return CellNeighborhoodPtr(new CellNeighborhood(cells, rule));
 }
 
+const CellVector& CellNeighborhood::getCells() const noexcept
+{
+	return cells_;
+}
+
 const integers::BaseBInteger& CellNeighborhood::getIntegerEncodedCellNeighborhood() const noexcept
 {
 	return _encodedCellNeighborhood;
@@ -19,7 +24,7 @@ bool CellNeighborhood::operator==(const CellNeighborhood& other) const
 }
 
 CellNeighborhood::CellNeighborhood(const CellVector& cells, const RulePtr& rule)
-	: _rule(rule)
+	: cells_(cells), _rule(rule)
 {
 	encodeCellNeighborhood(cells);
 }

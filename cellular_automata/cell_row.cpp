@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 
+#include "bounded_cell_row_boundary_component.h"
 #include "cell_neighborhood.h"
 #include "cell_neighborhood_creator.h"
 #include "cell_neighborhood_creator_factory.h"
@@ -11,23 +12,34 @@ namespace cellular_automata
 
 CellRow::CellRow(const CellVector& cells, const RulePtr& rule)
 	: rule_(rule),
-	_cells(cells),
-	_cellNeighborhoodCreatorPtr(
-		CellNeighborhoodCreatorFactory::getCreator(rule))
-{
+	cells_(cells),
+	boundaryComponent_(new BoundedCellRowBoundaryComponent(this)),
+	cellNeighborhoodCreator_(
+		CellNeighborhoodCreatorFactory::getCreator(rule, this)) {
 }
 
 CellRow::CellRow(const RulePtr& rule)
 	: rule_(rule),
-	_cellNeighborhoodCreatorPtr(
-		CellNeighborhoodCreatorFactory::getCreator(rule)) {
+	boundaryComponent_(new BoundedCellRowBoundaryComponent(this)),
+	cellNeighborhoodCreator_(
+		CellNeighborhoodCreatorFactory::getCreator(rule, this)) {
 }
 
 CellRow::CellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreatorPtr)
-	: _cellNeighborhoodCreatorPtr(std::move(cellNeighborhoodCreatorPtr))
+	: boundaryComponent_(new BoundedCellRowBoundaryComponent(this)), 
+	cellNeighborhoodCreator_(std::move(cellNeighborhoodCreatorPtr))
 {
 	throwIfCellNeighborhoodCreatorIsNullPtr();
-	rule_ = _cellNeighborhoodCreatorPtr->getRule();
+	rule_ = cellNeighborhoodCreator_->getRule();
+}
+
+CellRow::CellRow(const CellRow& other)
+	: CellRow(other.cells_, other.rule_)
+{
+	if (other.boundaryComponent_) {
+		boundaryComponent_ = other.boundaryComponent_->getPtrToCopy();
+		boundaryComponent_->setCellRow(this);
+	}
 }
 
 CellNeighborhoodPtr CellRow::getNeighborhood(const CellVector::const_iterator& center) const
@@ -35,9 +47,23 @@ CellNeighborhoodPtr CellRow::getNeighborhood(const CellVector::const_iterator& c
 	return doGetNeighborhood(center);
 }
 
+CellVector CellRow::getCellNeighborhood(const CellVector::const_iterator& center) const
+{
+	return cellNeighborhoodCreator_->createCellNeighborhood2(center);
+}
+
 RulePtr CellRow::getRule() const
 {
-	return _cellNeighborhoodCreatorPtr->getRule();
+	return cellNeighborhoodCreator_->getRule();
+}
+
+void CellRow::setBoundaryComponent(std::unique_ptr<CellRowBoundaryComponent>&& boundaryComponent) {
+	boundaryComponent_ = std::move(boundaryComponent);
+	boundaryComponent_->setCellRow(this);
+}
+
+const std::unique_ptr<CellRowBoundaryComponent>& CellRow::getBoundaryComponent() const noexcept {
+	return boundaryComponent_;
 }
 
 CellVector::iterator CellRow::begin() noexcept
@@ -65,6 +91,21 @@ CellRowPtr CellRow::getPtrToCopy() const
 	return doGetPtrToCopy();
 }
 
+CellRow& CellRow::operator=(const CellRow& other)
+{
+	if (this != &other) {
+		rule_ = other.rule_;
+		cells_ = other.cells_;
+		cellNeighborhoodCreator_ =
+			CellNeighborhoodCreatorFactory::getCreator(rule_, this);
+		if (other.boundaryComponent_) {
+			boundaryComponent_ = other.boundaryComponent_->getPtrToCopy();
+			boundaryComponent_->setCellRow(this);
+		}
+	}
+	return *this;
+}
+
 bool CellRow::operator==(const CellRow& other) const
 {
 	return equals(other) && other.equals(*this);
@@ -77,43 +118,66 @@ bool CellRow::operator!=(const CellRow& other) const
 
 void CellRow::throwIfCellNeighborhoodCreatorIsNullPtr() const
 {
-	if (!_cellNeighborhoodCreatorPtr)
+	if (!cellNeighborhoodCreator_)
 		throw std::invalid_argument("CellNeighborhoodCreatorPtr is nullptr.");
 }
 
 CellNeighborhoodPtr CellRow::doGetNeighborhood(const CellVector::const_iterator& center) const
 {
-	return _cellNeighborhoodCreatorPtr->createCellNeighborhood(center);
+	return cellNeighborhoodCreator_->createCellNeighborhood(center);
 }
 
 CellVector::iterator CellRow::doBegin() noexcept
 {
-	return _cells.begin();
+	return cells_.begin();
 }
 
 CellVector::iterator CellRow::doEnd() noexcept
 {
-	return _cells.end();
+	return cells_.end();
 }
 
 CellVector::const_iterator CellRow::doCbegin() const noexcept
 {
-	return _cells.cbegin();
+	return cells_.cbegin();
 }
 
 CellVector::const_iterator CellRow::doCend() const noexcept
 {
-	return _cells.cend();
+	return cells_.cend();
 }
 
 CellRowPtr CellRow::doGetPtrToCopy() const
 {
-	return CellRowPtr(new CellRow(_cells, rule_));
+	auto copy = CellRowPtr(new CellRow(cells_, rule_));
+	if (boundaryComponent_) {
+		copy->boundaryComponent_ = boundaryComponent_->getPtrToCopy();
+		copy->boundaryComponent_->setCellRow(copy.get());
+	}
+	return copy;
 }
 
 bool CellRow::equals(const CellRow& other) const
 {
-	return *_cellNeighborhoodCreatorPtr == *other._cellNeighborhoodCreatorPtr;
+	bool equals = true;
+
+	equals &= cells_ == other.cells_;
+
+	if (boundaryComponent_ && other.boundaryComponent_)
+		equals &= *boundaryComponent_ == *other.boundaryComponent_;
+	else if (!boundaryComponent_ && !other.boundaryComponent_)
+		equals &= true;
+	else
+		equals &= false;
+
+	if (cellNeighborhoodCreator_ && other.cellNeighborhoodCreator_)
+		equals &= *cellNeighborhoodCreator_ == *other.cellNeighborhoodCreator_;
+	else if (!cellNeighborhoodCreator_ && !other.cellNeighborhoodCreator_)
+		equals &= true;
+	else
+		equals &= false;
+
+	return equals;
 }
 
 }

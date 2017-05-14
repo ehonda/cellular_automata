@@ -12,7 +12,7 @@ BoundedCellRowIterator::BoundedCellRowIterator(
 
 BoundedCellRowIterator& BoundedCellRowIterator::operator++()
 {
-	if (posInCellVector_ == row_._cells.end())
+	if (posInCellVector_ == row_.cells_.end())
 		++distanceFromCellVectorEnd_;
 	else
 		++posInCellVector_;

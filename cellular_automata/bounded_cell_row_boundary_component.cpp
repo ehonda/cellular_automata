@@ -13,6 +13,33 @@ Cell BoundedCellRowBoundaryComponent::getCellBeyondLastCellInRow(
 	return boundaryCell_;
 }
 
+std::unique_ptr<CellRowBoundaryComponent> BoundedCellRowBoundaryComponent::getPtrToCopy()
+{
+	return std::unique_ptr<CellRowBoundaryComponent>(
+		new BoundedCellRowBoundaryComponent(*this));
+}
+
+std::unique_ptr<CellRowBoundaryComponent> BoundedCellRowBoundaryComponent::makeCopyFor(CellRow* row)
+{
+	auto copy = std::unique_ptr<CellRowBoundaryComponent>(
+		new BoundedCellRowBoundaryComponent(*this));
+	copy->setCellRow(row);
+	return copy;
+}
+
+bool BoundedCellRowBoundaryComponent::equals(const CellRowBoundaryComponent& other) const
+{
+	bool equals = false;
+	auto otherBounded = dynamic_cast<const BoundedCellRowBoundaryComponent*>(&other);
+	if (otherBounded)
+		equals = equalsOtherBounded(*otherBounded);
+	return equals;
+}
+
+bool BoundedCellRowBoundaryComponent::equalsOtherBounded(const BoundedCellRowBoundaryComponent& other) const {
+	return boundaryCell_ == other.boundaryCell_;
+}
+
 void BoundedCellRowBoundaryComponent::setBoundaryCell(
 	const Cell& cell) {
 	boundaryCell_ = cell;

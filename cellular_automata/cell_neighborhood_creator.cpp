@@ -13,9 +13,18 @@ CellNeighborhoodCreator::CellNeighborhoodCreator(const RulePtr& rule)
 	throwIfRuleIsNullPtr();
 }
 
+CellNeighborhoodCreator::CellNeighborhoodCreator(const RulePtr& rule, CellRow* row) 
+	: _rule(rule), row_(row) {
+	throwIfRuleIsNullPtr();
+}
+
 CellNeighborhoodPtr CellNeighborhoodCreator::createCellNeighborhood(const CellVector::const_iterator& center) const
 {
 	return doCreateCellNeighborhood(center);
+}
+
+void CellNeighborhoodCreator::setRow(CellRow* row) noexcept {
+	row_ = row;
 }
 
 const RulePtr& CellNeighborhoodCreator::getRule() const noexcept

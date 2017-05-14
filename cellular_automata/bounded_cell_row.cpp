@@ -3,6 +3,7 @@
 #include <memory>
 #include <stdexcept>
 
+#include "bounded_cell_row_boundary_component.h"
 #include "cell_neighborhood_creator.h"
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 
@@ -16,23 +17,25 @@ BoundedCellRow::BoundedCellRow(CellNeighborhoodCreatorPtr& cellNeighborhoodCreat
 	initializeCells(cells);
 }
 
-BoundedCellRow::BoundedCellRow(const KNearestNeighborsRulePtr& rule, const CellVector& cells)
-{
-	_cellNeighborhoodCreatorPtr = std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(rule);
+BoundedCellRow::BoundedCellRow(const KNearestNeighborsRulePtr& rule, const CellVector& cells) {
+	rule_ = rule;
+	boundaryComponent_ = std::unique_ptr<CellRowBoundaryComponent>(
+		new BoundedCellRowBoundaryComponent(this));
+	cellNeighborhoodCreator_ = std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(rule);
 	initializeCells(cells);
 }
 
 const CellVector& BoundedCellRow::getCellsIncludingBoundaries() const noexcept
 {
-	return _cells;
+	return cells_;
 }
 
 void BoundedCellRow::setBoundaryCell(const Cell& boundaryCell) noexcept
 {
 	_boundaryCell = boundaryCell;
-	if (_cells.size() > 0)
+	if (cells_.size() > 0)
 	{
-		/*auto rule = _cellNeighborhoodCreatorPtr->getRule();
+		/*auto rule = cellNeighborhoodCreator_->getRule();
 		auto knnRule = dynamic_cast<const KNearestNeighborsRule*>(rule.get());
 		if (!knnRule)
 			throw std::runtime_error("Rule could not be cast to knnRule (BoundedCellRow::padFrontBoundary)");
@@ -43,57 +46,57 @@ void BoundedCellRow::setBoundaryCell(const Cell& boundaryCell) noexcept
 
 		for(int i = 0; i < halfNeighbors; ++i)
 			_cells[_cells.size() - (halfNeighbors + 1) + i] = _boundaryCell;*/
-		_cells[0] = boundaryCell;
-		_cells[_cells.size() - 1] = boundaryCell;
+		cells_[0] = boundaryCell;
+		cells_[cells_.size() - 1] = boundaryCell;
 	}
 }
 
 void BoundedCellRow::padBoundary()
 {
-	auto rule = _cellNeighborhoodCreatorPtr->getRule();
+	auto rule = cellNeighborhoodCreator_->getRule();
 	auto knnRule = dynamic_cast<const KNearestNeighborsRule*>(rule.get());
 	if (!knnRule)
 		throw std::runtime_error("Rule could not be cast to knnRule (BoundedCellRow::padFrontBoundary)");
 	int halfNeighbors = knnRule->getNumberOfNeighbors() / 2;
 
 	for (int i = 0; i < halfNeighbors; ++i)
-		_cells.emplace_back(_boundaryCell);
+		cells_.emplace_back(_boundaryCell);
 }
 
 void BoundedCellRow::initializeCells(const CellVector& cells)
 {
 	//padBoundary();
-	_cells.emplace_back(_boundaryCell);
+	cells_.emplace_back(_boundaryCell);
 	for (const auto& cell : cells)
-		_cells.emplace_back(cell);
-	_cells.emplace_back(_boundaryCell);
+		cells_.emplace_back(cell);
+	cells_.emplace_back(_boundaryCell);
 	//padBoundary();
 }
 
 CellVector::iterator BoundedCellRow::doBegin() noexcept
 {
-	return ++_cells.begin();
+	return ++cells_.begin();
 }
 
 CellVector::iterator BoundedCellRow::doEnd() noexcept
 {
-	return --_cells.end();
+	return --cells_.end();
 }
 
 CellVector::const_iterator BoundedCellRow::doCbegin() const noexcept
 {
-	return ++_cells.cbegin();
+	return ++cells_.cbegin();
 }
 
 CellVector::const_iterator BoundedCellRow::doCend() const noexcept
 {
-	return --_cells.cend();
+	return --cells_.cend();
 }
 
 CellRowPtr BoundedCellRow::doGetPtrToCopy() const
 {
-	CellRowPtr ptrToCopy = std::make_unique<BoundedCellRow>(_cellNeighborhoodCreatorPtr->getPtrToCopy(), _cells);
-	static_cast<BoundedCellRow*>(ptrToCopy.get())->_cells = _cells;
+	CellRowPtr ptrToCopy = std::make_unique<BoundedCellRow>(cellNeighborhoodCreator_->getPtrToCopy(), cells_);
+	static_cast<BoundedCellRow*>(ptrToCopy.get())->cells_ = cells_;
 	return ptrToCopy;
 }
 
@@ -108,7 +111,7 @@ bool BoundedCellRow::equals(const CellRow& other) const
 
 bool BoundedCellRow::equalsOtherBounded(const BoundedCellRow& other) const
 {
-	return _cells == other._cells
+	return cells_ == other.cells_
 		&& _boundaryCell == other._boundaryCell;
 }
 

@@ -10,6 +10,8 @@ class CellNeighborhoodCreatorStub : public CellNeighborhoodCreator
 public:
 	using CellNeighborhoodCreator::CellNeighborhoodCreator;
 
+	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const;
+
 private:
 	virtual CellNeighborhoodPtr doCreateCellNeighborhood(const CellVector::const_iterator& center) const override;
 	virtual CellNeighborhoodCreatorPtr doGetPtrToCopy() const noexcept override;

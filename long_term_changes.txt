@@ -1,0 +1,3 @@
+Rule:
+-Try different version of Rule generation that does not need a random number but instead randoms the next state
+ for every pattern

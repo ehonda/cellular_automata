@@ -1,0 +1,31 @@
+The CellRow class has been reworked fundamentally with this commit. It is now a concrete class rather than
+an abstract base class to inherit from. BoundedCellRow is no longer necessary (but not yet deleted, that will
+be done with the next commit) as the logic to handle bounds as well as the CellVector are now handled by
+CellRow itself. CellRow now consists of three major components:
+
+- cells_					the list of Cells wrapped by CellRow
+- boundaryComponent_		the component handling the boundaries. This can be set to eg BoundedCellRowBoundaryComponent,
+							which makes the CellRow function like BoundedCellRow used to in handling boundary cells
+- cellNeighborhoodCreator_	the CellNeighborhoodCreator, creating CellNeighborhoods around a given center
+
+The CellRowBoundaryComponent class now takes care of the boundaries. It is an abstract base class and has two methods
+for retrieving cells beyond the bounds of the cells_ CellVector. It is used by the corresponding cellNeighborhoodCreator_
+to retrieve cells for making neighborhoods that cut the boundaries.
+
+
+
+
+
+
+Plan:
+CellRow:
+-delete member rule_, it is not needed as the rule is saved in the CellNeighborhoodCreator
+
+CellNeighborhood
+-No longer needed, CellVector is returned now instead -> Rule takes care of encoding the returned CellVector
+
+Classes scheduled for deletion, since they are no longer needed:
+-BoundedCellRow
+-CellRowStub
+-CellRowIterator
+-CellNeighborhood

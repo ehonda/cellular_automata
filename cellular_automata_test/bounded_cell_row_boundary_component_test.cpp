@@ -15,20 +15,27 @@ protected:
 		CellVector cells = { 1, 1, 1 };
 		auto rule = BasicRules::getKnnRule(2, 30, 3);
 		CellRow row(cells, rule);
-		component = BoundedCellRowBoundaryComponent(&row);
+		component_ = BoundedCellRowBoundaryComponent(&row);
 	}
 
+	//################################################################
+	// Domain specific language
+
 	void expectCellAtDistanceFromFirst(const Cell& cell, size_t distance) {
-		Cell outsideCell = component.getCellBeforeFirstCellInRow(distance);
+		Cell outsideCell = component_.getCellBeforeFirstCellInRow(distance);
 		EXPECT_EQ(cell, outsideCell);
 	}
 
 	void expectCellAtDistanceFromLast(const Cell& cell, size_t distance) {
-		Cell outsideCell = component.getCellBeyondLastCellInRow(distance);
+		Cell outsideCell = component_.getCellBeyondLastCellInRow(distance);
 		EXPECT_EQ(cell, outsideCell);
 	}
 
-	BoundedCellRowBoundaryComponent component;
+	// End Domain specific language
+	//################################################################
+
+
+	BoundedCellRowBoundaryComponent component_;
 };
 
 TEST_F(BoundedCellRowBoundaryComponentTest,
@@ -46,10 +53,20 @@ TEST_F(BoundedCellRowBoundaryComponentTest,
 TEST_F(BoundedCellRowBoundaryComponentTest,
 	test_different_boundary_value) {
 	Cell boundaryCell(1);
-	component.setBoundaryCell(boundaryCell);
+	component_.setBoundaryCell(boundaryCell);
 
 	expectCellAtDistanceFromFirst(boundaryCell, 1);
 	expectCellAtDistanceFromLast(boundaryCell, 1);
+}
+
+TEST_F(BoundedCellRowBoundaryComponentTest,
+	test_comparison_for_equality) {
+	auto copiedComponent(component_);
+	EXPECT_EQ(copiedComponent, component_);
+
+	BoundedCellRowBoundaryComponent componentWithDifferentBoundaryCell;
+	componentWithDifferentBoundaryCell.setBoundaryCell(1);
+	EXPECT_NE(componentWithDifferentBoundaryCell, component_);
 }
 
 }

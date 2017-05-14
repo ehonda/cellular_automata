@@ -14,6 +14,7 @@ public:
 	virtual ~CellNeighborhood() = default;
 	static CellNeighborhoodPtr createPtr(const CellVector& cells, const RulePtr& rule);
 
+	const CellVector& getCells() const noexcept;
 	const integers::BaseBInteger& getIntegerEncodedCellNeighborhood() const noexcept;
 	bool operator==(const CellNeighborhood& other) const;
 
@@ -22,6 +23,7 @@ private:
 	void encodeCellNeighborhood(const CellVector& cells);
 	virtual bool equals(const CellNeighborhood& other) const;
 
+	CellVector cells_;
 	integers::BaseBInteger _encodedCellNeighborhood;
 	RulePtr _rule;
 };
