@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "cell_neighborhood_creator.h"
 #include "cell_row_boundary_component.h"
 #include "type_definitions.h"
 
@@ -9,7 +10,7 @@ namespace cellular_automata {
 
 class CellRow {
 public:
-	CellRow() = default;
+	CellRow();
 	CellRow(const CellVector& cells, const RulePtr& rule);
 	//Obsolete
 	CellRow(const RulePtr& rule);

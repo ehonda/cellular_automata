@@ -13,6 +13,11 @@ Cell RuleStub::getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) co
 	return Cell();
 }
 
+Cell RuleStub::getNextGenerationForCenterCell(const CellVector & cellNeighborhood) const
+{
+	return Cell();
+}
+
 std::string RuleStub::toString() const
 {
 	return std::string();

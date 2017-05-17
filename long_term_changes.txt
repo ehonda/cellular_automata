@@ -1,3 +1,11 @@
 Rule:
 -Try different version of Rule generation that does not need a random number but instead randoms the next state
  for every pattern
+ 
+ CellNeighborhood:
+ -This class is nice to have as it keeps BaseBInteger separate from CellLogic?
+ -Better Idea: Make BaseBCellInteger class that operates directly on cells?! -> No conversion from
+  vector<Cell> to vector<double> needed
+  
+ BaseBInteger:
+ -Make template class out of it?

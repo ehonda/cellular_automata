@@ -10,6 +10,10 @@ void CellRowBoundaryComponent::setCellRow(CellRow * row) noexcept {
 	row_ = row;
 }
 
+CellRow* CellRowBoundaryComponent::getCellRow() const noexcept {
+	return row_;
+}
+
 bool CellRowBoundaryComponent::operator==(const CellRowBoundaryComponent& other) const {
 	return equals(other) && other.equals(*this);
 }

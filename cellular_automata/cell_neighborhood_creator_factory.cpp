@@ -10,6 +10,11 @@ namespace cellular_automata {
 
 CellNeighborhoodCreatorPtr CellNeighborhoodCreatorFactory::getCreator(const RulePtr& rule, CellRow* row)
 {
+	//This is a temporary workaround and should be fixed
+	//It makes the CellRow copy-constructor work properly for default-constructed CellRows
+	if (!rule)
+		return CellNeighborhoodCreatorPtr();
+
 	CellNeighborhoodCreatorPtr creator;
 	auto knnRule = std::dynamic_pointer_cast<KNearestNeighborsRule, Rule>(rule);
 	if (knnRule)

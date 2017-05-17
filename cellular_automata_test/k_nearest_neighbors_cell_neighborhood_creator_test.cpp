@@ -101,6 +101,8 @@ protected:
 	KNearestNeighborsRulePtr _knnRuleWithOddNumberOfNeighbors;
 };
 
+typedef KNearestNeighborsCellNeighborhoodCreatorTest KNearestNeighborsCellNeighborhoodCreatorDeathTest;
+
 //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
@@ -129,6 +131,48 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 	centerAtPosition(2);
 	expectCellNeighborhoodAroundCenter(
 	{0, 0, 1, 2, 3, 2, 1, 0, 0 });
+}
+
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
+	test_neighborhood_around_begin) {
+	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
+	makeCreatorFor({ 1, 2, 3 });
+	centerAtPosition(0);
+	expectCellNeighborhoodAroundCenter({ 0, 1, 2 });
+}
+
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
+	test_neighborhood_before_end) {
+	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
+	makeCreatorFor({ 1, 2, 3 });
+	centerAtPosition(2);
+	expectCellNeighborhoodAroundCenter({ 2, 3, 0 });
+}
+
+//Only to check assert macro
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorDeathTest,
+	assert_test) {
+	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
+	makeCreatorFor({ 1, 2, 3 });
+	centerAtPosition(3);
+	EXPECT_DEATH(expectCellNeighborhoodAroundCenter({ 3, 0, 0 }), "");
+}
+
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
+	test_make_copy_for_row) {
+	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
+	makeCreatorFor({ 1, 1, 1 });
+	
+	CellRow rowForCopy({ 2, 2, 2 }, defaultRule_);
+	auto copy = creator_.makeCopyFor(&rowForCopy);
+
+	centerAtPosition(1);
+	expectCellNeighborhoodAroundCenter({ 1, 1, 1 });
+
+	CellVector::const_iterator center;
+	centerAtPosition(1, rowForCopy, center);
+	auto copyCast = static_cast<const KNearestNeighborsCellNeighborhoodCreator&>(*copy);
+	expectCellNeighborhoodAroundCenter({ 2, 2, 2 }, copyCast, center);
 }
 
 TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, EvenNumberOfNeighborsWorks)

@@ -1,6 +1,7 @@
 #include "base_b_integer.h"
 
 #include "base_converter.h"
+#include "cell.h"
 
 namespace cellular_automata
 {
@@ -26,6 +27,14 @@ BaseBInteger::BaseBInteger(long base, const BaseBRepresentation& baseBRepresenta
 {
 	BaseConverter baseConverter(base);
 	_integer = baseConverter.getIntegerFromBaseBRepresentation(baseBRepresentation);
+}
+
+BaseBInteger::BaseBInteger(long base, const CellVector& cells) 
+	: _base(base) {
+	for (const auto& cell : cells)
+		_baseBRepresentation.emplace_back(cell.getState());
+	BaseConverter baseConverter(base);
+	_integer = baseConverter.getIntegerFromBaseBRepresentation(_baseBRepresentation);
 }
 
 long BaseBInteger::getBase() const noexcept

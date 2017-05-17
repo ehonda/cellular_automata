@@ -23,6 +23,34 @@ CellularAutomaton::CellularAutomaton(const KNearestNeighborsRulePtr& rule, const
 {
 }
 
+CellularAutomaton::CellularAutomaton(const CellRow& initialGeneration)
+	: currentGeneration_(initialGeneration), _rule(initialGeneration.getRule()) {
+}
+
+CellularAutomaton::CellularAutomaton(const CellVector& initialCells, const RulePtr& rule)
+	: CellularAutomaton(CellRow(initialCells, rule)) {
+}
+
+const CellRow& CellularAutomaton::peekCurrentGeneration2() const noexcept {
+	return currentGeneration_;
+}
+
+const CellRow& CellularAutomaton::advanceToNextGeneration2() {
+	CellRow nextGeneration = currentGeneration_;
+	auto nextGenIt = nextGeneration.begin();
+
+	for (auto currentGenIt = currentGeneration_.cbegin();
+		currentGenIt != currentGeneration_.cend();
+		++currentGenIt, ++nextGenIt) 
+	{
+		auto neighborhood = currentGeneration_.getCellNeighborhood(currentGenIt);
+		*nextGenIt = _rule->getNextGenerationForCenterCell(neighborhood);
+	}
+
+	currentGeneration_ = nextGeneration;
+	return currentGeneration_;
+}
+
 CellRowPtr CellularAutomaton::peekCurrentGeneration() const
 {
 	return _currentGeneration->getPtrToCopy();

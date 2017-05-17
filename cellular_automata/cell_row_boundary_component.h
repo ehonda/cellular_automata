@@ -27,7 +27,9 @@ public:
 	//Better version for copying
 	virtual std::unique_ptr<CellRowBoundaryComponent> makeCopyFor(
 		CellRow* row) = 0;
+
 	void setCellRow(CellRow* row) noexcept;
+	CellRow* getCellRow() const noexcept;
 
 	bool operator==(const CellRowBoundaryComponent& other) const;
 	bool operator!=(const CellRowBoundaryComponent& other) const;

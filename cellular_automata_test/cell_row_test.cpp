@@ -27,27 +27,6 @@ protected:
 		setDefaultRule(BasicRules::getElementaryRule(30));
 	}
 
-	/*virtual void SetUp()
-	{
-		_knnRule = BasicRules::getKnnRule(10, 111, 3);
-		_differentKnnRule = BasicRules::getKnnRule(10, 111, 5);
-
-		_baseCells = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		_differentBaseCells = { 0, 1 };
-
-		setDefaultRule(BasicRules::getElementaryRule(30));
-	}*/
-
-	/*virtual CellNeighborhoodCreatorPtr getKnnNeighborhoodCreator() const noexcept
-	{
-		return std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(_knnRule);
-	}
-
-	virtual CellNeighborhoodCreatorPtr getDifferentKnnNeighborhoodCreator() const noexcept
-	{
-		return std::make_unique<KNearestNeighborsCellNeighborhoodCreator>(_differentKnnRule);
-	}*/
-
 	//################################################################
 	// Domain specific language
 
@@ -101,10 +80,6 @@ protected:
 	CellRow row_;
 	CellVector::const_iterator center_;
 	RulePtr defaultRule_;
-	/*KNearestNeighborsRulePtr _knnRule;
-	KNearestNeighborsRulePtr _differentKnnRule;
-	CellVector _baseCells;
-	CellVector _differentBaseCells;*/
 };
 
 //-----------------------------------------------------------------------------------------------
@@ -133,6 +108,12 @@ TEST_F(CellRowTest, test_copy_assignment) {
 	setBoundaryCell(1, copy);
 
 	EXPECT_NE(row_, copy);
+}
+
+TEST_F(CellRowTest, test_empty_cell_row_copy) {
+	CellRow emptyRow;
+	CellRow copy = emptyRow;
+	EXPECT_EQ(emptyRow, copy);
 }
 
 //TEST_F(CellRowTest, test_inner_neighborhood)

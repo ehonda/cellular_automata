@@ -146,7 +146,6 @@
     <ClInclude Include="cell_neighborhood_creator_stub.h" />
     <ClInclude Include="cell_row.h" />
     <ClInclude Include="cell_row_boundary_component.h" />
-    <ClInclude Include="cell_row_iterator.h" />
     <ClInclude Include="cell_row_stub.h" />
     <ClInclude Include="command_line_parser.h" />
     <ClInclude Include="k_nearest_neighbors_cell_neighborhood_creator.h" />
@@ -173,7 +172,6 @@
     <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
     <ClCompile Include="cell_row.cpp" />
     <ClCompile Include="cell_row_boundary_component.cpp" />
-    <ClCompile Include="cell_row_iterator.cpp" />
     <ClCompile Include="cell_row_stub.cpp" />
     <ClCompile Include="command_line_parser.cpp" />
     <ClCompile Include="k_nearest_neighbors_cell_neighborhood_creator.cpp" />

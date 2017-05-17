@@ -19,6 +19,13 @@ Cell KNearestNeighborsRule::getNextGeneration(const CellNeighborhoodPtr& cellNei
 	return Cell(nextState);
 }
 
+Cell KNearestNeighborsRule::getNextGenerationForCenterCell(const CellVector& cellNeighborhood) const {
+	auto integerEncodedCellNeighborhood = integers::BaseBInteger(numberOfStates_, cellNeighborhood);
+	long index = integerEncodedCellNeighborhood.getInteger();
+	integers::state_t nextState = _integerEncodedRule.getDigitAt(index);
+	return Cell(nextState);
+}
+
 integers::integer_t KNearestNeighborsRule::getNumberOfNeighbors() const noexcept
 {
 	return _numberOfNeighbors;

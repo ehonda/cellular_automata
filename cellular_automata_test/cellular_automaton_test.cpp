@@ -1,6 +1,7 @@
 #include <stdexcept>
 
 #include "gtest/gtest.h"
+#include "basic_rules.h"
 
 #include "cellular_automaton.h"
 
@@ -10,8 +11,7 @@
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 #include "type_definitions.h"
 
-namespace
-{
+namespace cellular_automata_test {
 
 using namespace cellular_automata;
 using namespace integers;
@@ -29,7 +29,8 @@ protected:
 		_rule90 = KNearestNeighborsRule::createPtr(rule90Encoded, numberOfNeighbors);
 
 		_initialGeneration = { 0, 0, 1, 0, 0 };
-		automaton = CellularAutomaton(getInitialGeneration());
+		automaton_ = CellularAutomaton(getInitialGeneration());
+		defaultRule_ = BasicRules::getSierpinskiRule();
 	}
 
 	virtual CellNeighborhoodCreatorPtr getKnnNeighborhoodCreator() const noexcept
@@ -42,26 +43,66 @@ protected:
 		return std::make_shared<BoundedCellRow>(getKnnNeighborhoodCreator(), _initialGeneration);
 	}
 
+	//################################################################
+	// Domain specific language
+
+	void setDefaultRule(const RulePtr& rule) {
+		defaultRule_ = rule;
+	}
+
+	void setInitialCells(const CellVector& cells) {
+		automaton_ = CellularAutomaton(cells, defaultRule_);
+	}
+
+	void expectNextGeneration(const CellVector& cells) {
+		CellRow expectedNextGeneration(cells, defaultRule_);
+		CellRow nextGeneration = automaton_.advanceToNextGeneration2();
+		EXPECT_EQ(nextGeneration, expectedNextGeneration);
+	}
+
+	//Old
+	//----------------------------------------------------------------
+
 	void initialCells(const CellVector& cells) {
-		CellRowPtr initialGen = std::make_shared<BoundedCellRow>(getKnnNeighborhoodCreator(), cells);
-		automaton = CellularAutomaton(initialGen);
+		CellRowPtr initialGen = std::make_shared<BoundedCellRow>(
+			getKnnNeighborhoodCreator(), cells);
+		automaton_ = CellularAutomaton(initialGen);
 	}
 
 	void expectNextGen(const CellVector& cells) {
 		CellRowPtr expectedNextGeneration = std::make_shared<BoundedCellRow>(getKnnNeighborhoodCreator(), cells);
-		CellRowPtr actualNextGeneration = automaton.getNextGeneration();
+		CellRowPtr actualNextGeneration = automaton_.getNextGeneration();
 		EXPECT_EQ(*actualNextGeneration, *expectedNextGeneration);
 	}
 
+	// End Domain specific language
+	//################################################################
+
+	//old
 	KNearestNeighborsRulePtr _rule90;
+	//old
 	CellVector _initialGeneration;
-	CellularAutomaton automaton;
+
+	RulePtr defaultRule_;
+	CellularAutomaton automaton_;
 };
 
 //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
 //TEST CASES
+
+TEST_F(CellularAutomatonTest, get_one_step) {
+	setInitialCells		({ 0, 0, 1, 0, 0 });
+	expectNextGeneration({ 0, 1, 0, 1, 0 });
+}
+
+TEST_F(CellularAutomatonTest, get_three_steps) {
+	setInitialCells		({ 0, 0, 0, 1, 0, 0, 0 });
+	expectNextGeneration({ 0, 0, 1, 0, 1, 0, 0 });
+	expectNextGeneration({ 0, 1, 0, 0, 0, 1, 0 });
+	expectNextGeneration({ 1, 0, 1, 0, 1, 0, 1 });
+}
 
 TEST_F(CellularAutomatonTest, Get_one_step) {
 	initialCells({ 0, 0, 1, 0, 0 });

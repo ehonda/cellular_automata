@@ -13,13 +13,28 @@ class BoundedCellRowBoundaryComponentTest
 protected:
 	BoundedCellRowBoundaryComponentTest() {
 		CellVector cells = { 1, 1, 1 };
-		auto rule = BasicRules::getKnnRule(2, 30, 3);
-		CellRow row(cells, rule);
+		defaultRule_ = BasicRules::getKnnRule(2, 30, 3);
+		CellRow row(cells, defaultRule_);
 		component_ = BoundedCellRowBoundaryComponent(&row);
 	}
 
 	//################################################################
 	// Domain specific language
+
+	void setDefaultRule(const RulePtr& rule) {
+		defaultRule_ = rule;
+	}
+
+	void makeBoundaryComponentFor(const CellVector& cells, 
+		std::unique_ptr<CellRowBoundaryComponent>& component) {
+		CellRow row(cells, defaultRule_);
+		component = std::unique_ptr<CellRowBoundaryComponent>(
+			new BoundedCellRowBoundaryComponent(&row));
+	}
+
+	void makeBoundaryComponentFor(const CellVector& cells) {
+		makeBoundaryComponentFor(cells, componentPtr_);
+	}
 
 	void expectCellAtDistanceFromFirst(const Cell& cell, size_t distance) {
 		Cell outsideCell = component_.getCellBeforeFirstCellInRow(distance);
@@ -34,8 +49,9 @@ protected:
 	// End Domain specific language
 	//################################################################
 
-
+	RulePtr defaultRule_;
 	BoundedCellRowBoundaryComponent component_;
+	std::unique_ptr<CellRowBoundaryComponent> componentPtr_;
 };
 
 TEST_F(BoundedCellRowBoundaryComponentTest,
@@ -67,6 +83,16 @@ TEST_F(BoundedCellRowBoundaryComponentTest,
 	BoundedCellRowBoundaryComponent componentWithDifferentBoundaryCell;
 	componentWithDifferentBoundaryCell.setBoundaryCell(1);
 	EXPECT_NE(componentWithDifferentBoundaryCell, component_);
+}
+
+TEST_F(BoundedCellRowBoundaryComponentTest,
+	test_copy_for_row) {
+	makeBoundaryComponentFor({ 1, 1, 1 });
+	CellRow differentRow({ 0, 0, 0 }, defaultRule_);
+	std::unique_ptr<CellRowBoundaryComponent> componentPtrWithDifferentRow
+		= componentPtr_->makeCopyFor(&differentRow);
+
+	EXPECT_NE(componentPtr_, componentPtrWithDifferentRow);
 }
 
 }

@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "type_definitions.h"
+
 namespace cellular_automata
 {
 namespace integers
@@ -18,6 +20,7 @@ public:
 	BaseBInteger();
 	BaseBInteger(long base, long integer);
 	BaseBInteger(long base, const BaseBRepresentation& baseBRepresentation);
+	BaseBInteger(long base, const CellVector& cells);
 
 	long getBase() const noexcept;
 	long getInteger() const noexcept;

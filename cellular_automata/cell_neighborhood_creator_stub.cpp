@@ -8,6 +8,10 @@ CellVector CellNeighborhoodCreatorStub::createCellNeighborhood2(const CellVector
 {
 	return CellVector();
 }
+std::unique_ptr<CellNeighborhoodCreator> CellNeighborhoodCreatorStub::makeCopyFor(CellRow * row) const
+{
+	return std::unique_ptr<CellNeighborhoodCreator>();
+}
 CellNeighborhoodPtr CellNeighborhoodCreatorStub::doCreateCellNeighborhood(const CellVector::const_iterator& center) const
 {
 	return CellNeighborhoodPtr();

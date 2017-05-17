@@ -37,6 +37,11 @@ CellNeighborhoodCreatorPtr CellNeighborhoodCreator::getPtrToCopy() const noexcep
 	return doGetPtrToCopy();
 }
 
+std::unique_ptr<CellNeighborhoodCreator> CellNeighborhoodCreator::makeCopyFor(CellRow* row) const
+{
+	return std::unique_ptr<CellNeighborhoodCreator>();
+}
+
 bool CellNeighborhoodCreator::operator==(const CellNeighborhoodCreator& other) const noexcept
 {
 	return equals(other) && other.equals(*this);

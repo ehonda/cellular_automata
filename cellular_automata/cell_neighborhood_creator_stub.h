@@ -10,7 +10,10 @@ class CellNeighborhoodCreatorStub : public CellNeighborhoodCreator
 public:
 	using CellNeighborhoodCreator::CellNeighborhoodCreator;
 
-	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const;
+	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const override;
+
+	virtual std::unique_ptr<CellNeighborhoodCreator> makeCopyFor(CellRow* row) const override;
+
 
 private:
 	virtual CellNeighborhoodPtr doCreateCellNeighborhood(const CellVector::const_iterator& center) const override;

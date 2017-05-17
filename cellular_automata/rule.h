@@ -16,6 +16,7 @@ public:
 	virtual ~Rule() = default;
 
 	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const = 0;
+	virtual Cell getNextGenerationForCenterCell(const CellVector& cellNeighborhood) const = 0;
 	//virtual Cell getNextGeneration(const CellNeighborhood& neighborhood) const = 0;
 	integers::state_t getNumberOfStates() const noexcept;
 

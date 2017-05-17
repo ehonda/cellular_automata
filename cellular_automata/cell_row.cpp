@@ -10,6 +10,12 @@
 namespace cellular_automata
 {
 
+//Defined this way to be consistent with CellRow(cells, rule) Constructor when
+//the latter is used for copying
+CellRow::CellRow() 
+	: boundaryComponent_(new BoundedCellRowBoundaryComponent(this)) {
+}
+
 CellRow::CellRow(const CellVector& cells, const RulePtr& rule)
 	: rule_(rule),
 	cells_(cells),
@@ -96,12 +102,14 @@ CellRow& CellRow::operator=(const CellRow& other)
 	if (this != &other) {
 		rule_ = other.rule_;
 		cells_ = other.cells_;
-		cellNeighborhoodCreator_ =
-			CellNeighborhoodCreatorFactory::getCreator(rule_, this);
-		if (other.boundaryComponent_) {
-			boundaryComponent_ = other.boundaryComponent_->getPtrToCopy();
-			boundaryComponent_->setCellRow(this);
+		if (other.cellNeighborhoodCreator_) {
+			cellNeighborhoodCreator_ = other.cellNeighborhoodCreator_->getPtrToCopy();
+			cellNeighborhoodCreator_->setRow(this);
 		}
+		/*cellNeighborhoodCreator_ =
+			CellNeighborhoodCreatorFactory::getCreator(rule_, this);*/
+		if (other.boundaryComponent_)
+			boundaryComponent_ = other.boundaryComponent_->makeCopyFor(this);
 	}
 	return *this;
 }

@@ -1,0 +1,29 @@
+ CellRow:
+ -Component initialisation needs to be more concise, so that empty rows (default constructed) can be copied-assigned
+  and copy-constructed without workarounds in code like returning empty cellneighborhoodcreator by factory on empty
+  rule
+  
+ -CellRowPtr is obsolete since CellRow is not used polymorphically anymore
+  
+BaseBInteger:
+ -Let BaseConverter operate directly on std::vector<Cell>
+ -BaseBInteger initalises BaseBRepresentation lazily <- no need to convert from std::vector<Cell> to std::vector<double>
+  if not needed 
+  
+  
+KNearestNeighborsCellNeighborhoodCreator
+ -Remove mutable specifier from numNeighbors members
+  
+  
+  
+  
+  
+  
+  
+ CellNeighborhood:
+ -This class is nice to have as it keeps BaseBInteger separate from CellLogic?
+ -Better Idea: Make BaseBCellInteger class that operates directly on cells?! -> No conversion from
+  vector<Cell> to vector<double> needed
+  
+ BaseBInteger:
+ -Make template class out of it?

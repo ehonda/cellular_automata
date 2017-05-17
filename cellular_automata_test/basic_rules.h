@@ -27,6 +27,10 @@ public:
 		size_t neighbors = 3;
 		return KNearestNeighborsRule::createPtr(ruleEncoded, neighbors);
 	}
+
+	static KNearestNeighborsRulePtr getSierpinskiRule() {
+		return getElementaryRule(90);
+	}
 };
 
 }

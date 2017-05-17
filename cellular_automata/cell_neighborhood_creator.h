@@ -18,7 +18,10 @@ public:
 
 	void setRow(CellRow* row) noexcept;
 	const RulePtr& getRule() const noexcept;
+	//Obsolete
 	CellNeighborhoodCreatorPtr getPtrToCopy() const noexcept;
+	//Better version of getPtrToCopy()
+	virtual std::unique_ptr<CellNeighborhoodCreator> makeCopyFor(CellRow* row) const = 0;
 
 	bool operator==(const CellNeighborhoodCreator& other) const noexcept;
 	bool operator!=(const CellNeighborhoodCreator& other) const noexcept;

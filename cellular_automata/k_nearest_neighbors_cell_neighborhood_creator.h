@@ -14,7 +14,10 @@ public:
 	KNearestNeighborsCellNeighborhoodCreator(const RulePtr& rule, CellRow* row);
 	KNearestNeighborsCellNeighborhoodCreator(const KNearestNeighborsRulePtr& rule);
 
-	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const;
+	virtual CellVector createCellNeighborhood2(const CellVector::const_iterator& center) const override;
+
+	virtual std::unique_ptr<CellNeighborhoodCreator> makeCopyFor(CellRow* row) const override;
+
 
 private:
 	void throwIfRuleIsNotKnnRule() const;
@@ -27,6 +30,7 @@ private:
 
 	mutable integers::integer_t _numberOfNeighborsLeftOfCenter;
 	mutable integers::integer_t _numberOfNeighborsRightOfCenter;
+	mutable integers::integer_t numberOfNeighbors_;
 };
 
 }
