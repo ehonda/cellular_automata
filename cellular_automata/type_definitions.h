@@ -19,11 +19,14 @@ class KNearestNeighborsRule;
 
 //-----------------------------------------------------------------------------------------------
 //ALIASES
+//Obsolete
 using BoundedCellRowPtr = std::shared_ptr<BoundedCellRow>;
 using CellularAutomatonPtr = std::shared_ptr<CellularAutomaton>;
 using CellVector = std::vector<Cell>;
+//Obsolete, CellNeighborhood is not used polymorphically
 using CellNeighborhoodPtr = std::unique_ptr<CellNeighborhood>;
 using CellNeighborhoodCreatorPtr = std::unique_ptr<CellNeighborhoodCreator>;
+//Obsolete, not used polymorphically anymore
 using CellRowPtr = std::shared_ptr<CellRow>;
 using RulePtr = std::shared_ptr<Rule>;
 using KNearestNeighborsRulePtr = std::shared_ptr<KNearestNeighborsRule>;

@@ -60,9 +60,6 @@
     <ClCompile Include="cell_row_test.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>
-    <ClCompile Include="bounded_cell_row_test.cpp">
-      <Filter>Source Files\Cellular Automata\Cells</Filter>
-    </ClCompile>
     <ClCompile Include="cell_neighborhood_creator_test.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
     </ClCompile>

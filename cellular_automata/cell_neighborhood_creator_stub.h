@@ -1,5 +1,9 @@
 #pragma once
 
+//----------------------------------------------------------
+//Obsolete? What is this stub for?
+//----------------------------------------------------------
+
 #include "cell_neighborhood_creator.h"
 
 namespace cellular_automata

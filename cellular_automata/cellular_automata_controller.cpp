@@ -3,10 +3,9 @@
 namespace cellular_automata_mvc {
 
 CellularAutomataController::CellularAutomataController(
-	const cellular_automata::KNearestNeighborsRulePtr& rule,
-	const cellular_automata::CellVector& initialCells)
-{
-	automaton_ = std::make_shared<cellular_automata::CellularAutomaton>(rule, initialCells);
+	const cellular_automata::CellVector& initialCells,
+	const cellular_automata::RulePtr& rule) {
+	automaton_ = std::make_shared<cellular_automata::CellularAutomaton>(initialCells, rule);
 }
 
 void CellularAutomataController::iterate()
@@ -14,13 +13,11 @@ void CellularAutomataController::iterate()
 	automaton_->advanceToNextGeneration();
 }
 
-cellular_automata::CellRowPtr CellularAutomataController::getCurrentGeneration() const
-{
-	return automaton_->peekCurrentGeneration();
+const cellular_automata::CellRow& CellularAutomataController::getCurrentGeneration() const noexcept {
+	return automaton_->getCurrentGeneration();
 }
 
-cellular_automata::CellularAutomatonPtr CellularAutomataController::getCellularAutomaton() const
-{
+cellular_automata::CellularAutomatonPtr CellularAutomataController::getCellularAutomaton() const noexcept {
 	return automaton_;
 }
 

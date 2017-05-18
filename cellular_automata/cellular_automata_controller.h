@@ -8,14 +8,13 @@ namespace cellular_automata_mvc {
 class CellularAutomataController {
 public:
 	CellularAutomataController() = default;
-	CellularAutomataController(
-		const cellular_automata::KNearestNeighborsRulePtr& rule,
-		const cellular_automata::CellVector& initialCells);
+	CellularAutomataController(const cellular_automata::CellVector& initialCells,
+		const cellular_automata::RulePtr& rule);
 
 	void iterate();
 
-	cellular_automata::CellRowPtr getCurrentGeneration() const;
-	cellular_automata::CellularAutomatonPtr getCellularAutomaton() const;
+	const cellular_automata::CellRow& getCurrentGeneration() const noexcept;
+	cellular_automata::CellularAutomatonPtr getCellularAutomaton() const noexcept;
 
 private:
 	cellular_automata::CellularAutomatonPtr automaton_;

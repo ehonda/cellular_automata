@@ -1,3 +1,11 @@
+TODO:
+->Update CellularAutomatonView
+->Update CellularAutomatonApp 
+->Write Googlemock tests for view/app
+ 
+ 
+ 
+ 
  CellRow:
  -Component initialisation needs to be more concise, so that empty rows (default constructed) can be copied-assigned
   and copy-constructed without workarounds in code like returning empty cellneighborhoodcreator by factory on empty

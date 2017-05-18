@@ -91,7 +91,7 @@ void CellularAutomatonApp::setInitialGenToStandard()
 
 void CellularAutomatonApp::randomReset()
 {
-	auto currentGen = controller_.getCellularAutomaton()->peekCurrentGeneration();
+	/*auto currentGen = controller_.getCellularAutomaton()->peekCurrentGeneration();
 	setRandomKNNRule(rule_->getNumberOfStates(), rule_->getNumberOfNeighbors());
 	
 	CellVector cells;
@@ -100,7 +100,7 @@ void CellularAutomatonApp::randomReset()
 	setInitialGeneration(cells);
 
 	controller_ = cellular_automata_mvc::CellularAutomataController(rule_, cells);
-	view_.reset(controller_.getCellularAutomaton());
+	view_.reset(controller_.getCellularAutomaton());*/
 }
 
 int CellularAutomatonApp::run()
@@ -116,7 +116,7 @@ int CellularAutomatonApp::run()
 	}
 
 	cleanup();
-	return 1;
+	return 0;
 }
 
 bool CellularAutomatonApp::init()
@@ -174,7 +174,7 @@ bool CellularAutomatonApp::initRenderer()
 
 void CellularAutomatonApp::initController()
 {
-	controller_ = cellular_automata_mvc::CellularAutomataController(rule_, initialGeneration_);
+	//controller_ = cellular_automata_mvc::CellularAutomataController(rule_, initialGeneration_);
 }
 
 void CellularAutomatonApp::initView()
