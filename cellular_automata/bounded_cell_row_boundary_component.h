@@ -15,9 +15,8 @@ public:
 		size_t distanceToLast) override;
 
 	void setBoundaryCell(const Cell& cell);
-	//Needed for polymorphism when copying CellRow
-	virtual std::unique_ptr<CellRowBoundaryComponent> getPtrToCopy();
-	//Better version for copying
+
+	//Needed for polymorphism of CellRowBoundaryComponent when copying CellRow
 	virtual std::unique_ptr<CellRowBoundaryComponent> makeCopyFor(
 		CellRow* row);
 

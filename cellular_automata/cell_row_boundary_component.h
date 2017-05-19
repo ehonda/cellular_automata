@@ -16,20 +16,19 @@ class CellRowBoundaryComponent {
 public:
 	CellRowBoundaryComponent() = default;
 	CellRowBoundaryComponent(CellRow* row);
+	virtual ~CellRowBoundaryComponent() = default;
 
 	virtual Cell getCellBeforeFirstCellInRow(
 		size_t distanceToFirst) = 0;
 	virtual Cell getCellBeyondLastCellInRow(
 		size_t distanceToLast) = 0;
 
-	//Needed for polymorphism when copying CellRow
-	virtual std::unique_ptr<CellRowBoundaryComponent> getPtrToCopy() = 0;
-	//Better version for copying
-	virtual std::unique_ptr<CellRowBoundaryComponent> makeCopyFor(
-		CellRow* row) = 0;
-
 	void setCellRow(CellRow* row) noexcept;
 	CellRow* getCellRow() const noexcept;
+
+	//Needed for polymorphism of CellRowBoundaryComponent when copying CellRow
+	virtual std::unique_ptr<CellRowBoundaryComponent> makeCopyFor(
+		CellRow* row) = 0;
 
 	bool operator==(const CellRowBoundaryComponent& other) const;
 	bool operator!=(const CellRowBoundaryComponent& other) const;

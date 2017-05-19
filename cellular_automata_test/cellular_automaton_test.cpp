@@ -12,8 +12,7 @@ using namespace integers;
 //-----------------------------------------------------------------------------------------------
 //TEST FIXTURE CLASS
 
-class CellularAutomatonTest : public testing::Test
-{
+class CellularAutomatonTest : public testing::Test {
 protected:
 	CellularAutomatonTest() 
 		: defaultRule_(BasicRules::getSierpinskiRule()) {

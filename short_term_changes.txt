@@ -1,33 +1,40 @@
 TODO:
-->Update CellularAutomatonView
-->Update CellularAutomatonApp 
-->Write Googlemock tests for view/app
+
+###		->	Make DeathTests for assertions in Constructors
+
+###		->	Make constructors of CellNeighborhoodCreator private so they can only be constructed by friend class 
+			CellNeighborhoodCreatorFactory
+			
+###		->	Change throwIfRuleIsNotKnnRule() to assert(isKnnRule()) in KnnCellNeighborhoodCreator
+###		->	Remove CellNeighborhoodCreatorStub and cell_neighborhood_creator_test
+###		->	Remove CellNeighborhoodCreator(const RulePtr&) Constructor
+
+
+##		->	Update CellularAutomatonView
+##		->	Update CellularAutomatonApp 
+#		->	Write Googlemock tests for view/app
+
+##		->	Implement Rule of 3/5 correctly for CellRow
+
+#		-> 	Change BaseBInteger to lazily generate BaseBRepresentation if not generated, change BaseConverter to
+			work directly on CellVector. That way CellNeighborhood can be entirely avoided, no frequent conversions
+			from vector<Cell> to vector<double> needed and coupling between BaseBInteger and CellLogic is kept to
+			a minimum
+
  
- 
- 
+General:
+-Remove integers::integer_t and integers::state_t
  
  CellRow:
  -Component initialisation needs to be more concise, so that empty rows (default constructed) can be copied-assigned
   and copy-constructed without workarounds in code like returning empty cellneighborhoodcreator by factory on empty
   rule
   
- -CellRowPtr is obsolete since CellRow is not used polymorphically anymore
-  
 BaseBInteger:
  -Let BaseConverter operate directly on std::vector<Cell>
  -BaseBInteger initalises BaseBRepresentation lazily <- no need to convert from std::vector<Cell> to std::vector<double>
   if not needed 
-  
-  
-KNearestNeighborsCellNeighborhoodCreator
- -Remove mutable specifier from numNeighbors members
-  
-  
-  
-  
-  
-  
-  
+   
  CellNeighborhood:
  -This class is nice to have as it keeps BaseBInteger separate from CellLogic?
  -Better Idea: Make BaseBCellInteger class that operates directly on cells?! -> No conversion from

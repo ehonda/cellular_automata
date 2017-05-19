@@ -102,9 +102,6 @@
     <ClInclude Include="type_definitions.h">
       <Filter>Header Files\Cellular Automata\General</Filter>
     </ClInclude>
-    <ClInclude Include="cell_row_stub.h">
-      <Filter>Header Files\Cellular Automata\Cells\Stubs</Filter>
-    </ClInclude>
     <ClInclude Include="cell_neighborhood_creator_stub.h">
       <Filter>Header Files\Cellular Automata\Cells\Stubs</Filter>
     </ClInclude>
@@ -169,9 +166,6 @@
     </ClCompile>
     <ClCompile Include="cell_neighborhood_creator.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
-    </ClCompile>
-    <ClCompile Include="cell_row_stub.cpp">
-      <Filter>Source Files\Cellular Automata\Cells\Stubs</Filter>
     </ClCompile>
     <ClCompile Include="cell_neighborhood_creator_stub.cpp">
       <Filter>Source Files\Cellular Automata\Cells\Stubs</Filter>

@@ -77,7 +77,7 @@ protected:
 		const CellVector& expectedCells, 
 		const KNearestNeighborsCellNeighborhoodCreator& creator,
 		const CellVector::const_iterator& center) const {
-		auto actualCells = creator.createCellNeighborhood2(center);
+		auto actualCells = creator.createCellNeighborhood(center);
 		EXPECT_EQ(actualCells, expectedCells);
 	}
 
@@ -150,12 +150,12 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 }
 
 //Only to check assert macro
-TEST_F(KNearestNeighborsCellNeighborhoodCreatorDeathTest,
-	assert_test) {
+TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
+	test_throw_on_center_around_cend) {
 	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
 	makeCreatorFor({ 1, 2, 3 });
 	centerAtPosition(3);
-	EXPECT_DEATH(expectCellNeighborhoodAroundCenter({ 3, 0, 0 }), "");
+	EXPECT_THROW(expectCellNeighborhoodAroundCenter({ 3, 0, 0 }), std::invalid_argument);
 }
 
 TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
@@ -173,51 +173,6 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 	centerAtPosition(1, rowForCopy, center);
 	auto copyCast = static_cast<const KNearestNeighborsCellNeighborhoodCreator&>(*copy);
 	expectCellNeighborhoodAroundCenter({ 2, 2, 2 }, copyCast, center);
-}
-
-TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, EvenNumberOfNeighborsWorks)
-{
-	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithEvenNumberOfNeighbors);
-
-	CellVector expectedCellsInNeighborhood{ 2, 3, 4, 5 };
-	auto expectedCellNeighborhood
-		= CellNeighborhood::createPtr(expectedCellsInNeighborhood, _knnRuleWithEvenNumberOfNeighbors);
-
-	auto center = _integersFrom0To9.begin() + 4;
-	auto actualCellNeighborhood = creator.createCellNeighborhood(center);
-
-	EXPECT_EQ(*expectedCellNeighborhood, *actualCellNeighborhood);
-}
-
-TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, OddNumberOfNeighborsWorks)
-{
-	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithOddNumberOfNeighbors);
-
-	CellVector expectedCellsInNeighborhood{ 2, 3, 4, 5, 6 };
-	auto expectedCellNeighborhood
-		= CellNeighborhood::createPtr(expectedCellsInNeighborhood, _knnRuleWithOddNumberOfNeighbors);
-
-	auto center = _integersFrom0To9.begin() + 4;
-	auto actualCellNeighborhood = creator.createCellNeighborhood(center);
-
-	EXPECT_EQ(*expectedCellNeighborhood, *actualCellNeighborhood);
-}
-
-TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, ComparisonForEqualityWorks)
-{
-	KNearestNeighborsCellNeighborhoodCreator creator(_knnRuleWithEvenNumberOfNeighbors);
-	KNearestNeighborsCellNeighborhoodCreator sameCreator(_knnRuleWithEvenNumberOfNeighbors);
-	EXPECT_EQ(creator, sameCreator);
-
-	KNearestNeighborsCellNeighborhoodCreator creatorWithDifferentRule(_knnRuleWithOddNumberOfNeighbors);
-	EXPECT_NE(creator, creatorWithDifferentRule);
-}
-
-TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest, GettingPointerToCopyWorks)
-{
-	CellNeighborhoodCreatorPtr creator(new KNearestNeighborsCellNeighborhoodCreator(_knnRuleWithEvenNumberOfNeighbors));
-	auto creatorCopy = creator->getPtrToCopy();
-	EXPECT_EQ(*creator, *creatorCopy);
 }
 
 //-----------------------------------------------------------------------------------------------

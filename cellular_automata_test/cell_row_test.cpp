@@ -6,10 +6,6 @@
 #include "cell_row.h"
 
 #include "bounded_cell_row_boundary_component.h"
-#include "cell_row_stub.h"
-#include "cell_neighborhood_creator.h"
-#include "k_nearest_neighbors_cell_neighborhood_creator.h"
-#include "k_nearest_neighbors_rule.h"
 #include "type_definitions.h"
 
 namespace cellular_automata_test {
@@ -20,8 +16,7 @@ using namespace integers;
 //-----------------------------------------------------------------------------------------------
 //TEST FIXTURE CLASS
 
-class CellRowTest : public testing::Test
-{
+class CellRowTest : public testing::Test {
 protected:
 	CellRowTest() {
 		setDefaultRule(BasicRules::getElementaryRule(30));
@@ -116,26 +111,6 @@ TEST_F(CellRowTest, test_empty_cell_row_copy) {
 	EXPECT_EQ(emptyRow, copy);
 }
 
-//TEST_F(CellRowTest, test_inner_neighborhood)
-//{
-//	/*auto knnNeighborhoodCreator = getKnnNeighborhoodCreator();
-//	CellRowStub cellRow(knnNeighborhoodCreator);*/
-//	CellRowStub cellRow(_baseCells, _knnRule);
-//
-//	CellVector expectedCells{ 6, 7, 8 };
-//	auto expectedNeighborhood = CellNeighborhood::createPtr(expectedCells, _knnRule);
-//	
-//	auto center = _baseCells.cbegin() + 7;
-//	auto actualNeighborhood = cellRow.getNeighborhood(center);
-//	EXPECT_EQ(*expectedNeighborhood, *actualNeighborhood);
-//}
-
-//TEST_F(CellRowTest, ShouldThrowWhenConstructedWithNullPtr)
-//{
-//	CellNeighborhoodCreatorPtr null(nullptr);
-//	EXPECT_THROW(CellRowStub cellRow(null), std::invalid_argument);
-//}
-
 TEST_F(CellRowTest, test_comparison_operator)
 {
 	makeCellRow({ 0, 0, 0 });
@@ -154,6 +129,12 @@ TEST_F(CellRowTest, test_comparison_operator)
 	CellRow rowWithDifferentRule;
 	makeCellRow({ 0, 0, 0 }, rowWithDifferentRule);
 	EXPECT_NE(row_, rowWithDifferentRule);
+}
+
+TEST_F(CellRowTest, get_neighborhood_and_get_rule_throw_on_uninitialised_row) {
+	CellRow row;
+	EXPECT_THROW(row.getCellNeighborhood(center_), std::logic_error);
+	EXPECT_THROW(row.getRule(), std::logic_error);
 }
 
 //-----------------------------------------------------------------------------------------------
