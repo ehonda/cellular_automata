@@ -46,12 +46,6 @@
     <Filter Include="Source Files\Cellular Automata\General">
       <UniqueIdentifier>{299584d9-a047-444a-aa3c-a22a5a043955}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Cellular Automata\Cells\Stubs">
-      <UniqueIdentifier>{63649c2e-8318-4ad5-846b-c14f77cb4536}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Cellular Automata\Cells\Stubs">
-      <UniqueIdentifier>{2bef8e44-6fb9-4d49-9ca6-d1059f494357}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Cellular Automata\General\Stubs">
       <UniqueIdentifier>{151a6c93-8966-400f-8533-2460236f9070}</UniqueIdentifier>
     </Filter>
@@ -101,9 +95,6 @@
     </ClInclude>
     <ClInclude Include="type_definitions.h">
       <Filter>Header Files\Cellular Automata\General</Filter>
-    </ClInclude>
-    <ClInclude Include="cell_neighborhood_creator_stub.h">
-      <Filter>Header Files\Cellular Automata\Cells\Stubs</Filter>
     </ClInclude>
     <ClInclude Include="rule_stub.h">
       <Filter>Header Files\Cellular Automata\General\Stubs</Filter>
@@ -166,9 +157,6 @@
     </ClCompile>
     <ClCompile Include="cell_neighborhood_creator.cpp">
       <Filter>Source Files\Cellular Automata\Cells</Filter>
-    </ClCompile>
-    <ClCompile Include="cell_neighborhood_creator_stub.cpp">
-      <Filter>Source Files\Cellular Automata\Cells\Stubs</Filter>
     </ClCompile>
     <ClCompile Include="rule_stub.cpp">
       <Filter>Source Files\Cellular Automata\General\Stubs</Filter>

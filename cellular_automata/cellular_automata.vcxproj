@@ -142,7 +142,6 @@
     <ClInclude Include="cell_color_map.h" />
     <ClInclude Include="cell_neighborhood.h" />
     <ClInclude Include="cell_neighborhood_creator_factory.h" />
-    <ClInclude Include="cell_neighborhood_creator_stub.h" />
     <ClInclude Include="cell_row.h" />
     <ClInclude Include="cell_row_boundary_component.h" />
     <ClInclude Include="command_line_parser.h" />
@@ -166,7 +165,6 @@
     <ClCompile Include="cell_neighborhood.cpp" />
     <ClCompile Include="cell_neighborhood_creator.cpp" />
     <ClCompile Include="cell_neighborhood_creator_factory.cpp" />
-    <ClCompile Include="cell_neighborhood_creator_stub.cpp" />
     <ClCompile Include="cell_row.cpp" />
     <ClCompile Include="cell_row_boundary_component.cpp" />
     <ClCompile Include="command_line_parser.cpp" />
