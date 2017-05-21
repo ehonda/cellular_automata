@@ -19,6 +19,8 @@ public:
 	virtual Cell getNextGenerationForCenterCell(const CellVector& cellNeighborhood) const override;
 	integers::integer_t getNumberOfNeighbors() const noexcept;
 
+	virtual RulePtr getRandomRuleOfSameType() const override;
+
 	virtual std::string toString() const override;
 
 private:

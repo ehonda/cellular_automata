@@ -12,6 +12,7 @@ public:
 		const cellular_automata::RulePtr& rule);
 
 	void iterate();
+	void transitionToRandomRule();
 
 	const cellular_automata::CellRow& getCurrentGeneration() const noexcept;
 	cellular_automata::CellularAutomatonPtr getCellularAutomaton() const noexcept;

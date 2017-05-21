@@ -18,6 +18,10 @@ bool Rule::operator==(const Rule& other) const noexcept
 	return equals(other) && other.equals(*this);
 }
 
+bool Rule::operator!=(const Rule& other) const noexcept {
+	return !operator==(other);
+}
+
 bool Rule::equals(const Rule& other) const noexcept
 {
 	return numberOfStates_ == other.numberOfStates_;

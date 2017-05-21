@@ -7,14 +7,16 @@
 namespace cellular_automata {
 
 class KNearestNeighborsCellNeighborhoodCreator : public CellNeighborhoodCreator {
-public:
-	KNearestNeighborsCellNeighborhoodCreator() = default;
-	KNearestNeighborsCellNeighborhoodCreator(const RulePtr& rule, CellRow* row);
+	friend class CellNeighborhoodCreatorFactory;
 
+public:
 	virtual CellVector createCellNeighborhood(const CellVector::const_iterator& center) const override;
 
 	virtual std::unique_ptr<CellNeighborhoodCreator> makeCopyFor(CellRow* row) const override;
 
+protected:
+	KNearestNeighborsCellNeighborhoodCreator() = default;
+	KNearestNeighborsCellNeighborhoodCreator(const RulePtr& rule, CellRow* row);
 
 private:
 	void throwIfCenterIsCend(const CellVector::const_iterator& center) const;

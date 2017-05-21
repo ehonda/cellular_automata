@@ -85,12 +85,11 @@ void CellularAutomatonView::copyOldGenerations()
 
 void CellularAutomatonView::setPixelsForCurrentGeneration()
 {
-	//Use new version of currentGen
-	/*auto gen = automaton_->peekCurrentGeneration();
-	auto genIt = gen->cbegin();
+	auto gen = automaton_->getCurrentGeneration();
+	auto genIt = gen.cbegin();
 	int offset = numberOfPixels_ - generationLength_;
 	for (int i = 0; i < generationLength_; ++i, ++genIt)
-		pixels_[offset + i] = getPixelForCell(*genIt);*/
+		pixels_[offset + i] = getPixelForCell(*genIt);
 }
 
 Uint32 CellularAutomatonView::getPixelForCell(const cellular_automata::Cell& cell) const

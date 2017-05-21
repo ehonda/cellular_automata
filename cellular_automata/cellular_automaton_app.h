@@ -24,8 +24,8 @@ public:
 	void setInitialGeneration(const CellVector& cells);
 	void setRandomInitialGeneration(size_t numberOfStates);
 
-	void setRule(const KNearestNeighborsRulePtr& rule);
-	void setRandomKNNRule(size_t numberOfStates, size_t numberOfNeighbors);
+	void setRule(const RulePtr& rule);
+	//void setRandomKNNRule(size_t numberOfStates, size_t numberOfNeighbors);
 
 private:
 	CellularAutomatonApp();
@@ -59,7 +59,7 @@ private:
 	cellular_automata_mvc::CellularAutomataController controller_;
 	cellular_automata_mvc::CellularAutomatonView view_;
 
-	KNearestNeighborsRulePtr rule_;
+	RulePtr rule_;
 	CellVector initialGeneration_;
 	int ruleCounter = 0;
 };

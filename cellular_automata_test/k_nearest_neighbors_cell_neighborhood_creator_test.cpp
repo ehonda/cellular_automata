@@ -1,11 +1,12 @@
+#include <memory>
+
 #include "gtest/gtest.h"
 #include "basic_rules.h"
 
 #include "k_nearest_neighbors_cell_neighborhood_creator.h"
 
-#include "cell_neighborhood_creator.h"
+#include "cell_neighborhood_creator_factory.h"
 #include "cell_row.h"
-#include "k_nearest_neighbors_rule.h"
 #include "type_definitions.h"
 
 namespace cellular_automata_test {
@@ -19,24 +20,6 @@ using namespace integers;
 class KNearestNeighborsCellNeighborhoodCreatorTest
 	: public testing::Test {
 protected:
-	virtual void SetUp()
-	{
-		BaseBInteger someBase10RuleEncoded(10, 111);
-
-		_evenNumberOfNeighbors = 4;
-		_knnRuleWithEvenNumberOfNeighbors
-			= KNearestNeighborsRule::createPtr(someBase10RuleEncoded, _evenNumberOfNeighbors);
-
-		_oddNumberOfNeighbors = 5;
-		_knnRuleWithOddNumberOfNeighbors
-			= KNearestNeighborsRule::createPtr(someBase10RuleEncoded, _oddNumberOfNeighbors);
-
-		_integersFrom0To9 = CellVector{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	
-		defaultRule_ = BasicRules::getKnnRule(12, 100, 3);
-		//makeCellRow(_integersFrom0To9);
-		//creator_ = KNearestNeighborsCellNeighborhoodCreator(defaultRule_, &row_);
-	}
 
 	//################################################################
 	// Domain specific language
@@ -63,10 +46,9 @@ protected:
 	}
 
 	void makeCreatorFor(const CellVector& cells,
-		KNearestNeighborsCellNeighborhoodCreator& creator) {
+		CellNeighborhoodCreatorPtr& creator) {
 		makeCellRow(cells);
-		creator = KNearestNeighborsCellNeighborhoodCreator(
-			defaultRule_, &row_);
+		creator = CellNeighborhoodCreatorFactory::getCreator(defaultRule_, &row_);
 	}
 
 	void makeCreatorFor(const CellVector& cells) {
@@ -75,9 +57,9 @@ protected:
 
 	void expectCellNeighborhoodAroundCenter(
 		const CellVector& expectedCells, 
-		const KNearestNeighborsCellNeighborhoodCreator& creator,
+		const CellNeighborhoodCreatorPtr& creator,
 		const CellVector::const_iterator& center) const {
-		auto actualCells = creator.createCellNeighborhood(center);
+		auto actualCells = creator->createCellNeighborhood(center);
 		EXPECT_EQ(actualCells, expectedCells);
 	}
 
@@ -92,13 +74,7 @@ protected:
 	RulePtr defaultRule_;
 	CellRow row_;
 	CellVector::const_iterator center_;
-	KNearestNeighborsCellNeighborhoodCreator creator_;
-
-	CellVector _integersFrom0To9;
-	integer_t _evenNumberOfNeighbors;
-	integer_t _oddNumberOfNeighbors;
-	KNearestNeighborsRulePtr _knnRuleWithEvenNumberOfNeighbors;
-	KNearestNeighborsRulePtr _knnRuleWithOddNumberOfNeighbors;
+	CellNeighborhoodCreatorPtr creator_;
 };
 
 typedef KNearestNeighborsCellNeighborhoodCreatorTest KNearestNeighborsCellNeighborhoodCreatorDeathTest;
@@ -149,7 +125,6 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 	expectCellNeighborhoodAroundCenter({ 2, 3, 0 });
 }
 
-//Only to check assert macro
 TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 	test_throw_on_center_around_cend) {
 	setDefaultRule(BasicRules::getKnnRule(4, 100, 3));
@@ -164,15 +139,14 @@ TEST_F(KNearestNeighborsCellNeighborhoodCreatorTest,
 	makeCreatorFor({ 1, 1, 1 });
 	
 	CellRow rowForCopy({ 2, 2, 2 }, defaultRule_);
-	auto copy = creator_.makeCopyFor(&rowForCopy);
+	auto copy = creator_->makeCopyFor(&rowForCopy);
 
 	centerAtPosition(1);
 	expectCellNeighborhoodAroundCenter({ 1, 1, 1 });
 
 	CellVector::const_iterator center;
 	centerAtPosition(1, rowForCopy, center);
-	auto copyCast = static_cast<const KNearestNeighborsCellNeighborhoodCreator&>(*copy);
-	expectCellNeighborhoodAroundCenter({ 2, 2, 2 }, copyCast, center);
+	expectCellNeighborhoodAroundCenter({ 2, 2, 2 }, copy, center);
 }
 
 //-----------------------------------------------------------------------------------------------

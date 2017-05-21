@@ -9,7 +9,8 @@ public:
 	static CellNeighborhoodCreatorPtr getCreator(const RulePtr& rule, CellRow* row);
 
 private:
-	static void throwOnUnkonwnRuleType();
+	static void throwIfRuleIsNullPtr(const RulePtr& rule);
+	static void throwIfCellRowIsNullPtr(CellRow* row);
 };
 
 }

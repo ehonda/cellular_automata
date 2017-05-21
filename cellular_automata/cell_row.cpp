@@ -29,6 +29,10 @@ CellVector CellRow::getCellNeighborhood(const CellVector::const_iterator& center
 	return cellNeighborhoodCreator_->createCellNeighborhood(center);
 }
 
+const CellVector& CellRow::getCells() const noexcept {
+	return cells_;
+}
+
 RulePtr CellRow::getRule() const {
 	throwIfCellNeighborhoodCreatorIsNullPtr();
 	return cellNeighborhoodCreator_->getRule();

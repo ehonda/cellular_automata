@@ -18,6 +18,11 @@ Cell RuleStub::getNextGenerationForCenterCell(const CellVector & cellNeighborhoo
 	return Cell();
 }
 
+RulePtr RuleStub::getRandomRuleOfSameType() const
+{
+	return RulePtr();
+}
+
 std::string RuleStub::toString() const
 {
 	return std::string();

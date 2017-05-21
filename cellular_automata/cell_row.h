@@ -16,6 +16,7 @@ public:
 
 	CellVector getCellNeighborhood(const CellVector::const_iterator& center) const;
 	
+	const CellVector& getCells() const noexcept;
 	RulePtr getRule() const;
 	void setBoundaryComponent(std::unique_ptr<CellRowBoundaryComponent>&& boundaryComponent);
 	const std::unique_ptr<CellRowBoundaryComponent>& getBoundaryComponent() const noexcept;

@@ -48,35 +48,36 @@ void CellularAutomatonApp::setRandomInitialGeneration(size_t numberOfStates)
 		initialGeneration_.emplace_back(dist(gen));
 }
 
-void CellularAutomatonApp::setRule(const KNearestNeighborsRulePtr & rule)
+void CellularAutomatonApp::setRule(const RulePtr& rule)
 {
+	std::cout << "#" << (ruleCounter++) << ": " << rule->toString() << "\n";
 	rule_ = rule;
 }
 
-void CellularAutomatonApp::setRandomKNNRule(size_t numberOfStates, size_t numberOfNeighbors)
-{
-	unsigned seed = static_cast<unsigned>(
-		std::chrono::system_clock::now().time_since_epoch().count());
-	std::mt19937 gen(seed);
-
-	long double longStates = static_cast<long double>(numberOfStates);
-	long double longNeighbors = static_cast<long double>(numberOfNeighbors);
-	long long numberOfAutomata = static_cast<long long>(pow(longStates, pow(longStates, longNeighbors)));
-	
-	long upperBound = 0;
-	if (numberOfAutomata > LONG_MAX || numberOfAutomata < 0LL)
-		upperBound = LONG_MAX;
-	else
-		upperBound = static_cast<long>(numberOfAutomata);
-
-	std::uniform_int_distribution<long> dist(0, upperBound);
-
-	auto integerRep = dist(gen);
-	std::cout << "#" << (ruleCounter++) << ": " << integerRep << "\n";
-	rule_ = KNearestNeighborsRule::createPtr(
-		integers::BaseBInteger(numberOfStates, integerRep),
-		numberOfNeighbors);
-}
+//void CellularAutomatonApp::setRandomKNNRule(size_t numberOfStates, size_t numberOfNeighbors)
+//{
+//	unsigned seed = static_cast<unsigned>(
+//		std::chrono::system_clock::now().time_since_epoch().count());
+//	std::mt19937 gen(seed);
+//
+//	long double longStates = static_cast<long double>(numberOfStates);
+//	long double longNeighbors = static_cast<long double>(numberOfNeighbors);
+//	long long numberOfAutomata = static_cast<long long>(pow(longStates, pow(longStates, longNeighbors)));
+//	
+//	long upperBound = 0;
+//	if (numberOfAutomata > LONG_MAX || numberOfAutomata < 0LL)
+//		upperBound = LONG_MAX;
+//	else
+//		upperBound = static_cast<long>(numberOfAutomata);
+//
+//	std::uniform_int_distribution<long> dist(0, upperBound);
+//
+//	auto integerRep = dist(gen);
+//	std::cout << "#" << (ruleCounter++) << ": " << integerRep << "\n";
+//	rule_ = KNearestNeighborsRule::createPtr(
+//		integers::BaseBInteger(numberOfStates, integerRep),
+//		numberOfNeighbors);
+//}
 
 CellularAutomatonApp::CellularAutomatonApp()
 {
@@ -101,6 +102,10 @@ void CellularAutomatonApp::randomReset()
 
 	controller_ = cellular_automata_mvc::CellularAutomataController(rule_, cells);
 	view_.reset(controller_.getCellularAutomaton());*/
+	controller_.transitionToRandomRule();
+	view_.reset(controller_.getCellularAutomaton());
+	auto rule = controller_.getCellularAutomaton()->getRule();
+	std::cout << "#" << (ruleCounter++) << ": " << rule->toString() << "\n";
 }
 
 int CellularAutomatonApp::run()
@@ -174,7 +179,7 @@ bool CellularAutomatonApp::initRenderer()
 
 void CellularAutomatonApp::initController()
 {
-	//controller_ = cellular_automata_mvc::CellularAutomataController(rule_, initialGeneration_);
+	controller_ = cellular_automata_mvc::CellularAutomataController(initialGeneration_, rule_);
 }
 
 void CellularAutomatonApp::initView()

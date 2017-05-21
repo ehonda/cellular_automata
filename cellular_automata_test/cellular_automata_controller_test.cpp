@@ -22,8 +22,8 @@ protected:
 		defaultRule_ = rule;
 	}
 
-	void setInitialCells(const CellVector& cells) {
-		controller_ = CellularAutomataController(cells, defaultRule_);
+	void makeController(const CellVector& initialCells) {
+		controller_ = CellularAutomataController(initialCells, defaultRule_);
 	}
 
 	void expectAfterIteration(const CellVector& cells) {
@@ -41,8 +41,22 @@ protected:
 
 TEST_F(CellularAutomataControllerTest, test_iterate_one) {
 	setDefaultRule(BasicRules::getSierpinskiRule());
-	setInitialCells		({ 0, 0, 1, 0, 0 });
+	makeController		({ 0, 0, 1, 0, 0 });
 	expectAfterIteration({ 0, 1, 0, 1, 0 });
+}
+
+TEST_F(CellularAutomataControllerTest, random_reset_3_states_3_neighbors) {
+	setDefaultRule(BasicRules::getKnnRule(3, 0, 3));
+	makeController({0, 1, 0});
+	RulePtr beforeReset = defaultRule_;
+	auto lastGenBeforeReset = controller_.getCurrentGeneration();
+
+	controller_.transitionToRandomRule();
+	RulePtr afterReset = controller_.getCellularAutomaton()->getRule();
+	auto firstGenAfterReset = controller_.getCurrentGeneration();
+
+	ASSERT_EQ(lastGenBeforeReset.getCells(), firstGenAfterReset.getCells());
+	EXPECT_NE(*beforeReset, *afterReset) << "Probabilistic Test with very small probability failed";
 }
 
 }

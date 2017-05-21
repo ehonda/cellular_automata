@@ -1,6 +1,8 @@
+#include <memory>
 #include <stdexcept>
 
 #include "gtest/gtest.h"
+#include "basic_rules.h"
 
 #include "k_nearest_neighbors_rule.h"
 
@@ -10,10 +12,34 @@
 using namespace cellular_automata;
 using namespace integers;
 
-namespace
-{
+namespace cellular_automata_test {
 
-TEST(KNearestNeighborsRuleTest, CreationWorks)
+class KNearestNeighborsRuleTest : public testing::Test {
+protected:
+};
+
+TEST_F(KNearestNeighborsRuleTest, test_get_random_rule_of_same_type) {
+	int states = 3;
+	int neighbors = 3;
+	auto rule = BasicRules::getKnnRule(states, 0, neighbors);
+	auto randomRule = rule->getRandomRuleOfSameType();
+
+	auto knnRandomRule = std::dynamic_pointer_cast<KNearestNeighborsRule, Rule>(randomRule);
+	ASSERT_TRUE(knnRandomRule) << "Random rule could not be cast to KNearestNeighborsRule";
+	EXPECT_EQ(knnRandomRule->getNumberOfStates(), states);
+	EXPECT_EQ(knnRandomRule->getNumberOfNeighbors(), neighbors);
+	EXPECT_NE(*rule, *knnRandomRule) << "Probabilistic test with very low probability failed";
+}
+
+TEST_F(KNearestNeighborsRuleTest, test_get_next_gen_for_center_cell) {
+	auto rule = BasicRules::getSierpinskiRule();
+	CellVector neighborhood = { 0, 0, 1 };
+	Cell nextGen = rule->getNextGenerationForCenterCell(neighborhood);
+	Cell expectedNextGen(1);
+	EXPECT_EQ(nextGen, expectedNextGen);
+}
+
+TEST_F(KNearestNeighborsRuleTest, CreationWorks)
 {
 	state_t expectedNumberOfStates = 4;
 	BaseBInteger integerEncodedRule(expectedNumberOfStates, 56);
@@ -26,7 +52,7 @@ TEST(KNearestNeighborsRuleTest, CreationWorks)
 	EXPECT_EQ(actualNumberOfNeighbors, expectedNumberOfNeighbors);
 }
 
-TEST(KNearestNeighborsRuleTest, GettingNextGenerationWOrks)
+TEST_F(KNearestNeighborsRuleTest, GettingNextGenerationWOrks)
 {
 	BaseBInteger rule110Encoded(2, 110);
 	auto rule110 = KNearestNeighborsRule::createPtr(rule110Encoded, 3);
@@ -39,7 +65,7 @@ TEST(KNearestNeighborsRuleTest, GettingNextGenerationWOrks)
 	EXPECT_EQ(actualCell.getState(), expectedCell.getState());
 }
 
-TEST(KNearestNeighborsRuleTest, ComparisonForEqualityWorks)
+TEST_F(KNearestNeighborsRuleTest, ComparisonForEqualityWorks)
 {
 	BaseBInteger rule110Encoded(2, 110);
 	integer_t numberOfNeighbors = 3;
@@ -57,7 +83,7 @@ TEST(KNearestNeighborsRuleTest, ComparisonForEqualityWorks)
 		<< "The same rule encodings with different number of Neighbors compare as equal.";
 }
 
-TEST(KNearestNeighborsRuleTest, ShouldThrowOnInvalidNumberOfNeighbors)
+TEST_F(KNearestNeighborsRuleTest, ShouldThrowOnInvalidNumberOfNeighbors)
 {
 	auto invalidNumberOfNeighbors = KNearestNeighborsRule::MIN_NUMBER_OF_NEIGHBORS - 1;
 	state_t numberOfStates = 2;

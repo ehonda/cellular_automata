@@ -1,5 +1,9 @@
 #include "k_nearest_neighbors_rule.h"
 
+#include <cmath>
+
+#include <chrono>
+#include <random>
 #include <stdexcept>
 
 namespace cellular_automata
@@ -29,6 +33,29 @@ Cell KNearestNeighborsRule::getNextGenerationForCenterCell(const CellVector& cel
 integers::integer_t KNearestNeighborsRule::getNumberOfNeighbors() const noexcept
 {
 	return _numberOfNeighbors;
+}
+
+RulePtr KNearestNeighborsRule::getRandomRuleOfSameType() const {
+	unsigned seed = static_cast<unsigned>(
+		std::chrono::system_clock::now().time_since_epoch().count());
+	std::mt19937 gen(seed);
+
+	long double longStates = static_cast<long double>(numberOfStates_);
+	long double longNeighbors = static_cast<long double>(_numberOfNeighbors);
+	long long numberOfAutomata = static_cast<long long>(pow(longStates, pow(longStates, longNeighbors)));
+
+	long upperBound = 0;
+	if (numberOfAutomata > LONG_MAX || numberOfAutomata < 0LL)
+		upperBound = LONG_MAX;
+	else
+		upperBound = static_cast<long>(numberOfAutomata);
+
+	std::uniform_int_distribution<long> dist(0, upperBound);
+
+	auto integerRep = dist(gen);
+	return KNearestNeighborsRule::createPtr(
+		integers::BaseBInteger(numberOfStates_, integerRep),
+		_numberOfNeighbors);
 }
 
 std::string KNearestNeighborsRule::toString() const

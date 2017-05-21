@@ -6,8 +6,8 @@ int main(int argc, char* args[])
 	using namespace cellular_automata;
 	auto app = CellularAutomatonApp::getInstance();
 
-	int states = 3;
-	int neighbors = 3;
+	int states = 2;
+	int neighbors = 5;
 	auto rule = KNearestNeighborsRule::createPtr(
 		integers::BaseBInteger(states, 14),
 		neighbors
@@ -15,7 +15,8 @@ int main(int argc, char* args[])
 
 	app->setRandomInitialGeneration(states);
 	//app->setRule(rule);
-	app->setRandomKNNRule(states, neighbors);
+	//app->setRandomKNNRule(states, neighbors);
+	app->setRule(rule->getRandomRuleOfSameType());
 
 	return app->execute(argc, args);
 }

@@ -1,17 +1,28 @@
 TODO:
 
+#		->	See gtest_class_hierarchy_test project for info on how to rebuild gtest so that parameterized tests work
+
+
+
 ###		->	Make DeathTests for assertions in Constructors
 
-###		->	Make constructors of CellNeighborhoodCreator private so they can only be constructed by friend class 
-			CellNeighborhoodCreatorFactory
+###		->	Reintroduce cell_neighborhood_creator_stub, test setRow throw and constructor asserts. Let
+			KnnCellNeighborhoodCreatorTest inherit from CellNeighborhoodCreatorTest, make method runBaseTests()
 			
-###		->	Change throwIfRuleIsNotKnnRule() to assert(isKnnRule()) in KnnCellNeighborhoodCreator
-###		->	Remove CellNeighborhoodCreatorStub and cell_neighborhood_creator_test
-###		->	Remove CellNeighborhoodCreator(const RulePtr&) Constructor
+			
+#		->	Create value-parameterized abstract tests for CellNeighborhoodCreator hierarchy
+			https://github.com/google/googletest/blob/master/googletest/docs/AdvancedGuide.md#creating-value-parameterized-abstract-tests
 
+			
+###		->	Cleanup rule class hierarchy
+###		->	Rework tests for rule/knnRule
 
 ##		->	Update CellularAutomatonView
 ##		->	Update CellularAutomatonApp 
+
+##		->	View as observer of controller?
+
+#		->	Write InputHandler class that handles input for app	-> testable with googlemock
 #		->	Write Googlemock tests for view/app
 
 ##		->	Implement Rule of 3/5 correctly for CellRow
