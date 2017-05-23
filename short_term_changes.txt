@@ -1,7 +1,17 @@
 TODO:
 
-#		->	See gtest_class_hierarchy_test project for info on how to rebuild gtest so that parameterized tests work
+###		->	Cleanup rule class hierarchy
+###		->	Rework tests for rule/knnRule
+###		->	get rid of getNextGeneration in Rule, use only getNextGenerationForCenterCell
 
+##		->	Delete class CellNeighborhood
+
+
+##		->	try running the tuneup gmp program for better performance (manual 2.6)
+
+
+#		->	See gtest_class_hierarchy_test project for info on how to rebuild gtest so that parameterized tests work
+			-> download newest version of gtest
 
 
 ###		->	Make DeathTests for assertions in Constructors
@@ -12,10 +22,6 @@ TODO:
 			
 #		->	Create value-parameterized abstract tests for CellNeighborhoodCreator hierarchy
 			https://github.com/google/googletest/blob/master/googletest/docs/AdvancedGuide.md#creating-value-parameterized-abstract-tests
-
-			
-###		->	Cleanup rule class hierarchy
-###		->	Rework tests for rule/knnRule
 
 ##		->	Update CellularAutomatonView
 ##		->	Update CellularAutomatonApp 

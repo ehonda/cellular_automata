@@ -1,21 +1,66 @@
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
+#include "gtest_mpz_utils.h"
+#include "base_b_integers_testing_utils.h"
 
 #include "base_b_integer.h"
-#include "k_nearest_neighbors_rule.h"
-
-namespace
-{
 
 using namespace cellular_automata;
 using namespace integers;
 
+namespace cellular_automata_test {
+
+class BaseBIntegerTest : public testing::Test {
+protected:
+	//################################################################
+	// Domain specific language
+
+	void expectBase(long expectedBase) const {
+		long base = baseBInteger_.getBase();
+		EXPECT_EQ(base, expectedBase);
+	}
+
+	void expectMpz(mpz_class expectedMpz) const {
+		mpz_class mpz = baseBInteger_.getInteger();
+		EXPECT_EQ_MPZ(mpz, expectedMpz);
+	}
+
+	void expectBigEndianRepresentation(const std::string& bigEndianRep) const {
+		auto expectedLittleEndianRep = convertToLittleEndian(bigEndianRep);
+		auto littleEndianRep = baseBInteger_.getBaseBRepresentation();
+		EXPECT_EQ(littleEndianRep, expectedLittleEndianRep);
+	}
+
+	// End Domain specific language
+	//################################################################
+
+	BaseBInteger baseBInteger_;
+};
+
 //-----------------------------------------------------------------------------------------------
 //TEST CASES
 
-TEST(BaseBIntegerTest, DefaultConstructorWorks)
+TEST_F(BaseBIntegerTest, construct_from_mpz_class) {
+	//1100 ~ 12 in base 2
+	baseBInteger_ = BaseBInteger(2, mpz_class(12));
+	expectBase(2);
+	expectMpz(12);
+	expectBigEndianRepresentation("1100");
+}
+
+TEST_F(BaseBIntegerTest, construct_from_base_b_representation)
+{
+	//222 ~ 42 in base 4
+	baseBInteger_ = BaseBInteger(4, { 2, 2, 2 });
+	expectBase(4);
+	expectMpz(42);
+	expectBigEndianRepresentation("222");
+}
+
+TEST_F(BaseBIntegerTest, DefaultConstructorWorks)
 {
 	BaseBInteger baseBInteger;
 
@@ -23,40 +68,16 @@ TEST(BaseBIntegerTest, DefaultConstructorWorks)
 	auto actualBase = baseBInteger.getBase();
 	EXPECT_EQ(expectedBase, actualBase);
 
-	auto expectedInteger = BaseBInteger::DEFAULT_INTEGER;
-	auto actualInteger = baseBInteger.getInteger();
-	EXPECT_EQ(expectedInteger, actualInteger);
+	mpz_class expectedMpz = BaseBInteger::DEFAULT_MPZ;
+	mpz_class actualMpz = baseBInteger.getInteger();
+	EXPECT_EQ_MPZ(actualMpz, expectedMpz);
 
 	auto expectedBaseBRepresentation = BaseBInteger::DEFAULT_BASE_B_REPRESENTATION;
 	auto actualBaseBRepresentation = baseBInteger.getBaseBRepresentation();
 	EXPECT_EQ(expectedBaseBRepresentation, actualBaseBRepresentation);
 }
 
-TEST(BaseBIntegerTest, ConstructFromIntegerWorks)
-{
-	//Number: 222 = 42 in base 4
-	int base = 4;
-	int integer = 42;
-	BaseBInteger baseBInteger(base, integer);
-
-	BaseBInteger::BaseBRepresentation expectedBaseBRepresentation = { 2, 2, 2 };
-	auto convertedBaseBRepresentation = baseBInteger.getBaseBRepresentation();
-	EXPECT_EQ(expectedBaseBRepresentation, convertedBaseBRepresentation);
-}
-
-TEST(BaseBIntegerTest, ConstructFromBaseBRepresentationWorks)
-{
-	//Number: 222 = 42 in base 4
-	int base = 4;
-	BaseBInteger::BaseBRepresentation baseBRepresentation = { 2, 2, 2 };
-	BaseBInteger baseBInteger(base, baseBRepresentation);
-
-	int expectedInteger = 42;
-	int convertedInteger = baseBInteger.getInteger();
-	EXPECT_EQ(expectedInteger, convertedInteger);
-}
-
-TEST(BaseBIntegerTest, GetDigitAtWorks)
+TEST_F(BaseBIntegerTest, GetDigitAtWorks)
 {
 	//Number 111 = 7 in base 2
 	int base = 2;
@@ -74,7 +95,7 @@ TEST(BaseBIntegerTest, GetDigitAtWorks)
 	EXPECT_EQ(expectedDigit, actualDigit);
 }
 
-TEST(BaseBIntegerTest, ComparisonForEqualityWorks)
+TEST_F(BaseBIntegerTest, ComparisonForEqualityWorks)
 {
 	//Number 11011 = 27 in base 2
 	int base = 2;
@@ -98,7 +119,7 @@ TEST(BaseBIntegerTest, ComparisonForEqualityWorks)
 	EXPECT_NE(number27InBase2, number27InBase3) << "The same integers in different bases compare as equal.";
 }
 
-TEST(BaseBIntegerTest, ShouldThrowOnConstructionFromInvalidValues)
+TEST_F(BaseBIntegerTest, ShouldThrowOnConstructionFromInvalidValues)
 {
 	int invalidBase = 0;
 	int validInteger = 100;

@@ -6,8 +6,8 @@ int main(int argc, char* args[])
 	using namespace cellular_automata;
 	auto app = CellularAutomatonApp::getInstance();
 
-	int states = 2;
-	int neighbors = 5;
+	int states = 4;
+	int neighbors = 3;
 	auto rule = KNearestNeighborsRule::createPtr(
 		integers::BaseBInteger(states, 14),
 		neighbors

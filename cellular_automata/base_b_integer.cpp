@@ -3,38 +3,28 @@
 #include "base_converter.h"
 #include "cell.h"
 
-namespace cellular_automata
-{
-namespace integers
-{
+namespace cellular_automata {
+namespace integers {
 
+const mpz_class BaseBInteger::DEFAULT_MPZ(0);
 const BaseBInteger::BaseBRepresentation BaseBInteger::DEFAULT_BASE_B_REPRESENTATION{ 0 };
 
 BaseBInteger::BaseBInteger()
-	: _base(DEFAULT_BASE), _integer(DEFAULT_INTEGER), _baseBRepresentation(DEFAULT_BASE_B_REPRESENTATION)
+	: _base(DEFAULT_BASE), integer_(DEFAULT_MPZ), _baseBRepresentation(DEFAULT_BASE_B_REPRESENTATION)
 {
 }
 
-BaseBInteger::BaseBInteger(long base, long integer)
-	: _base(base), _integer(integer)
-{
-	BaseConverter baseConverter(base);
-	_baseBRepresentation = baseConverter.getBaseBRepresentationFromInteger(integer);
+BaseBInteger::BaseBInteger(long base, const mpz_class& integer)
+	: _base(base), integer_(integer) {
+	BaseConverter baseConverter(_base);
+	_baseBRepresentation = baseConverter.getBaseBRepresentationFromInteger(integer_);
 }
 
 BaseBInteger::BaseBInteger(long base, const BaseBRepresentation& baseBRepresentation)
 	: _base(base), _baseBRepresentation(baseBRepresentation)
 {
 	BaseConverter baseConverter(base);
-	_integer = baseConverter.getIntegerFromBaseBRepresentation(baseBRepresentation);
-}
-
-BaseBInteger::BaseBInteger(long base, const CellVector& cells) 
-	: _base(base) {
-	for (const auto& cell : cells)
-		_baseBRepresentation.emplace_back(cell.getState());
-	BaseConverter baseConverter(base);
-	_integer = baseConverter.getIntegerFromBaseBRepresentation(_baseBRepresentation);
+	integer_ = baseConverter.getMpzFromBaseBRepresentation(baseBRepresentation);
 }
 
 long BaseBInteger::getBase() const noexcept
@@ -42,9 +32,8 @@ long BaseBInteger::getBase() const noexcept
 	return _base;
 }
 
-long BaseBInteger::getInteger() const noexcept
-{
-	return _integer;
+const mpz_class& BaseBInteger::getInteger() const noexcept {
+	return integer_;
 }
 
 const BaseBInteger::BaseBRepresentation& BaseBInteger::getBaseBRepresentation() const noexcept
@@ -62,7 +51,7 @@ long BaseBInteger::getDigitAt(size_t index) const noexcept
 
 bool BaseBInteger::operator==(const BaseBInteger& other) const noexcept
 {
-	return (_base == other._base) && (_integer == other._integer);
+	return (_base == other._base) && (integer_ == other.integer_);
 }
 
 bool BaseBInteger::operator!=(const BaseBInteger& other) const noexcept

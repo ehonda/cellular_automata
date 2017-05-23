@@ -1,4 +1,18 @@
 Rule:
+->		For k neighbors and s states we need s^k patterns encoded in rule and also every pattern being encoded to get next cell can be of size up to s^k.
+		If s^k is too large for a long we have a problem
+		-> think about other mechanism
+		-> instead of base-b representation, use directly mpz in base b
+
+
+
+
+
+
+
+
+
+
 -Try different version of Rule generation that does not need a random number but instead randoms the next state
  for every pattern
  

@@ -13,7 +13,6 @@ public:
 	Rule(integers::state_t numberOfStates) noexcept;
 	virtual ~Rule() = default;
 
-	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const = 0;
 	virtual Cell getNextGenerationForCenterCell(const CellVector& cellNeighborhood) const = 0;
 	integers::state_t getNumberOfStates() const noexcept;
 

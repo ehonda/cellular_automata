@@ -1,8 +1,10 @@
 #include <memory>
 #include <stdexcept>
+#include <string>
 
 #include "gtest/gtest.h"
 #include "basic_rules.h"
+#include "gtest_mpz_utils.h"
 
 #include "k_nearest_neighbors_rule.h"
 
@@ -16,7 +18,46 @@ namespace cellular_automata_test {
 
 class KNearestNeighborsRuleTest : public testing::Test {
 protected:
+	//################################################################
+	// Domain specific language
+
+	void expectNumberOfAutomataResult(const std::string& expectedResultString) const {
+		mpz_class expectedResult;
+		expectedResult = expectedResultString;
+		EXPECT_EQ_MPZ(result_, expectedResult);
+	}
+
+	// End Domain specific language
+	//################################################################
+
+	mpz_class result_;
 };
+
+TEST_F(KNearestNeighborsRuleTest, test_get_number_of_automata) {
+	//2^2^3 = 256
+	result_ = KNearestNeighborsRule::getNumberOfAutomataFor(2, 3);
+	expectNumberOfAutomataResult("256");
+
+	//2^2^5 = 4294967296
+	result_ = KNearestNeighborsRule::getNumberOfAutomataFor(2, 5);
+	expectNumberOfAutomataResult("4294967296");
+
+	//3^3^3 = 7625597484987
+	result_ = KNearestNeighborsRule::getNumberOfAutomataFor(3, 3);
+	expectNumberOfAutomataResult("7625597484987");
+}
+
+TEST_F(KNearestNeighborsRuleTest, number_of_automata_calculation_throws_if_number_of_patterns_is_too_big) {
+	EXPECT_THROW(KNearestNeighborsRule::getNumberOfAutomataFor(10, 10), std::domain_error);
+}
+
+TEST_F(KNearestNeighborsRuleTest, number_of_automata_calculation_throws_for_invalid_number_of_states) {
+	EXPECT_THROW(KNearestNeighborsRule::getNumberOfAutomataFor(1, 3), std::domain_error);
+}
+
+TEST_F(KNearestNeighborsRuleTest, number_of_automata_calculation_throws_for_invalid_number_of_neighbors) {
+	EXPECT_THROW(KNearestNeighborsRule::getNumberOfAutomataFor(2, 0), std::domain_error);
+}
 
 TEST_F(KNearestNeighborsRuleTest, test_get_random_rule_of_same_type) {
 	int states = 3;
@@ -50,19 +91,6 @@ TEST_F(KNearestNeighborsRuleTest, CreationWorks)
 	integer_t actualNumberOfNeighbors = rule->getNumberOfNeighbors();
 	EXPECT_EQ(actualNumberOfStates, expectedNumberOfStates);
 	EXPECT_EQ(actualNumberOfNeighbors, expectedNumberOfNeighbors);
-}
-
-TEST_F(KNearestNeighborsRuleTest, GettingNextGenerationWOrks)
-{
-	BaseBInteger rule110Encoded(2, 110);
-	auto rule110 = KNearestNeighborsRule::createPtr(rule110Encoded, 3);
-
-	CellVector cells = { 1, 1, 1 };
-	CellNeighborhoodPtr cellNeighborhood = CellNeighborhood::createPtr(cells, rule110);
-
-	Cell expectedCell(0);
-	Cell actualCell = rule110->getNextGeneration(cellNeighborhood);
-	EXPECT_EQ(actualCell.getState(), expectedCell.getState());
 }
 
 TEST_F(KNearestNeighborsRuleTest, ComparisonForEqualityWorks)

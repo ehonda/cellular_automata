@@ -13,7 +13,6 @@ class RuleStub : public Rule
 public:
 	static std::unique_ptr<RuleStub> createPtr(integers::state_t numberOfStates);
 
-	virtual Cell getNextGeneration(const CellNeighborhoodPtr& cellNeighborhood) const override;
 	virtual Cell getNextGenerationForCenterCell(const CellVector& cellNeighborhood) const override;
 
 	virtual RulePtr getRandomRuleOfSameType() const override;
