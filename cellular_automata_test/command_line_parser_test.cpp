@@ -1,34 +1,39 @@
+#include <sstream>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 #include "command_line_parser.h"
 
-namespace
-{
+using namespace cellular_automata;
 
-//-----------------------------------------------------------------------------------------------
-//TEST FIXTURE CLASS
+namespace cellular_automata_test {
 
-class CommandLineParserTest : public testing::Test
-{
+class CommandLineParserTest : public testing::Test {
+protected:
+	void parse(const std::string& commandLine) {
+		parser_.parse(getArgsVector(commandLine));
+	}
 
+	std::vector<std::string> getArgsVector(const std::string& commandLine) const {
+		std::vector<std::string> args;
+		args.emplace_back("args[0]: Programname representation");
+		
+		std::istringstream commandLineStream(commandLine);
+		std::string argument;
+		while (commandLineStream >> argument)
+			args.emplace_back(argument);
+
+		return args;
+	}
+
+	CommandLineParser parser_;
 };
 
-
-//-----------------------------------------------------------------------------------------------
-//BEHAVIORAL TESTS
-
-TEST_F(CommandLineParserTest, Assigned_param_rule_should_create_appropriate_rule)
-{
-	//Given: A user entered -rule 2 30
-	std::string input = "-rule 2 30";
-
-	//When: it is parsed by the CommandLineParser
-	//CommandLineParser.parse(input);
-
-	//Then: the parser should set the rule to: knn-3, base 2, integer 30
-
-}
+//TEST_F(CommandLineParserTest, set_number_of_states) {
+//	parse("-states 2");
+//	EXPECT_EQ(parser_.getNumberOfStates(), 2);
+//}
 
 }

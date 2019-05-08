@@ -50,7 +50,7 @@ RulePtr KNearestNeighborsRule::getRandomRuleOfSameType() const {
 }
 
 std::string KNearestNeighborsRule::toString() const {
-	return _integerEncodedRule.getInteger().get_str();
+	return "i_" + _integerEncodedRule.getInteger().get_str() + "_s_" + std::to_string(numberOfStates_) + "_k_" + std::to_string(_numberOfNeighbors);
 }
 
 KNearestNeighborsRule::KNearestNeighborsRule(integers::BaseBInteger integerEncodedRule, integers::integer_t numberOfNeighbors)

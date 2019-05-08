@@ -2,18 +2,20 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <SDL.h>
 
 #include "cell_color_map.h"
 #include "cellular_automaton.h"
+#include "constants.h"
 #include "type_definitions.h"
 
 namespace cellular_automata_mvc {
 
 class CellularAutomatonView {
 public:
-	CellularAutomatonView() = default;
+	CellularAutomatonView();
 	~CellularAutomatonView();
 
 	void setCellularAutomaton(
@@ -39,9 +41,9 @@ private:
 
 	std::string getTimestamp() const;
 
-	static const int windowWidth_ = 1024;
-	static const int windowHeight_ = 768;
-	static const int numberOfPixels_ = 1024 * 768;
+	static const int windowWidth_ = WINDOW_WIDTH;
+	static const int windowHeight_ = WINDOW_HEIGHT;
+	static const int numberOfPixels_ = WINDOW_WIDTH * WINDOW_HEIGHT;
 	static const int generationLength_ = windowWidth_;
 
 	cellular_automata::CellularAutomatonPtr automaton_;
@@ -50,6 +52,7 @@ private:
 	SDL_Renderer* renderer_ = nullptr;
 	SDL_Texture* texture_ = nullptr;
 	Uint32 pixels_[numberOfPixels_];
+	//std::vector<Uint32> pixels_;
 
 	static const std::string SCREENSHOT_DIR;
 };

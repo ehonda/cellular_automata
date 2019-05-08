@@ -109,7 +109,7 @@ void BaseConverter::throwIfInvalid(const BaseBRepresentation& baseBRepresentatio
 
 void BaseConverter::throwIfInvalid(const std::vector<Cell>& cellNeighborhood) const {
 	for (const auto& cell : cellNeighborhood)
-		if (cell.getState() < MIN_INTEGER || cell.getState() >= _base)
+		if (cell.getState() < MIN_INTEGER || cell.getState() >= static_cast<integers::state_t>(_base))
 			throw std::domain_error("CellNeighborhood to convert from has digits that are negative or greater or equal to base.");
 }
 

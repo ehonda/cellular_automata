@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/34963738/c11-get-current-date-and-time-as-string

@@ -36,9 +36,19 @@ using KNearestNeighborsRulePtr = std::shared_ptr<KNearestNeighborsRule>;
 //NAMESPACE INTEGERS
 namespace integers
 {
-using state_t = long;
+using state_t = unsigned long;
+using neighbor_t = unsigned long;
 using integer_t = long;
 }
+//-----------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------
+//NAMESPACE INTEGERS
+//namespace cellular_automata_mvc
+//{
+//static const int WINDOW_WIDTH = 1024;
+//static const int WINDOW_HEIGHT = 768;
+//}
 //-----------------------------------------------------------------------------------------------
 
 }

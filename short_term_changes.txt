@@ -1,5 +1,11 @@
 TODO:
 
+#		->	investigate crash when pressing keys with focus on console window
+
+#		->	make other play modes, eg randoming automata but starting from sparse configurations?
+
+##		->	cleanup CellColorMap, make struct Palet, method to change preset palet easily
+
 ###		->	Cleanup rule class hierarchy
 ###		->	Rework tests for rule/knnRule
 ###		->	get rid of getNextGeneration in Rule, use only getNextGenerationForCenterCell

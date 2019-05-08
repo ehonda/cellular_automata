@@ -123,6 +123,9 @@
     <ClInclude Include="bounded_cell_row_boundary_component.h">
       <Filter>Header Files\Cellular Automata\Cells</Filter>
     </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files\Cellular Automata\General</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_converter.cpp">
