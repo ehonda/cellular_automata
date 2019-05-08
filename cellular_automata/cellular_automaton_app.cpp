@@ -36,7 +36,7 @@ void CellularAutomatonApp::setInitialGeneration(const CellVector& cells)
 	initialGeneration_ = cells;
 }
 
-void CellularAutomatonApp::setRandomInitialGeneration(size_t numberOfStates)
+void CellularAutomatonApp::setRandomInitialGeneration(size_t numberOfStates, std::size_t size)
 {
 	unsigned seed = static_cast<unsigned>(
 		std::chrono::system_clock::now().time_since_epoch().count());
@@ -44,7 +44,7 @@ void CellularAutomatonApp::setRandomInitialGeneration(size_t numberOfStates)
 	std::uniform_int_distribution<int> dist(0, numberOfStates - 1);
 
 	initialGeneration_.clear();
-	for (int i = 0; i < WINDOW_WIDTH; ++i)
+	for (std::size_t i = 0; i < size; ++i)
 		initialGeneration_.emplace_back(dist(gen));
 }
 
@@ -117,7 +117,7 @@ int CellularAutomatonApp::run()
 		pollEvents();
 		loop();
 		render();
-		breate();
+		breathe();
 	}
 
 	cleanup();
@@ -223,7 +223,7 @@ void CellularAutomatonApp::render() {
 	view_.update();
 }
 
-void CellularAutomatonApp::breate() {
+void CellularAutomatonApp::breathe() {
 	SDL_Delay(1);
 }
 

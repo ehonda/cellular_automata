@@ -47,6 +47,13 @@ private:
 	static const Uint32 COLOR_RED = 0xFF8BC8EF;
 	static const Uint32 COLOR_GREEN = 0xFF7AFFCB;
 	static const Uint32 COLOR_BLUE = 0xFFFF0000;*/
+
+	////Schlangentraeger I
+	//static const Uint32 COLOR_WHITE = 0xFF173EA6;
+	//static const Uint32 COLOR_BLACK = 0xFF71A7E3;
+	//static const Uint32 COLOR_RED = 0xFF080B1C;
+	//static const Uint32 COLOR_GREEN = 0xFFFDF9F4;
+	//static const Uint32 COLOR_BLUE = 0xFFFF0000;
 };
 
 }

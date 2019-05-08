@@ -13,6 +13,11 @@ namespace cellular_automata_mvc {
 
 const std::string CellularAutomatonView::SCREENSHOT_DIR = "screenshots";
 
+CellularAutomatonView::CellularAutomatonView()
+//	: pixels_(numberOfPixels_)
+{
+}
+
 CellularAutomatonView::~CellularAutomatonView()
 {
 	SDL_DestroyTexture(texture_);
@@ -30,6 +35,8 @@ void CellularAutomatonView::update()
 
 	updatePixels();
 	SDL_UpdateTexture(texture_, NULL, &pixels_, generationLength_ * sizeof(Uint32));
+	//SDL_UpdateTexture(texture_, NULL, pixels_.data(), generationLength_ * sizeof(Uint32));
+
 	
 	SDL_RenderCopy(renderer_, texture_, nullptr, nullptr);
 	SDL_RenderPresent(renderer_);
