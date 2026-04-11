@@ -198,6 +198,9 @@ Generated_Code/
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
 _UpgradeReport_Files/
+
+# Local archive of raw screenshots after lossless conversion to PNG.
+screenshots/originals/
 Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
