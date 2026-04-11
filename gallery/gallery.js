@@ -12,6 +12,8 @@ const elements = {
     galleryGrid: document.getElementById("gallery-grid"),
     cardTemplate: document.getElementById("card-template"),
     lightbox: document.getElementById("lightbox"),
+    toggleDetails: document.getElementById("toggle-details"),
+    toggleFullscreen: document.getElementById("toggle-fullscreen"),
     closeLightbox: document.getElementById("close-lightbox"),
     lightboxImage: document.getElementById("lightbox-image"),
     lightboxFamily: document.getElementById("lightbox-family"),
@@ -31,7 +33,9 @@ const state = {
     filteredItems: [],
     searchTerm: "",
     sortMode: "newest",
-    activeFile: null
+    activeFile: null,
+    lightboxExpanded: false,
+    detailsCollapsed: false
 };
 
 function imageUrl(file) {
@@ -167,7 +171,35 @@ function syncHash(file) {
     window.history.replaceState({}, "", url);
 }
 
+function syncLightboxChrome() {
+    elements.lightbox.classList.toggle("lightbox-expanded", state.lightboxExpanded);
+    elements.lightbox.classList.toggle("lightbox-details-collapsed", state.detailsCollapsed);
+    elements.toggleFullscreen.setAttribute("aria-pressed", String(state.lightboxExpanded));
+    elements.toggleFullscreen.textContent = state.lightboxExpanded ? "Exit Full Screen" : "Full Screen";
+    elements.toggleDetails.hidden = !state.lightboxExpanded;
+    elements.toggleDetails.setAttribute("aria-expanded", String(!state.detailsCollapsed));
+    elements.toggleDetails.textContent = state.detailsCollapsed ? "Show Details" : "Hide Details";
+}
+
+function setDetailsCollapsed(collapsed) {
+    state.detailsCollapsed = collapsed;
+    syncLightboxChrome();
+}
+
+function setLightboxExpanded(expanded) {
+    state.lightboxExpanded = expanded;
+
+    if (expanded) {
+        state.detailsCollapsed = true;
+    } else {
+        state.detailsCollapsed = false;
+    }
+
+    syncLightboxChrome();
+}
+
 function closeLightbox() {
+    setLightboxExpanded(false);
     state.activeFile = null;
     elements.activeLabel.textContent = "None";
     syncHash(null);
@@ -250,11 +282,37 @@ function attachEvents() {
         updateStatus();
     });
 
+    elements.toggleDetails.addEventListener("click", () => {
+        if (!state.lightboxExpanded) {
+            return;
+        }
+
+        setDetailsCollapsed(!state.detailsCollapsed);
+    });
+
+    elements.toggleFullscreen.addEventListener("click", () => {
+        if (!elements.lightbox.open) {
+            return;
+        }
+
+        setLightboxExpanded(!state.lightboxExpanded);
+    });
+
     elements.closeLightbox.addEventListener("click", closeLightbox);
     elements.prevButton.addEventListener("click", () => stepLightbox(-1));
     elements.nextButton.addEventListener("click", () => stepLightbox(1));
+    elements.lightbox.addEventListener("click", (event) => {
+        if (event.target === elements.lightbox) {
+            closeLightbox();
+        }
+    });
+    elements.lightbox.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeLightbox();
+    });
     elements.lightbox.addEventListener("close", () => {
         if (!elements.lightbox.open) {
+            setLightboxExpanded(false);
             state.activeFile = null;
             elements.activeLabel.textContent = "None";
             syncHash(null);
@@ -267,11 +325,17 @@ function attachEvents() {
         }
 
         if (event.key === "Escape") {
+            event.preventDefault();
             closeLightbox();
         } else if (event.key === "ArrowLeft") {
+            event.preventDefault();
             stepLightbox(-1);
         } else if (event.key === "ArrowRight") {
+            event.preventDefault();
             stepLightbox(1);
+        } else if ((event.key === "f" || event.key === "F") && !event.altKey && !event.ctrlKey && !event.metaKey) {
+            event.preventDefault();
+            setLightboxExpanded(!state.lightboxExpanded);
         }
     });
 }
@@ -308,6 +372,7 @@ async function loadGallery() {
 }
 
 attachEvents();
+syncLightboxChrome();
 
 loadGallery().catch((error) => {
     console.error(error);

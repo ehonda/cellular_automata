@@ -77,12 +77,19 @@
 
     <dialog id="lightbox" class="lightbox">
         <div class="lightbox-shell">
-            <button id="close-lightbox" class="icon-button lightbox-close" type="button" aria-label="Close image">Close</button>
+            <div class="lightbox-toolbar">
+                <p class="lightbox-hint">Use <kbd>Left</kbd> and <kbd>Right</kbd> to browse. Press <kbd>F</kbd> or use Full Screen to expand the image.</p>
+                <div class="lightbox-toolbar-actions">
+                    <button id="toggle-details" class="icon-button lightbox-toggle-details" type="button" aria-controls="lightbox-sidebar" aria-expanded="true" hidden>Hide Details</button>
+                    <button id="toggle-fullscreen" class="icon-button" type="button" aria-pressed="false">Full Screen</button>
+                    <button id="close-lightbox" class="icon-button lightbox-close" type="button" aria-label="Close image">Close</button>
+                </div>
+            </div>
             <div class="lightbox-stage">
                 <div class="lightbox-image-wrap">
                     <img id="lightbox-image" alt="">
                 </div>
-                <aside class="lightbox-sidebar">
+                <aside id="lightbox-sidebar" class="lightbox-sidebar">
                     <p id="lightbox-family" class="eyebrow">Screenshot</p>
                     <h2 id="lightbox-title">Loading</h2>
                     <p id="lightbox-caption" class="lightbox-caption"></p>
