@@ -1,0 +1,907 @@
+{
+  "generatedAt": "2026-04-11T21:51:36.6432671Z",
+  "itemCount": 58,
+  "items": [
+    {
+      "file": "pyramid.png",
+      "title": "Pyramid",
+      "caption": "Standalone pattern",
+      "capturedAtIso": null,
+      "capturedAtDisplay": null,
+      "sortTimestamp": -1,
+      "ruleLabel": null,
+      "family": "Pattern",
+      "tags": [
+        "PNG"
+      ],
+      "searchText": "pyramid.png pyramid Pyramid Standalone pattern Pattern PNG"
+    },
+    {
+      "file": "screenshot_10_5_2017__20_14_54__rule_929926908.png",
+      "title": "Rule 929926908",
+      "caption": "Captured 2017-05-10 20:14:54",
+      "capturedAtIso": "2017-05-10T20:14:54",
+      "capturedAtDisplay": "2017-05-10 20:14:54",
+      "sortTimestamp": 1494440094,
+      "ruleLabel": "rule_929926908",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_10_5_2017__20_14_54__rule_929926908.png screenshot_10_5_2017__20_14_54__rule_929926908 Rule 929926908 Captured 2017-05-10 20:14:54 2017-05-10 20:14:54 2017-05-10T20:14:54 rule_929926908 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_10_5_2017__20_15_29__rule_891137637.png",
+      "title": "Rule 891137637",
+      "caption": "Captured 2017-05-10 20:15:29",
+      "capturedAtIso": "2017-05-10T20:15:29",
+      "capturedAtDisplay": "2017-05-10 20:15:29",
+      "sortTimestamp": 1494440129,
+      "ruleLabel": "rule_891137637",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_10_5_2017__20_15_29__rule_891137637.png screenshot_10_5_2017__20_15_29__rule_891137637 Rule 891137637 Captured 2017-05-10 20:15:29 2017-05-10 20:15:29 2017-05-10T20:15:29 rule_891137637 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_12_5_2017__22_23_9__rule_1312542918.png",
+      "title": "Rule 1312542918",
+      "caption": "Captured 2017-05-12 22:23:09",
+      "capturedAtIso": "2017-05-12T22:23:09",
+      "capturedAtDisplay": "2017-05-12 22:23:09",
+      "sortTimestamp": 1494620589,
+      "ruleLabel": "rule_1312542918",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_12_5_2017__22_23_9__rule_1312542918.png screenshot_12_5_2017__22_23_9__rule_1312542918 Rule 1312542918 Captured 2017-05-12 22:23:09 2017-05-12 22:23:09 2017-05-12T22:23:09 rule_1312542918 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_27_42__rule_963588250.png",
+      "title": "Rule 963588250",
+      "caption": "Captured 2017-05-13 00:27:42",
+      "capturedAtIso": "2017-05-13T00:27:42",
+      "capturedAtDisplay": "2017-05-13 00:27:42",
+      "sortTimestamp": 1494628062,
+      "ruleLabel": "rule_963588250",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_27_42__rule_963588250.png screenshot_13_5_2017__0_27_42__rule_963588250 Rule 963588250 Captured 2017-05-13 00:27:42 2017-05-13 00:27:42 2017-05-13T00:27:42 rule_963588250 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_28_5__rule_1932000441.png",
+      "title": "Rule 1932000441",
+      "caption": "Captured 2017-05-13 00:28:05",
+      "capturedAtIso": "2017-05-13T00:28:05",
+      "capturedAtDisplay": "2017-05-13 00:28:05",
+      "sortTimestamp": 1494628085,
+      "ruleLabel": "rule_1932000441",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_28_5__rule_1932000441.png screenshot_13_5_2017__0_28_5__rule_1932000441 Rule 1932000441 Captured 2017-05-13 00:28:05 2017-05-13 00:28:05 2017-05-13T00:28:05 rule_1932000441 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_30_40__rule_791472939.png",
+      "title": "Rule 791472939",
+      "caption": "Captured 2017-05-13 00:30:40",
+      "capturedAtIso": "2017-05-13T00:30:40",
+      "capturedAtDisplay": "2017-05-13 00:30:40",
+      "sortTimestamp": 1494628240,
+      "ruleLabel": "rule_791472939",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_30_40__rule_791472939.png screenshot_13_5_2017__0_30_40__rule_791472939 Rule 791472939 Captured 2017-05-13 00:30:40 2017-05-13 00:30:40 2017-05-13T00:30:40 rule_791472939 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_33_30__rule_2142848990.png",
+      "title": "Rule 2142848990",
+      "caption": "Captured 2017-05-13 00:33:30",
+      "capturedAtIso": "2017-05-13T00:33:30",
+      "capturedAtDisplay": "2017-05-13 00:33:30",
+      "sortTimestamp": 1494628410,
+      "ruleLabel": "rule_2142848990",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_33_30__rule_2142848990.png screenshot_13_5_2017__0_33_30__rule_2142848990 Rule 2142848990 Captured 2017-05-13 00:33:30 2017-05-13 00:33:30 2017-05-13T00:33:30 rule_2142848990 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_36_3__rule_498816464.png",
+      "title": "Rule 498816464",
+      "caption": "Captured 2017-05-13 00:36:03",
+      "capturedAtIso": "2017-05-13T00:36:03",
+      "capturedAtDisplay": "2017-05-13 00:36:03",
+      "sortTimestamp": 1494628563,
+      "ruleLabel": "rule_498816464",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_36_3__rule_498816464.png screenshot_13_5_2017__0_36_3__rule_498816464 Rule 498816464 Captured 2017-05-13 00:36:03 2017-05-13 00:36:03 2017-05-13T00:36:03 rule_498816464 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_36_38__rule_1175162529.png",
+      "title": "Rule 1175162529",
+      "caption": "Captured 2017-05-13 00:36:38",
+      "capturedAtIso": "2017-05-13T00:36:38",
+      "capturedAtDisplay": "2017-05-13 00:36:38",
+      "sortTimestamp": 1494628598,
+      "ruleLabel": "rule_1175162529",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_36_38__rule_1175162529.png screenshot_13_5_2017__0_36_38__rule_1175162529 Rule 1175162529 Captured 2017-05-13 00:36:38 2017-05-13 00:36:38 2017-05-13T00:36:38 rule_1175162529 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_13_5_2017__0_36_51__rule_126454485.png",
+      "title": "Rule 126454485",
+      "caption": "Captured 2017-05-13 00:36:51",
+      "capturedAtIso": "2017-05-13T00:36:51",
+      "capturedAtDisplay": "2017-05-13 00:36:51",
+      "sortTimestamp": 1494628611,
+      "ruleLabel": "rule_126454485",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_13_5_2017__0_36_51__rule_126454485.png screenshot_13_5_2017__0_36_51__rule_126454485 Rule 126454485 Captured 2017-05-13 00:36:51 2017-05-13 00:36:51 2017-05-13T00:36:51 rule_126454485 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_22_5_2017__0_10_20__rule_56420.png",
+      "title": "Rule 56420",
+      "caption": "Captured 2017-05-22 00:10:20",
+      "capturedAtIso": "2017-05-22T00:10:20",
+      "capturedAtDisplay": "2017-05-22 00:10:20",
+      "sortTimestamp": 1495404620,
+      "ruleLabel": "rule_56420",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_22_5_2017__0_10_20__rule_56420.png screenshot_22_5_2017__0_10_20__rule_56420 Rule 56420 Captured 2017-05-22 00:10:20 2017-05-22 00:10:20 2017-05-22T00:10:20 rule_56420 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_22_5_2017__0_10_39__rule_2578.png",
+      "title": "Rule 2578",
+      "caption": "Captured 2017-05-22 00:10:39",
+      "capturedAtIso": "2017-05-22T00:10:39",
+      "capturedAtDisplay": "2017-05-22 00:10:39",
+      "sortTimestamp": 1495404639,
+      "ruleLabel": "rule_2578",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_22_5_2017__0_10_39__rule_2578.png screenshot_22_5_2017__0_10_39__rule_2578 Rule 2578 Captured 2017-05-22 00:10:39 2017-05-22 00:10:39 2017-05-22T00:10:39 rule_2578 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_22_5_2017__0_10_48__rule_3282.png",
+      "title": "Rule 3282",
+      "caption": "Captured 2017-05-22 00:10:48",
+      "capturedAtIso": "2017-05-22T00:10:48",
+      "capturedAtDisplay": "2017-05-22 00:10:48",
+      "sortTimestamp": 1495404648,
+      "ruleLabel": "rule_3282",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_22_5_2017__0_10_48__rule_3282.png screenshot_22_5_2017__0_10_48__rule_3282 Rule 3282 Captured 2017-05-22 00:10:48 2017-05-22 00:10:48 2017-05-22T00:10:48 rule_3282 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_22_5_2017__0_9_19__rule_47967.png",
+      "title": "Rule 47967",
+      "caption": "Captured 2017-05-22 00:09:19",
+      "capturedAtIso": "2017-05-22T00:09:19",
+      "capturedAtDisplay": "2017-05-22 00:09:19",
+      "sortTimestamp": 1495404559,
+      "ruleLabel": "rule_47967",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_22_5_2017__0_9_19__rule_47967.png screenshot_22_5_2017__0_9_19__rule_47967 Rule 47967 Captured 2017-05-22 00:09:19 2017-05-22 00:09:19 2017-05-22T00:09:19 rule_47967 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_22_5_2017__0_9_52__rule_22155.png",
+      "title": "Rule 22155",
+      "caption": "Captured 2017-05-22 00:09:52",
+      "capturedAtIso": "2017-05-22T00:09:52",
+      "capturedAtDisplay": "2017-05-22 00:09:52",
+      "sortTimestamp": 1495404592,
+      "ruleLabel": "rule_22155",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_22_5_2017__0_9_52__rule_22155.png screenshot_22_5_2017__0_9_52__rule_22155 Rule 22155 Captured 2017-05-22 00:09:52 2017-05-22 00:09:52 2017-05-22T00:09:52 rule_22155 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__1_3_18__rule_2143410199.png",
+      "title": "Rule 2143410199",
+      "caption": "Captured 2017-05-23 01:03:18",
+      "capturedAtIso": "2017-05-23T01:03:18",
+      "capturedAtDisplay": "2017-05-23 01:03:18",
+      "sortTimestamp": 1495494198,
+      "ruleLabel": "rule_2143410199",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__1_3_18__rule_2143410199.png screenshot_23_5_2017__1_3_18__rule_2143410199 Rule 2143410199 Captured 2017-05-23 01:03:18 2017-05-23 01:03:18 2017-05-23T01:03:18 rule_2143410199 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_11_10__rule_281135393866628964599313811962775429424.png",
+      "title": "Rule 281135393866628964599313811962775429424",
+      "caption": "Captured 2017-05-23 17:11:10",
+      "capturedAtIso": "2017-05-23T17:11:10",
+      "capturedAtDisplay": "2017-05-23 17:11:10",
+      "sortTimestamp": 1495552270,
+      "ruleLabel": "rule_281135393866628964599313811962775429424",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_11_10__rule_281135393866628964599313811962775429424.png screenshot_23_5_2017__17_11_10__rule_281135393866628964599313811962775429424 Rule 281135393866628964599313811962775429424 Captured 2017-05-23 17:11:10 2017-05-23 17:11:10 2017-05-23T17:11:10 rule_281135393866628964599313811962775429424 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_11_52__rule_278205518515370790412977452027780437744.png",
+      "title": "Rule 278205518515370790412977452027780437744",
+      "caption": "Captured 2017-05-23 17:11:52",
+      "capturedAtIso": "2017-05-23T17:11:52",
+      "capturedAtDisplay": "2017-05-23 17:11:52",
+      "sortTimestamp": 1495552312,
+      "ruleLabel": "rule_278205518515370790412977452027780437744",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_11_52__rule_278205518515370790412977452027780437744.png screenshot_23_5_2017__17_11_52__rule_278205518515370790412977452027780437744 Rule 278205518515370790412977452027780437744 Captured 2017-05-23 17:11:52 2017-05-23 17:11:52 2017-05-23T17:11:52 rule_278205518515370790412977452027780437744 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_20_22__rule_295619165338385301693909659497968745072.png",
+      "title": "Rule 295619165338385301693909659497968745072",
+      "caption": "Captured 2017-05-23 17:20:22",
+      "capturedAtIso": "2017-05-23T17:20:22",
+      "capturedAtDisplay": "2017-05-23 17:20:22",
+      "sortTimestamp": 1495552822,
+      "ruleLabel": "rule_295619165338385301693909659497968745072",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_20_22__rule_295619165338385301693909659497968745072.png screenshot_23_5_2017__17_20_22__rule_295619165338385301693909659497968745072 Rule 295619165338385301693909659497968745072 Captured 2017-05-23 17:20:22 2017-05-23 17:20:22 2017-05-23T17:20:22 rule_295619165338385301693909659497968745072 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_20_6__rule_55581216976614303912366405425849138385.png",
+      "title": "Rule 55581216976614303912366405425849138385",
+      "caption": "Captured 2017-05-23 17:20:06",
+      "capturedAtIso": "2017-05-23T17:20:06",
+      "capturedAtDisplay": "2017-05-23 17:20:06",
+      "sortTimestamp": 1495552806,
+      "ruleLabel": "rule_55581216976614303912366405425849138385",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_20_6__rule_55581216976614303912366405425849138385.png screenshot_23_5_2017__17_20_6__rule_55581216976614303912366405425849138385 Rule 55581216976614303912366405425849138385 Captured 2017-05-23 17:20:06 2017-05-23 17:20:06 2017-05-23T17:20:06 rule_55581216976614303912366405425849138385 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_21_27__rule_13731365751216791079237047062861987177.png",
+      "title": "Rule 13731365751216791079237047062861987177",
+      "caption": "Captured 2017-05-23 17:21:27",
+      "capturedAtIso": "2017-05-23T17:21:27",
+      "capturedAtDisplay": "2017-05-23 17:21:27",
+      "sortTimestamp": 1495552887,
+      "ruleLabel": "rule_13731365751216791079237047062861987177",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_21_27__rule_13731365751216791079237047062861987177.png screenshot_23_5_2017__17_21_27__rule_13731365751216791079237047062861987177 Rule 13731365751216791079237047062861987177 Captured 2017-05-23 17:21:27 2017-05-23 17:21:27 2017-05-23T17:21:27 rule_13731365751216791079237047062861987177 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_22_15__rule_310692931867479161684011595800824287872.png",
+      "title": "Rule 310692931867479161684011595800824287872",
+      "caption": "Captured 2017-05-23 17:22:15",
+      "capturedAtIso": "2017-05-23T17:22:15",
+      "capturedAtDisplay": "2017-05-23 17:22:15",
+      "sortTimestamp": 1495552935,
+      "ruleLabel": "rule_310692931867479161684011595800824287872",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_22_15__rule_310692931867479161684011595800824287872.png screenshot_23_5_2017__17_22_15__rule_310692931867479161684011595800824287872 Rule 310692931867479161684011595800824287872 Captured 2017-05-23 17:22:15 2017-05-23 17:22:15 2017-05-23T17:22:15 rule_310692931867479161684011595800824287872 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_29_24__rule_i_1126874309509_s_3_k_3.png",
+      "title": "Rule I 1126874309509 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:29:24",
+      "capturedAtIso": "2017-05-23T17:29:24",
+      "capturedAtDisplay": "2017-05-23 17:29:24",
+      "sortTimestamp": 1495553364,
+      "ruleLabel": "rule_i_1126874309509_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_29_24__rule_i_1126874309509_s_3_k_3.png screenshot_23_5_2017__17_29_24__rule_i_1126874309509_s_3_k_3 Rule I 1126874309509 S 3 K 3 Captured 2017-05-23 17:29:24 2017-05-23 17:29:24 2017-05-23T17:29:24 rule_i_1126874309509_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_29_37__rule_i_4572453729855_s_3_k_3.png",
+      "title": "Rule I 4572453729855 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:29:37",
+      "capturedAtIso": "2017-05-23T17:29:37",
+      "capturedAtDisplay": "2017-05-23 17:29:37",
+      "sortTimestamp": 1495553377,
+      "ruleLabel": "rule_i_4572453729855_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_29_37__rule_i_4572453729855_s_3_k_3.png screenshot_23_5_2017__17_29_37__rule_i_4572453729855_s_3_k_3 Rule I 4572453729855 S 3 K 3 Captured 2017-05-23 17:29:37 2017-05-23 17:29:37 2017-05-23T17:29:37 rule_i_4572453729855_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_30_37__rule_i_7484099450842_s_3_k_3.png",
+      "title": "Rule I 7484099450842 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:30:37",
+      "capturedAtIso": "2017-05-23T17:30:37",
+      "capturedAtDisplay": "2017-05-23 17:30:37",
+      "sortTimestamp": 1495553437,
+      "ruleLabel": "rule_i_7484099450842_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_30_37__rule_i_7484099450842_s_3_k_3.png screenshot_23_5_2017__17_30_37__rule_i_7484099450842_s_3_k_3 Rule I 7484099450842 S 3 K 3 Captured 2017-05-23 17:30:37 2017-05-23 17:30:37 2017-05-23T17:30:37 rule_i_7484099450842_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_31_15__rule_i_4087260662945_s_3_k_3.png",
+      "title": "Rule I 4087260662945 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:31:15",
+      "capturedAtIso": "2017-05-23T17:31:15",
+      "capturedAtDisplay": "2017-05-23 17:31:15",
+      "sortTimestamp": 1495553475,
+      "ruleLabel": "rule_i_4087260662945_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_31_15__rule_i_4087260662945_s_3_k_3.png screenshot_23_5_2017__17_31_15__rule_i_4087260662945_s_3_k_3 Rule I 4087260662945 S 3 K 3 Captured 2017-05-23 17:31:15 2017-05-23 17:31:15 2017-05-23T17:31:15 rule_i_4087260662945_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_31_25__rule_i_1742921657374_s_3_k_3.png",
+      "title": "Rule I 1742921657374 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:31:25",
+      "capturedAtIso": "2017-05-23T17:31:25",
+      "capturedAtDisplay": "2017-05-23 17:31:25",
+      "sortTimestamp": 1495553485,
+      "ruleLabel": "rule_i_1742921657374_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_31_25__rule_i_1742921657374_s_3_k_3.png screenshot_23_5_2017__17_31_25__rule_i_1742921657374_s_3_k_3 Rule I 1742921657374 S 3 K 3 Captured 2017-05-23 17:31:25 2017-05-23 17:31:25 2017-05-23T17:31:25 rule_i_1742921657374_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_33_30__rule_i_3402475780267_s_3_k_3.png",
+      "title": "Rule I 3402475780267 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:33:30",
+      "capturedAtIso": "2017-05-23T17:33:30",
+      "capturedAtDisplay": "2017-05-23 17:33:30",
+      "sortTimestamp": 1495553610,
+      "ruleLabel": "rule_i_3402475780267_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_33_30__rule_i_3402475780267_s_3_k_3.png screenshot_23_5_2017__17_33_30__rule_i_3402475780267_s_3_k_3 Rule I 3402475780267 S 3 K 3 Captured 2017-05-23 17:33:30 2017-05-23 17:33:30 2017-05-23T17:33:30 rule_i_3402475780267_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_34_22__rule_i_823854253870_s_3_k_3.png",
+      "title": "Rule I 823854253870 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:34:22",
+      "capturedAtIso": "2017-05-23T17:34:22",
+      "capturedAtDisplay": "2017-05-23 17:34:22",
+      "sortTimestamp": 1495553662,
+      "ruleLabel": "rule_i_823854253870_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_34_22__rule_i_823854253870_s_3_k_3.png screenshot_23_5_2017__17_34_22__rule_i_823854253870_s_3_k_3 Rule I 823854253870 S 3 K 3 Captured 2017-05-23 17:34:22 2017-05-23 17:34:22 2017-05-23T17:34:22 rule_i_823854253870_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_35_49__rule_i_2348845991935_s_3_k_3.png",
+      "title": "Rule I 2348845991935 S 3 K 3",
+      "caption": "Captured 2017-05-23 17:35:49",
+      "capturedAtIso": "2017-05-23T17:35:49",
+      "capturedAtDisplay": "2017-05-23 17:35:49",
+      "sortTimestamp": 1495553749,
+      "ruleLabel": "rule_i_2348845991935_s_3_k_3",
+      "family": "k=3",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=3",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_35_49__rule_i_2348845991935_s_3_k_3.png screenshot_23_5_2017__17_35_49__rule_i_2348845991935_s_3_k_3 Rule I 2348845991935 S 3 K 3 Captured 2017-05-23 17:35:49 2017-05-23 17:35:49 2017-05-23T17:35:49 rule_i_2348845991935_s_3_k_3 k=3 PNG s=3 k=3 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_37_23__rule_i_131023732844237885458849813861950508818_s_3_k_4.png",
+      "title": "Rule I 131023732844237885458849813861950508818 S 3 K 4",
+      "caption": "Captured 2017-05-23 17:37:23",
+      "capturedAtIso": "2017-05-23T17:37:23",
+      "capturedAtDisplay": "2017-05-23 17:37:23",
+      "sortTimestamp": 1495553843,
+      "ruleLabel": "rule_i_131023732844237885458849813861950508818_s_3_k_4",
+      "family": "k=4",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=4",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_37_23__rule_i_131023732844237885458849813861950508818_s_3_k_4.png screenshot_23_5_2017__17_37_23__rule_i_131023732844237885458849813861950508818_s_3_k_4 Rule I 131023732844237885458849813861950508818 S 3 K 4 Captured 2017-05-23 17:37:23 2017-05-23 17:37:23 2017-05-23T17:37:23 rule_i_131023732844237885458849813861950508818_s_3_k_4 k=4 PNG s=3 k=4 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_37_31__rule_i_380565931256686978576339947967487105319_s_3_k_4.png",
+      "title": "Rule I 380565931256686978576339947967487105319 S 3 K 4",
+      "caption": "Captured 2017-05-23 17:37:31",
+      "capturedAtIso": "2017-05-23T17:37:31",
+      "capturedAtDisplay": "2017-05-23 17:37:31",
+      "sortTimestamp": 1495553851,
+      "ruleLabel": "rule_i_380565931256686978576339947967487105319_s_3_k_4",
+      "family": "k=4",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=4",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_37_31__rule_i_380565931256686978576339947967487105319_s_3_k_4.png screenshot_23_5_2017__17_37_31__rule_i_380565931256686978576339947967487105319_s_3_k_4 Rule I 380565931256686978576339947967487105319 S 3 K 4 Captured 2017-05-23 17:37:31 2017-05-23 17:37:31 2017-05-23T17:37:31 rule_i_380565931256686978576339947967487105319_s_3_k_4 k=4 PNG s=3 k=4 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_40_46__rule_i_271297757273488544644812841579100735932_s_3_k_4.png",
+      "title": "Rule I 271297757273488544644812841579100735932 S 3 K 4",
+      "caption": "Captured 2017-05-23 17:40:46",
+      "capturedAtIso": "2017-05-23T17:40:46",
+      "capturedAtDisplay": "2017-05-23 17:40:46",
+      "sortTimestamp": 1495554046,
+      "ruleLabel": "rule_i_271297757273488544644812841579100735932_s_3_k_4",
+      "family": "k=4",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=4",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_40_46__rule_i_271297757273488544644812841579100735932_s_3_k_4.png screenshot_23_5_2017__17_40_46__rule_i_271297757273488544644812841579100735932_s_3_k_4 Rule I 271297757273488544644812841579100735932 S 3 K 4 Captured 2017-05-23 17:40:46 2017-05-23 17:40:46 2017-05-23T17:40:46 rule_i_271297757273488544644812841579100735932_s_3_k_4 k=4 PNG s=3 k=4 Indexed Rule"
+    },
+    {
+      "file": "screenshot_23_5_2017__17_40_56__rule_i_418621844244235909217308006082516085294_s_3_k_4.png",
+      "title": "Rule I 418621844244235909217308006082516085294 S 3 K 4",
+      "caption": "Captured 2017-05-23 17:40:56",
+      "capturedAtIso": "2017-05-23T17:40:56",
+      "capturedAtDisplay": "2017-05-23 17:40:56",
+      "sortTimestamp": 1495554056,
+      "ruleLabel": "rule_i_418621844244235909217308006082516085294_s_3_k_4",
+      "family": "k=4",
+      "tags": [
+        "PNG",
+        "s=3",
+        "k=4",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_23_5_2017__17_40_56__rule_i_418621844244235909217308006082516085294_s_3_k_4.png screenshot_23_5_2017__17_40_56__rule_i_418621844244235909217308006082516085294_s_3_k_4 Rule I 418621844244235909217308006082516085294 S 3 K 4 Captured 2017-05-23 17:40:56 2017-05-23 17:40:56 2017-05-23T17:40:56 rule_i_418621844244235909217308006082516085294_s_3_k_4 k=4 PNG s=3 k=4 Indexed Rule"
+    },
+    {
+      "file": "screenshot_24_5_2017__1_47_57__rule_i_2041931797_s_2_k_5.png",
+      "title": "Rule I 2041931797 S 2 K 5",
+      "caption": "Captured 2017-05-24 01:47:57",
+      "capturedAtIso": "2017-05-24T01:47:57",
+      "capturedAtDisplay": "2017-05-24 01:47:57",
+      "sortTimestamp": 1495583277,
+      "ruleLabel": "rule_i_2041931797_s_2_k_5",
+      "family": "k=5",
+      "tags": [
+        "PNG",
+        "s=2",
+        "k=5",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_24_5_2017__1_47_57__rule_i_2041931797_s_2_k_5.png screenshot_24_5_2017__1_47_57__rule_i_2041931797_s_2_k_5 Rule I 2041931797 S 2 K 5 Captured 2017-05-24 01:47:57 2017-05-24 01:47:57 2017-05-24T01:47:57 rule_i_2041931797_s_2_k_5 k=5 PNG s=2 k=5 Indexed Rule"
+    },
+    {
+      "file": "screenshot_24_5_2017__1_48_15__rule_i_1509476532_s_2_k_5.png",
+      "title": "Rule I 1509476532 S 2 K 5",
+      "caption": "Captured 2017-05-24 01:48:15",
+      "capturedAtIso": "2017-05-24T01:48:15",
+      "capturedAtDisplay": "2017-05-24 01:48:15",
+      "sortTimestamp": 1495583295,
+      "ruleLabel": "rule_i_1509476532_s_2_k_5",
+      "family": "k=5",
+      "tags": [
+        "PNG",
+        "s=2",
+        "k=5",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_24_5_2017__1_48_15__rule_i_1509476532_s_2_k_5.png screenshot_24_5_2017__1_48_15__rule_i_1509476532_s_2_k_5 Rule I 1509476532 S 2 K 5 Captured 2017-05-24 01:48:15 2017-05-24 01:48:15 2017-05-24T01:48:15 rule_i_1509476532_s_2_k_5 k=5 PNG s=2 k=5 Indexed Rule"
+    },
+    {
+      "file": "screenshot_24_5_2017__1_48_26__rule_i_3704997262_s_2_k_5.png",
+      "title": "Rule I 3704997262 S 2 K 5",
+      "caption": "Captured 2017-05-24 01:48:26",
+      "capturedAtIso": "2017-05-24T01:48:26",
+      "capturedAtDisplay": "2017-05-24 01:48:26",
+      "sortTimestamp": 1495583306,
+      "ruleLabel": "rule_i_3704997262_s_2_k_5",
+      "family": "k=5",
+      "tags": [
+        "PNG",
+        "s=2",
+        "k=5",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_24_5_2017__1_48_26__rule_i_3704997262_s_2_k_5.png screenshot_24_5_2017__1_48_26__rule_i_3704997262_s_2_k_5 Rule I 3704997262 S 2 K 5 Captured 2017-05-24 01:48:26 2017-05-24 01:48:26 2017-05-24T01:48:26 rule_i_3704997262_s_2_k_5 k=5 PNG s=2 k=5 Indexed Rule"
+    },
+    {
+      "file": "screenshot_24_5_2017__1_48_4__rule_i_2739666315_s_2_k_5.png",
+      "title": "Rule I 2739666315 S 2 K 5",
+      "caption": "Captured 2017-05-24 01:48:04",
+      "capturedAtIso": "2017-05-24T01:48:04",
+      "capturedAtDisplay": "2017-05-24 01:48:04",
+      "sortTimestamp": 1495583284,
+      "ruleLabel": "rule_i_2739666315_s_2_k_5",
+      "family": "k=5",
+      "tags": [
+        "PNG",
+        "s=2",
+        "k=5",
+        "Indexed Rule"
+      ],
+      "searchText": "screenshot_24_5_2017__1_48_4__rule_i_2739666315_s_2_k_5.png screenshot_24_5_2017__1_48_4__rule_i_2739666315_s_2_k_5 Rule I 2739666315 S 2 K 5 Captured 2017-05-24 01:48:04 2017-05-24 01:48:04 2017-05-24T01:48:04 rule_i_2739666315_s_2_k_5 k=5 PNG s=2 k=5 Indexed Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__19_49_55__rule_1367423616.png",
+      "title": "Rule 1367423616",
+      "caption": "Captured 2017-05-05 19:49:55",
+      "capturedAtIso": "2017-05-05T19:49:55",
+      "capturedAtDisplay": "2017-05-05 19:49:55",
+      "sortTimestamp": 1494006595,
+      "ruleLabel": "rule_1367423616",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__19_49_55__rule_1367423616.png screenshot_5_5_2017__19_49_55__rule_1367423616 Rule 1367423616 Captured 2017-05-05 19:49:55 2017-05-05 19:49:55 2017-05-05T19:49:55 rule_1367423616 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_13_59__rule_1336887389.png",
+      "title": "Rule 1336887389",
+      "caption": "Captured 2017-05-05 22:13:59",
+      "capturedAtIso": "2017-05-05T22:13:59",
+      "capturedAtDisplay": "2017-05-05 22:13:59",
+      "sortTimestamp": 1494015239,
+      "ruleLabel": "rule_1336887389",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_13_59__rule_1336887389.png screenshot_5_5_2017__22_13_59__rule_1336887389 Rule 1336887389 Captured 2017-05-05 22:13:59 2017-05-05 22:13:59 2017-05-05T22:13:59 rule_1336887389 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_14_20__rule_1651978531.png",
+      "title": "Rule 1651978531",
+      "caption": "Captured 2017-05-05 22:14:20",
+      "capturedAtIso": "2017-05-05T22:14:20",
+      "capturedAtDisplay": "2017-05-05 22:14:20",
+      "sortTimestamp": 1494015260,
+      "ruleLabel": "rule_1651978531",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_14_20__rule_1651978531.png screenshot_5_5_2017__22_14_20__rule_1651978531 Rule 1651978531 Captured 2017-05-05 22:14:20 2017-05-05 22:14:20 2017-05-05T22:14:20 rule_1651978531 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_14_45__rule_1971731478.png",
+      "title": "Rule 1971731478",
+      "caption": "Captured 2017-05-05 22:14:45",
+      "capturedAtIso": "2017-05-05T22:14:45",
+      "capturedAtDisplay": "2017-05-05 22:14:45",
+      "sortTimestamp": 1494015285,
+      "ruleLabel": "rule_1971731478",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_14_45__rule_1971731478.png screenshot_5_5_2017__22_14_45__rule_1971731478 Rule 1971731478 Captured 2017-05-05 22:14:45 2017-05-05 22:14:45 2017-05-05T22:14:45 rule_1971731478 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_16_5__rule_995096300.png",
+      "title": "Rule 995096300",
+      "caption": "Captured 2017-05-05 22:16:05",
+      "capturedAtIso": "2017-05-05T22:16:05",
+      "capturedAtDisplay": "2017-05-05 22:16:05",
+      "sortTimestamp": 1494015365,
+      "ruleLabel": "rule_995096300",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_16_5__rule_995096300.png screenshot_5_5_2017__22_16_5__rule_995096300 Rule 995096300 Captured 2017-05-05 22:16:05 2017-05-05 22:16:05 2017-05-05T22:16:05 rule_995096300 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_19_40__rule_602201313.png",
+      "title": "Rule 602201313",
+      "caption": "Captured 2017-05-05 22:19:40",
+      "capturedAtIso": "2017-05-05T22:19:40",
+      "capturedAtDisplay": "2017-05-05 22:19:40",
+      "sortTimestamp": 1494015580,
+      "ruleLabel": "rule_602201313",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_19_40__rule_602201313.png screenshot_5_5_2017__22_19_40__rule_602201313 Rule 602201313 Captured 2017-05-05 22:19:40 2017-05-05 22:19:40 2017-05-05T22:19:40 rule_602201313 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_21_53__rule_1975660731.png",
+      "title": "Rule 1975660731",
+      "caption": "Captured 2017-05-05 22:21:53",
+      "capturedAtIso": "2017-05-05T22:21:53",
+      "capturedAtDisplay": "2017-05-05 22:21:53",
+      "sortTimestamp": 1494015713,
+      "ruleLabel": "rule_1975660731",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_21_53__rule_1975660731.png screenshot_5_5_2017__22_21_53__rule_1975660731 Rule 1975660731 Captured 2017-05-05 22:21:53 2017-05-05 22:21:53 2017-05-05T22:21:53 rule_1975660731 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_22_0__rule_1612526699.png",
+      "title": "Rule 1612526699",
+      "caption": "Captured 2017-05-05 22:22:00",
+      "capturedAtIso": "2017-05-05T22:22:00",
+      "capturedAtDisplay": "2017-05-05 22:22:00",
+      "sortTimestamp": 1494015720,
+      "ruleLabel": "rule_1612526699",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_22_0__rule_1612526699.png screenshot_5_5_2017__22_22_0__rule_1612526699 Rule 1612526699 Captured 2017-05-05 22:22:00 2017-05-05 22:22:00 2017-05-05T22:22:00 rule_1612526699 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_5_5_2017__22_22_43__rule_390425308.png",
+      "title": "Rule 390425308",
+      "caption": "Captured 2017-05-05 22:22:43",
+      "capturedAtIso": "2017-05-05T22:22:43",
+      "capturedAtDisplay": "2017-05-05 22:22:43",
+      "sortTimestamp": 1494015763,
+      "ruleLabel": "rule_390425308",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_5_5_2017__22_22_43__rule_390425308.png screenshot_5_5_2017__22_22_43__rule_390425308 Rule 390425308 Captured 2017-05-05 22:22:43 2017-05-05 22:22:43 2017-05-05T22:22:43 rule_390425308 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_20_8__rule_887648676.png",
+      "title": "Rule 887648676",
+      "caption": "Captured 2017-05-07 23:20:08",
+      "capturedAtIso": "2017-05-07T23:20:08",
+      "capturedAtDisplay": "2017-05-07 23:20:08",
+      "sortTimestamp": 1494192008,
+      "ruleLabel": "rule_887648676",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_20_8__rule_887648676.png screenshot_7_5_2017__23_20_8__rule_887648676 Rule 887648676 Captured 2017-05-07 23:20:08 2017-05-07 23:20:08 2017-05-07T23:20:08 rule_887648676 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_23_11__rule_1790588569.png",
+      "title": "Rule 1790588569",
+      "caption": "Captured 2017-05-07 23:23:11",
+      "capturedAtIso": "2017-05-07T23:23:11",
+      "capturedAtDisplay": "2017-05-07 23:23:11",
+      "sortTimestamp": 1494192191,
+      "ruleLabel": "rule_1790588569",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_23_11__rule_1790588569.png screenshot_7_5_2017__23_23_11__rule_1790588569 Rule 1790588569 Captured 2017-05-07 23:23:11 2017-05-07 23:23:11 2017-05-07T23:23:11 rule_1790588569 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_23_23__rule_1008241303.png",
+      "title": "Rule 1008241303",
+      "caption": "Captured 2017-05-07 23:23:23",
+      "capturedAtIso": "2017-05-07T23:23:23",
+      "capturedAtDisplay": "2017-05-07 23:23:23",
+      "sortTimestamp": 1494192203,
+      "ruleLabel": "rule_1008241303",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_23_23__rule_1008241303.png screenshot_7_5_2017__23_23_23__rule_1008241303 Rule 1008241303 Captured 2017-05-07 23:23:23 2017-05-07 23:23:23 2017-05-07T23:23:23 rule_1008241303 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_24_38__rule_84358955.png",
+      "title": "Rule 84358955",
+      "caption": "Captured 2017-05-07 23:24:38",
+      "capturedAtIso": "2017-05-07T23:24:38",
+      "capturedAtDisplay": "2017-05-07 23:24:38",
+      "sortTimestamp": 1494192278,
+      "ruleLabel": "rule_84358955",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_24_38__rule_84358955.png screenshot_7_5_2017__23_24_38__rule_84358955 Rule 84358955 Captured 2017-05-07 23:24:38 2017-05-07 23:24:38 2017-05-07T23:24:38 rule_84358955 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_28_24__rule_1531284579.png",
+      "title": "Rule 1531284579",
+      "caption": "Captured 2017-05-07 23:28:24",
+      "capturedAtIso": "2017-05-07T23:28:24",
+      "capturedAtDisplay": "2017-05-07 23:28:24",
+      "sortTimestamp": 1494192504,
+      "ruleLabel": "rule_1531284579",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_28_24__rule_1531284579.png screenshot_7_5_2017__23_28_24__rule_1531284579 Rule 1531284579 Captured 2017-05-07 23:28:24 2017-05-07 23:28:24 2017-05-07T23:28:24 rule_1531284579 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_28_41__rule_1665365946.png",
+      "title": "Rule 1665365946",
+      "caption": "Captured 2017-05-07 23:28:41",
+      "capturedAtIso": "2017-05-07T23:28:41",
+      "capturedAtDisplay": "2017-05-07 23:28:41",
+      "sortTimestamp": 1494192521,
+      "ruleLabel": "rule_1665365946",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_28_41__rule_1665365946.png screenshot_7_5_2017__23_28_41__rule_1665365946 Rule 1665365946 Captured 2017-05-07 23:28:41 2017-05-07 23:28:41 2017-05-07T23:28:41 rule_1665365946 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_28_8__rule_586731539.png",
+      "title": "Rule 586731539",
+      "caption": "Captured 2017-05-07 23:28:08",
+      "capturedAtIso": "2017-05-07T23:28:08",
+      "capturedAtDisplay": "2017-05-07 23:28:08",
+      "sortTimestamp": 1494192488,
+      "ruleLabel": "rule_586731539",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_28_8__rule_586731539.png screenshot_7_5_2017__23_28_8__rule_586731539 Rule 586731539 Captured 2017-05-07 23:28:08 2017-05-07 23:28:08 2017-05-07T23:28:08 rule_586731539 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_29_22__rule_525272685.png",
+      "title": "Rule 525272685",
+      "caption": "Captured 2017-05-07 23:29:22",
+      "capturedAtIso": "2017-05-07T23:29:22",
+      "capturedAtDisplay": "2017-05-07 23:29:22",
+      "sortTimestamp": 1494192562,
+      "ruleLabel": "rule_525272685",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_29_22__rule_525272685.png screenshot_7_5_2017__23_29_22__rule_525272685 Rule 525272685 Captured 2017-05-07 23:29:22 2017-05-07 23:29:22 2017-05-07T23:29:22 rule_525272685 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_30_29__rule_1879259882.png",
+      "title": "Rule 1879259882",
+      "caption": "Captured 2017-05-07 23:30:29",
+      "capturedAtIso": "2017-05-07T23:30:29",
+      "capturedAtDisplay": "2017-05-07 23:30:29",
+      "sortTimestamp": 1494192629,
+      "ruleLabel": "rule_1879259882",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_30_29__rule_1879259882.png screenshot_7_5_2017__23_30_29__rule_1879259882 Rule 1879259882 Captured 2017-05-07 23:30:29 2017-05-07 23:30:29 2017-05-07T23:30:29 rule_1879259882 Rule Study PNG Rule"
+    },
+    {
+      "file": "screenshot_7_5_2017__23_33_3__rule_1096081323.png",
+      "title": "Rule 1096081323",
+      "caption": "Captured 2017-05-07 23:33:03",
+      "capturedAtIso": "2017-05-07T23:33:03",
+      "capturedAtDisplay": "2017-05-07 23:33:03",
+      "sortTimestamp": 1494192783,
+      "ruleLabel": "rule_1096081323",
+      "family": "Rule Study",
+      "tags": [
+        "PNG",
+        "Rule"
+      ],
+      "searchText": "screenshot_7_5_2017__23_33_3__rule_1096081323.png screenshot_7_5_2017__23_33_3__rule_1096081323 Rule 1096081323 Captured 2017-05-07 23:33:03 2017-05-07 23:33:03 2017-05-07T23:33:03 rule_1096081323 Rule Study PNG Rule"
+    }
+  ]
+}

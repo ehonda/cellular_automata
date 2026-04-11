@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cellular Automata Screenshot Atlas</title>
+    <meta name="description" content="Lossless PNG gallery for the cellular automata screenshots in this repository.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gallery/styles.css">
+</head>
+<body data-manifest-path="gallery/screenshots.json" data-image-root="screenshots">
+    <div class="backdrop backdrop-a"></div>
+    <div class="backdrop backdrop-b"></div>
+    <main class="page-shell">
+        <header class="hero">
+            <p class="eyebrow">GitHub Pages Gallery</p>
+            <div class="hero-grid">
+                <section class="hero-copy">
+                    <h1>Cellular Automata Screenshot Atlas</h1>
+                    <p class="lede">Lossless PNG captures from the repository’s rule experiments, arranged for fast browsing instead of raw file hunting.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="https://github.com/ehonda/cellular_automata" target="_blank" rel="noreferrer">Open Repository</a>
+                        <a class="button button-secondary" href="https://github.com/ehonda/cellular_automata/tree/main/screenshots" target="_blank" rel="noreferrer">Browse PNG Files</a>
+                    </div>
+                </section>
+                <aside class="hero-panel" aria-label="Gallery summary">
+                    <dl class="hero-stats">
+                        <div>
+                            <dt>Total Captures</dt>
+                            <dd id="total-count">0</dd>
+                        </div>
+                        <div>
+                            <dt>Visible</dt>
+                            <dd id="visible-count">0</dd>
+                        </div>
+                        <div>
+                            <dt>Current Focus</dt>
+                            <dd id="active-label">None</dd>
+                        </div>
+                    </dl>
+                </aside>
+            </div>
+        </header>
+
+        <section class="controls" aria-label="Gallery controls">
+            <label class="field search-field" for="search-input">
+                <span>Search rules, dates, and filenames</span>
+                <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Try 2017-05-23, k=4, pyramid, 929926908">
+            </label>
+            <label class="field sort-field" for="sort-select">
+                <span>Sort</span>
+                <select id="sort-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="name">Filename</option>
+                    <option value="rule">Rule Label</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="status-strip" aria-live="polite">
+            <p id="status-text">Loading screenshots...</p>
+            <button id="clear-search" class="text-button" type="button" hidden>Clear Filter</button>
+        </section>
+
+        <section id="gallery-grid" class="gallery-grid" aria-live="polite"></section>
+
+        <noscript>
+            <section class="empty-state always-visible">
+                <h2>JavaScript required</h2>
+                <p>This gallery uses a small manifest to sort and filter the screenshots. Enable JavaScript to browse it here, or use the repository screenshot folder directly.</p>
+            </section>
+        </noscript>
+    </main>
+
+    <dialog id="lightbox" class="lightbox">
+        <div class="lightbox-shell">
+            <button id="close-lightbox" class="icon-button lightbox-close" type="button" aria-label="Close image">Close</button>
+            <div class="lightbox-stage">
+                <div class="lightbox-image-wrap">
+                    <img id="lightbox-image" alt="">
+                </div>
+                <aside class="lightbox-sidebar">
+                    <p id="lightbox-family" class="eyebrow">Screenshot</p>
+                    <h2 id="lightbox-title">Loading</h2>
+                    <p id="lightbox-caption" class="lightbox-caption"></p>
+                    <div id="lightbox-tags" class="tag-row"></div>
+                    <dl class="meta-list">
+                        <div>
+                            <dt>Filename</dt>
+                            <dd id="lightbox-file" class="mono"></dd>
+                        </div>
+                        <div>
+                            <dt>Timestamp</dt>
+                            <dd id="lightbox-time"></dd>
+                        </div>
+                    </dl>
+                    <div class="lightbox-actions">
+                        <a id="download-link" class="button button-primary" href="" download>Download PNG</a>
+                        <a id="open-file-link" class="button button-secondary" href="" target="_blank" rel="noreferrer">Open Image</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="lightbox-nav">
+                <button id="prev-button" class="icon-button" type="button">Previous</button>
+                <button id="next-button" class="icon-button" type="button">Next</button>
+            </div>
+        </div>
+    </dialog>
+
+    <template id="card-template">
+        <article class="card">
+            <button class="card-image-button" type="button">
+                <img class="card-image" alt="" loading="lazy" decoding="async">
+            </button>
+            <div class="card-body">
+                <div class="card-heading">
+                    <p class="card-family"></p>
+                    <h2 class="card-title"></h2>
+                </div>
+                <p class="card-caption"></p>
+                <div class="tag-row card-tags"></div>
+                <p class="card-file mono"></p>
+            </div>
+        </article>
+    </template>
+
+    <script src="gallery/gallery.js"></script>
+</body>
+</html>

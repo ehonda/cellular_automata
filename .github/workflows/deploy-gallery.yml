@@ -1,0 +1,65 @@
+name: Deploy Screenshot Gallery
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+      - gallery/**
+      - screenshots/*.png
+      - .github/workflows/deploy-gallery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Generate screenshot manifest
+        shell: pwsh
+        run: ./gallery/build_manifest.ps1 -ScreenshotsDirectory ./screenshots -OutputFile ./gallery/screenshots.json
+
+      - name: Assemble Pages artifact
+        shell: pwsh
+        run: |
+          $siteDir = Join-Path $PWD "_site"
+          $galleryDir = Join-Path $siteDir "gallery"
+          $screenshotsDir = Join-Path $siteDir "screenshots"
+
+          New-Item -ItemType Directory -Path $siteDir -Force | Out-Null
+          New-Item -ItemType Directory -Path $galleryDir -Force | Out-Null
+          New-Item -ItemType Directory -Path $screenshotsDir -Force | Out-Null
+
+          Copy-Item index.html -Destination $siteDir
+          Copy-Item gallery/styles.css, gallery/gallery.js, gallery/screenshots.json -Destination $galleryDir
+          Copy-Item screenshots/*.png -Destination $screenshotsDir
+          New-Item -ItemType File -Path (Join-Path $siteDir ".nojekyll") -Force | Out-Null
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
